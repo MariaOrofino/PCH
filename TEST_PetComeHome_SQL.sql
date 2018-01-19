@@ -138,3 +138,12 @@ CREATE TABLE IF NOT EXISTS PCH_TEST.User_has_Pet (
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
+insert into pch_test.pettype (petSpec, other)
+	values ('Dog', NULL),
+		   ('Cat', NULL),
+           ('Reptile', NULL),
+           ('Farm Animals',  NULL),
+           ('Other', 'Spider');
+           
+           
+           
