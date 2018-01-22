@@ -24,8 +24,8 @@ public interface UserDao {
 
     public void deleteUser(int userId);
 
-    public List<User> retrieveUsersByCityState();
+    public List<User> retrieveUsersByCityState(String city, String state);
 
-    public List<User> retrieveUsersByZip();
+    public List<User> retrieveUsersByZip(String zip);
 
 }

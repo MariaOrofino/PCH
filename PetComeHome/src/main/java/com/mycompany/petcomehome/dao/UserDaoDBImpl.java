@@ -35,6 +35,24 @@ public class UserDaoDBImpl implements UserDao {
     private static final String SQL_RETRIEVE_ONE_USER
             = "select * from user where userId = ?";
 
+    private static final String SQL_RETRIEVE_ALL_USERS
+            = "select * from user";
+    
+    private static final String SQL_EDIT_USER
+            = "update user set userLogin = ?, userPassword = ?, userFirstName = ?, "
+            + "userLastName = ?, userCity = ?, userState = ?, "
+            + "userZip = ?, userMobile = ?, userAltPhone = ?, userEmail = ?, userAltEmail = ? "
+            + "where userId = ?";
+    
+    private static final String SQL_DELETE_USER
+            = "delete from user where userId = ?";
+    
+    private static final String SQL_RETRIEVE_USERS_BY_CITYSTATE
+            = " select * from user where usercity = ? and userstate = ?";
+
+    private static final String SQL_RETRIEVE_USERS_BY_ZIP
+            = "select * from user where userzip = ?";
+    
     @Override
     @Transactional(propagation = Propagation.REQUIRED, readOnly = false)
     public User createUser(User user) {
@@ -70,27 +88,49 @@ public class UserDaoDBImpl implements UserDao {
 
     @Override
     public List<User> retrieveAllUsers() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        List<User> userList = jdbcTemplate.query(SQL_RETRIEVE_ALL_USERS,
+                new UserMapper());
+        return userList;
     }
 
     @Override
+    @Transactional(propagation = Propagation.REQUIRED, readOnly = false)
     public User editUser(User user) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        jdbcTemplate.update(SQL_EDIT_USER,
+                user.getUserId(),
+                user.getUserLogin(),
+                user.getUserPassword(),
+                user.getUserFirstName(),
+                user.getUserLastName(),
+                user.getUserCity(),
+                user.getUserState(),
+                user.getUserZip(),
+                user.getUserMobile(),
+                user.getUserAltPhone(),
+                user.getUserEmail(),
+                user.getUserAltEmail());
+                
+        return user;
+        
     }
 
     @Override
     public void deleteUser(int userId) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        jdbcTemplate.update(SQL_DELETE_USER, userId);
     }
 
     @Override
-    public List<User> retrieveUsersByCityState() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public List<User> retrieveUsersByCityState(String city, String state) {
+        List<User> userList = jdbcTemplate.query(SQL_RETRIEVE_USERS_BY_CITYSTATE, 
+                new UserDaoDBImpl.UserMapper(), city, state);
+        return userList;
     }
 
     @Override
-    public List<User> retrieveUsersByZip() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public List<User> retrieveUsersByZip(String zip) {
+                List<User> userList = jdbcTemplate.query(SQL_RETRIEVE_USERS_BY_ZIP, 
+                new UserDaoDBImpl.UserMapper(), zip);
+        return userList;
     }
 
     private static final class UserMapper implements RowMapper<User> {

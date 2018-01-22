@@ -6,9 +6,14 @@
 package com.mycompany.petcomehome.dao;
 
 import com.mycompany.petcomehome.model.User;
+import java.util.ArrayList;
+import java.util.List;
 import javax.inject.Inject;
 import org.junit.After;
 import org.junit.AfterClass;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertNull;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
@@ -21,8 +26,11 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
  */
 public class UserDaoTest {
 
+    User newUser = new User();
+    List<User> userList = new ArrayList<>();
+
     @Inject
-    private UserDao userDao;
+    UserDao userDao;
 
     public UserDaoTest() {
     }
@@ -42,19 +50,22 @@ public class UserDaoTest {
                 = new ClassPathXmlApplicationContext("test-applicationContext.xml");
         userDao = ctx.getBean("userDao", UserDao.class);
 
-        User user = new User();
+        newUser.setUserId(1);
+        newUser.setUserLogin("Jan");
+        newUser.setUserPassword("gentille");
+        newUser.setUserFirstName("Colin");
+        newUser.setUserLastName("Principe");
+        newUser.setUserCity("fremont");
+        newUser.setUserState("NH");
+        newUser.setUserZip("03822");
+        newUser.setUserMobile("6031234567");
+        newUser.setUserAltPhone("6034567890");
+        newUser.setUserEmail("johndoe@libertymutusal.com");
+        newUser.setUserAltEmail("janedoe@libertymutusal.com");
 
-        user.setUserLogin("Jan");
-        user.setUserPassword("gentille");
-        user.setUserFirstName("Colin");
-        user.setUserLastName("Principe");
-        user.setUserCity("fremont");
-        user.setUserState("NH");
-        user.setUserZip("03822");
-        user.setUserMobile("6031234567");
-        user.setUserAltPhone("60345678901");
-        user.setUserEmail("johndoe@libertymutusal.com");
-        user.setUserAltEmail("janedoe@libertymutusal.com");
+        userDao.createUser(newUser);
+
+        userList = userDao.retrieveAllUsers();
 
     }
 
@@ -67,6 +78,10 @@ public class UserDaoTest {
      */
     @Test
     public void testCreateUser() {
+        User fromDao = userDao.retrieveUserById(newUser.getUserId());
+        assertNotNull(newUser);
+        assertEquals("NH", newUser.getUserState());
+        assertEquals(fromDao, newUser);
 
     }
 
@@ -75,7 +90,8 @@ public class UserDaoTest {
      */
     @Test
     public void testRetrieveUserById() {
-
+        User fromDao = userDao.retrieveUserById(newUser.getUserId());
+        assertEquals(fromDao, newUser);
     }
 
     /**
@@ -83,7 +99,9 @@ public class UserDaoTest {
      */
     @Test
     public void testRetrieveAllUsers() {
-
+        List<User> fromDao = userDao.retrieveAllUsers();
+        assertEquals(userList, fromDao);
+        assertNotNull(fromDao);
     }
 
     /**
@@ -91,7 +109,9 @@ public class UserDaoTest {
      */
     @Test
     public void testEditUser() {
-
+        newUser.setUserFirstName("Al");
+        userDao.editUser(newUser);
+        assertEquals("Al", newUser.getUserFirstName());
     }
 
     /**
@@ -99,7 +119,8 @@ public class UserDaoTest {
      */
     @Test
     public void testDeleteUser() {
-
+        userDao.deleteUser(newUser.getUserId());
+        assertNull(userDao.retrieveUserById(newUser.getUserId()));
     }
 
     /**
@@ -107,7 +128,8 @@ public class UserDaoTest {
      */
     @Test
     public void testRetrieveUsersByCityState() {
-
+        List<User> fromDao = userDao.retrieveUsersByCityState(newUser.getUserCity(), newUser.getUserState());
+        assertNotNull(fromDao);
     }
 
     /**
@@ -115,7 +137,7 @@ public class UserDaoTest {
      */
     @Test
     public void testRetrieveUsersByZip() {
-
+        List<User> fromDao = userDao.retrieveUsersByZip(newUser.getUserZip());
+        assertNotNull(fromDao);
     }
-
 }
