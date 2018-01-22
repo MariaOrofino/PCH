@@ -1,33 +1,43 @@
 -- -----------------------------------------------------
--- Schema PCH_TEST
+-- Schema pch_test
 -- -----------------------------------------------------
-DROP SCHEMA IF EXISTS PCH_TEST ;
+DROP SCHEMA IF EXISTS pch_test ;
 
 -- -----------------------------------------------------
--- Schema PCH_TEST
+-- Schema pch_test
 -- -----------------------------------------------------
-CREATE SCHEMA IF NOT EXISTS PCH_TEST DEFAULT CHARACTER SET utf8 ;
-USE PCH_TEST ;
+CREATE SCHEMA IF NOT EXISTS pch_test DEFAULT CHARACTER SET utf8 ;
+USE pch_test ;
 
 -- -----------------------------------------------------
--- Table PCH_TEST.PetType
+-- Table pch_test.PetType
 -- -----------------------------------------------------
-DROP TABLE IF EXISTS PCH_TEST.PetType ;
+DROP TABLE IF EXISTS pch_test.PetType ;
 
-CREATE TABLE IF NOT EXISTS PCH_TEST.PetType (
+CREATE TABLE IF NOT EXISTS pch_test.PetType (
   petTypeId INT NOT NULL AUTO_INCREMENT,
-  petSpec VARCHAR(45) NULL,
-  other VARCHAR(45) NULL,
-  PRIMARY KEY (petTypeId))
-ENGINE = InnoDB;
+  petSpec VARCHAR(45) NOT NULL,
+  dropDownInd TINYINT NULL,
+  PRIMARY KEY (petTypeId));
 
 
 -- -----------------------------------------------------
--- Table PCH_TEST.Pet
+-- Table pch_test.PetStatus
 -- -----------------------------------------------------
-DROP TABLE IF EXISTS PCH_TEST.Pet ;
+DROP TABLE IF EXISTS pch_test.PetStatus ;
 
-CREATE TABLE IF NOT EXISTS PCH_TEST.Pet (
+CREATE TABLE IF NOT EXISTS pch_test.PetStatus (
+  petStatusId INT NOT NULL AUTO_INCREMENT,
+  petStatus VARCHAR(45) NOT NULL,
+  PRIMARY KEY (petStatusId));
+
+
+-- -----------------------------------------------------
+-- Table pch_test.Pet
+-- -----------------------------------------------------
+DROP TABLE IF EXISTS pch_test.Pet ;
+
+CREATE TABLE IF NOT EXISTS pch_test.Pet (
   petId INT NOT NULL AUTO_INCREMENT,
   petName VARCHAR(45) NULL,
   petChipTag VARCHAR(45) NULL,
@@ -38,24 +48,34 @@ CREATE TABLE IF NOT EXISTS PCH_TEST.Pet (
   petColor VARCHAR(45) NOT NULL,
   petImgUrl VARCHAR(100) NULL,
   PetType_petTypeId INT NOT NULL,
-  PRIMARY KEY (petId),
+  petCreateDate DATE NULL,
+  petModifiedDate DATE NULL,
+  petLostDate DATE NULL,
+  petFoundDate DATE NULL,
+  petSightedDate DATE NULL,
+  PetStatus_petStatusId INT NOT NULL,
+  PRIMARY KEY (petId, PetStatus_petStatusId),
   UNIQUE INDEX petChipTag_UNIQUE (petChipTag ASC),
   UNIQUE INDEX petRabiesTag_UNIQUE (petRabiesTag ASC),
   INDEX fk_Pet_PetType1_idx (PetType_petTypeId ASC),
+  INDEX fk_Pet_PetStatus1_idx (PetStatus_petStatusId ASC),
   CONSTRAINT fk_Pet_PetType1
     FOREIGN KEY (PetType_petTypeId)
-    REFERENCES PCH_TEST.PetType (petTypeId)
+    REFERENCES pch_test.PetType (petTypeId)
     ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
-ENGINE = InnoDB;
-
+    ON UPDATE NO ACTION,
+  CONSTRAINT fk_Pet_PetStatus1
+    FOREIGN KEY (PetStatus_petStatusId)
+    REFERENCES pch_test.PetStatus (petStatusId)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION);
 
 -- -----------------------------------------------------
--- Table PCH_TEST.Location
+-- Table pch_test.Location
 -- -----------------------------------------------------
-DROP TABLE IF EXISTS PCH_TEST.Location ;
+DROP TABLE IF EXISTS pch_test.Location ;
 
-CREATE TABLE IF NOT EXISTS PCH_TEST.Location (
+CREATE TABLE IF NOT EXISTS pch_test.Location (
   locationId INT NOT NULL AUTO_INCREMENT,
   locLat DECIMAL(9,6) NULL,
   locLong DECIMAL(9,6) NULL,
@@ -65,16 +85,14 @@ CREATE TABLE IF NOT EXISTS PCH_TEST.Location (
   locCity VARCHAR(45) NULL,
   locZip VARCHAR(5) NULL,
   locInd CHAR(1) NOT NULL,
-  PRIMARY KEY (locationId))
-ENGINE = InnoDB;
-
+  PRIMARY KEY (locationId));
 
 -- -----------------------------------------------------
--- Table PCH_TEST.User
+-- Table pch_test.User
 -- -----------------------------------------------------
-DROP TABLE IF EXISTS PCH_TEST.User ;
+DROP TABLE IF EXISTS pch_test.User ;
 
-CREATE TABLE IF NOT EXISTS PCH_TEST.User (
+CREATE TABLE IF NOT EXISTS pch_test.User (
   userId INT NOT NULL AUTO_INCREMENT,
   userFirstName VARCHAR(45) NOT NULL,
   userLastName VARCHAR(45) NOT NULL,
@@ -87,16 +105,15 @@ CREATE TABLE IF NOT EXISTS PCH_TEST.User (
   userAltEmail VARCHAR(60) NULL,
   userPassword VARCHAR(15) NULL,
   userZip VARCHAR(5) NOT NULL,
-  PRIMARY KEY (userId))
-ENGINE = InnoDB;
+  PRIMARY KEY (userId));
 
 
 -- -----------------------------------------------------
--- Table PCH_TEST.Pet_has_Location
+-- Table pch_test.Pet_has_Location
 -- -----------------------------------------------------
-DROP TABLE IF EXISTS PCH_TEST.Pet_has_Location ;
+DROP TABLE IF EXISTS pch_test.Pet_has_Location ;
 
-CREATE TABLE IF NOT EXISTS PCH_TEST.Pet_has_Location (
+CREATE TABLE IF NOT EXISTS pch_test.Pet_has_Location (
   Pet_petId INT NOT NULL,
   Location_locationId INT NOT NULL,
   PRIMARY KEY (Pet_petId, Location_locationId),
@@ -104,23 +121,22 @@ CREATE TABLE IF NOT EXISTS PCH_TEST.Pet_has_Location (
   INDEX fk_Pet_has_Location_Pet1_idx (Pet_petId ASC),
   CONSTRAINT fk_Pet_has_Location_Pet1
     FOREIGN KEY (Pet_petId)
-    REFERENCES PCH_TEST.Pet (petId)
+    REFERENCES pch_test.Pet (petId)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
   CONSTRAINT fk_Pet_has_Location_Location1
     FOREIGN KEY (Location_locationId)
-    REFERENCES PCH_TEST.Location (locationId)
+    REFERENCES pch_test.Location (locationId)
     ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
-ENGINE = InnoDB;
+    ON UPDATE NO ACTION);
 
 
 -- -----------------------------------------------------
--- Table PCH_TEST.User_has_Pet
+-- Table pch_test.User_has_Pet
 -- -----------------------------------------------------
-DROP TABLE IF EXISTS PCH_TEST.User_has_Pet ;
+DROP TABLE IF EXISTS pch_test.User_has_Pet ;
 
-CREATE TABLE IF NOT EXISTS PCH_TEST.User_has_Pet (
+CREATE TABLE IF NOT EXISTS pch_test.User_has_Pet (
   User_userId INT NOT NULL,
   Pet_petId INT NOT NULL,
   PRIMARY KEY (User_userId, Pet_petId),
@@ -128,22 +144,24 @@ CREATE TABLE IF NOT EXISTS PCH_TEST.User_has_Pet (
   INDEX fk_User_has_Pet_User1_idx (User_userId ASC),
   CONSTRAINT fk_User_has_Pet_User1
     FOREIGN KEY (User_userId)
-    REFERENCES PCH_TEST.User (userId)
+    REFERENCES pch_test.User (userId)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
   CONSTRAINT fk_User_has_Pet_Pet1
     FOREIGN KEY (Pet_petId)
-    REFERENCES PCH_TEST.Pet (petId)
+    REFERENCES pch_test.Pet (petId)
     ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
-ENGINE = InnoDB;
+    ON UPDATE NO ACTION);
 
-insert into pch_test.pettype (petSpec, other)
-	values ('Dog', NULL),
-		   ('Cat', NULL),
-           ('Reptile', NULL),
-           ('Farm Animals',  NULL),
-           ('Other', 'Spider');
+insert into pch_test.pettype (petSpec, dropDownInd)
+	values ('Dog', true),
+		   ('Cat', true),
+           ('Reptile', true),
+           ('Farm Animals',  true),
+           ('Bird', false),
+           ('Other', false);
+           
+insert into pch_test.PetStatus (petStatus) values ('LOST'), ('FOUND'), ('SIGHTED'), ('RETURNED');
            
            
            
