@@ -5,10 +5,25 @@
  */
 package com.mycompany.petcomehome.Dao;
 
+import com.mycompany.petcomehome.model.Pet;
+import java.util.List;
+
 /**
  *
- * @author n0263892
+ * @author Maria, Cindy, Denise
  */
 public interface PetDao {
+
+    public Pet createPet(Pet pet);
+
+    public void updatePet(Pet pet);
+
+    public void savePet(Pet pet);
+
+    public void deletePetById(int petId);
+
+    public Pet getPetByPetId(int petId);
+
+    public List<Pet> getAllpets();
 
 }
