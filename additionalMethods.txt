@@ -1,0 +1,22 @@
+Additional methods
+
+Pet
+petsByLocation - associate pets to location (prep statement and method)
+petsByUser - associate pets to user (prep statement and method)
+petsByTypeId - (SQL separate methd for Other and method)
+petsBYColor - (SQL and method)
+petsBySize - (SQL and method)
+petByBreed - (SQL and method)
+petByChipTag
+petByRabbiesTag
+petByName
+
+loc
+locationsByPet
+
+user
+usersByCityState
+usersByZipCode
+
+
+
