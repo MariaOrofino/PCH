@@ -5,6 +5,7 @@
  */
 package com.mycompany.petcomehome.model;
 
+import java.time.LocalDate;
 import java.util.Objects;
 
 /**
@@ -16,14 +17,17 @@ public class Pet {
     private int petId;
     private String petName;
     private String petDesc;
-    private String petChip;
-    private String PetRabbies;
-    private String petType;
-    private String petSpec;
-    private String petColor;
-    private String petSize;
+    private String petChipTag;
+    private String PetRabbiesTag;
     private String petBreed;
+    private String petSize;
+    private String petColor;
     private String petImgURL;
+    private LocalDate petCreateDate;
+    private LocalDate petModifiedDate;
+    private LocalDate petLostDate;
+    private LocalDate petFoundDate;
+    private LocalDate petSightedDate;
     private User user;
     private Loc loc;
 
@@ -51,52 +55,20 @@ public class Pet {
         this.petDesc = petDesc;
     }
 
-    public String getPetChip() {
-        return petChip;
+    public String getPetChipTag() {
+        return petChipTag;
     }
 
-    public void setPetChip(String petChip) {
-        this.petChip = petChip;
+    public void setPetChipTag(String petChipTag) {
+        this.petChipTag = petChipTag;
     }
 
-    public String getPetRabbies() {
-        return PetRabbies;
+    public String getPetRabbiesTag() {
+        return PetRabbiesTag;
     }
 
-    public void setPetRabbies(String PetRabbies) {
-        this.PetRabbies = PetRabbies;
-    }
-
-    public String getPetType() {
-        return petType;
-    }
-
-    public void setPetType(String petType) {
-        this.petType = petType;
-    }
-
-    public String getPetSpec() {
-        return petSpec;
-    }
-
-    public void setPetSpec(String petSpec) {
-        this.petSpec = petSpec;
-    }
-
-    public String getPetColor() {
-        return petColor;
-    }
-
-    public void setPetColor(String petColor) {
-        this.petColor = petColor;
-    }
-
-    public String getPetSize() {
-        return petSize;
-    }
-
-    public void setPetSize(String petSize) {
-        this.petSize = petSize;
+    public void setPetRabbiesTag(String PetRabbiesTag) {
+        this.PetRabbiesTag = PetRabbiesTag;
     }
 
     public String getPetBreed() {
@@ -107,12 +79,68 @@ public class Pet {
         this.petBreed = petBreed;
     }
 
+    public String getPetSize() {
+        return petSize;
+    }
+
+    public void setPetSize(String petSize) {
+        this.petSize = petSize;
+    }
+
+    public String getPetColor() {
+        return petColor;
+    }
+
+    public void setPetColor(String petColor) {
+        this.petColor = petColor;
+    }
+
     public String getPetImgURL() {
         return petImgURL;
     }
 
     public void setPetImgURL(String petImgURL) {
         this.petImgURL = petImgURL;
+    }
+
+    public LocalDate getPetCreateDate() {
+        return petCreateDate;
+    }
+
+    public void setPetCreateDate(LocalDate petCreateDate) {
+        this.petCreateDate = petCreateDate;
+    }
+
+    public LocalDate getPetModifiedDate() {
+        return petModifiedDate;
+    }
+
+    public void setPetModifiedDate(LocalDate petModifiedDate) {
+        this.petModifiedDate = petModifiedDate;
+    }
+
+    public LocalDate getPetLostDate() {
+        return petLostDate;
+    }
+
+    public void setPetLostDate(LocalDate petLostDate) {
+        this.petLostDate = petLostDate;
+    }
+
+    public LocalDate getPetFoundDate() {
+        return petFoundDate;
+    }
+
+    public void setPetFoundDate(LocalDate petFoundDate) {
+        this.petFoundDate = petFoundDate;
+    }
+
+    public LocalDate getPetSightedDate() {
+        return petSightedDate;
+    }
+
+    public void setPetSightedDate(LocalDate petSightedDate) {
+        this.petSightedDate = petSightedDate;
     }
 
     public User getUser() {
@@ -133,20 +161,23 @@ public class Pet {
 
     @Override
     public int hashCode() {
-        int hash = 7;
-        hash = 41 * hash + this.petId;
-        hash = 41 * hash + Objects.hashCode(this.petName);
-        hash = 41 * hash + Objects.hashCode(this.petDesc);
-        hash = 41 * hash + Objects.hashCode(this.petChip);
-        hash = 41 * hash + Objects.hashCode(this.PetRabbies);
-        hash = 41 * hash + Objects.hashCode(this.petType);
-        hash = 41 * hash + Objects.hashCode(this.petSpec);
-        hash = 41 * hash + Objects.hashCode(this.petColor);
-        hash = 41 * hash + Objects.hashCode(this.petSize);
-        hash = 41 * hash + Objects.hashCode(this.petBreed);
-        hash = 41 * hash + Objects.hashCode(this.petImgURL);
-        hash = 41 * hash + Objects.hashCode(this.user);
-        hash = 41 * hash + Objects.hashCode(this.loc);
+        int hash = 5;
+        hash = 67 * hash + this.petId;
+        hash = 67 * hash + Objects.hashCode(this.petName);
+        hash = 67 * hash + Objects.hashCode(this.petDesc);
+        hash = 67 * hash + Objects.hashCode(this.petChipTag);
+        hash = 67 * hash + Objects.hashCode(this.PetRabbiesTag);
+        hash = 67 * hash + Objects.hashCode(this.petBreed);
+        hash = 67 * hash + Objects.hashCode(this.petSize);
+        hash = 67 * hash + Objects.hashCode(this.petColor);
+        hash = 67 * hash + Objects.hashCode(this.petImgURL);
+        hash = 67 * hash + Objects.hashCode(this.petCreateDate);
+        hash = 67 * hash + Objects.hashCode(this.petModifiedDate);
+        hash = 67 * hash + Objects.hashCode(this.petLostDate);
+        hash = 67 * hash + Objects.hashCode(this.petFoundDate);
+        hash = 67 * hash + Objects.hashCode(this.petSightedDate);
+        hash = 67 * hash + Objects.hashCode(this.user);
+        hash = 67 * hash + Objects.hashCode(this.loc);
         return hash;
     }
 
@@ -171,28 +202,37 @@ public class Pet {
         if (!Objects.equals(this.petDesc, other.petDesc)) {
             return false;
         }
-        if (!Objects.equals(this.petChip, other.petChip)) {
+        if (!Objects.equals(this.petChipTag, other.petChipTag)) {
             return false;
         }
-        if (!Objects.equals(this.PetRabbies, other.PetRabbies)) {
-            return false;
-        }
-        if (!Objects.equals(this.petType, other.petType)) {
-            return false;
-        }
-        if (!Objects.equals(this.petSpec, other.petSpec)) {
-            return false;
-        }
-        if (!Objects.equals(this.petColor, other.petColor)) {
-            return false;
-        }
-        if (!Objects.equals(this.petSize, other.petSize)) {
+        if (!Objects.equals(this.PetRabbiesTag, other.PetRabbiesTag)) {
             return false;
         }
         if (!Objects.equals(this.petBreed, other.petBreed)) {
             return false;
         }
+        if (!Objects.equals(this.petSize, other.petSize)) {
+            return false;
+        }
+        if (!Objects.equals(this.petColor, other.petColor)) {
+            return false;
+        }
         if (!Objects.equals(this.petImgURL, other.petImgURL)) {
+            return false;
+        }
+        if (!Objects.equals(this.petCreateDate, other.petCreateDate)) {
+            return false;
+        }
+        if (!Objects.equals(this.petModifiedDate, other.petModifiedDate)) {
+            return false;
+        }
+        if (!Objects.equals(this.petLostDate, other.petLostDate)) {
+            return false;
+        }
+        if (!Objects.equals(this.petFoundDate, other.petFoundDate)) {
+            return false;
+        }
+        if (!Objects.equals(this.petSightedDate, other.petSightedDate)) {
             return false;
         }
         if (!Objects.equals(this.user, other.user)) {
@@ -204,5 +244,4 @@ public class Pet {
         return true;
     }
 
-   
 }
