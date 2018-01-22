@@ -46,7 +46,7 @@
     </bean>
 
     <bean id="petDao"
-           class="com.mycompany.petcomehome.dao.PetDaoDBImpl">
+          class="com.mycompany.petcomehome.dao.PetDaoDBImpl">
         <property name="jdbcTemplate" ref="jdbcTemplate"/>
     </bean>
 
