@@ -50,12 +50,17 @@ public class UserDaoTest {
                 = new ClassPathXmlApplicationContext("test-applicationContext.xml");
         userDao = ctx.getBean("userDao", UserDao.class);
 
+        List<User> users = userDao.retrieveAllUsers();
+        for (User currentUser : users) {
+            userDao.deleteUser(currentUser.getUserId());
+        }
+
         newUser.setUserId(1);
         newUser.setUserLogin("Jan");
-        newUser.setUserPassword("gentille");
+        newUser.setUserPassword("Gentille");
         newUser.setUserFirstName("Colin");
         newUser.setUserLastName("Principe");
-        newUser.setUserCity("fremont");
+        newUser.setUserCity("Fremont");
         newUser.setUserState("NH");
         newUser.setUserZip("03822");
         newUser.setUserMobile("6031234567");
