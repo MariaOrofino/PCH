@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.mycompany.petcomehome.Dao;
+package com.mycompany.petcomehome.dao;
 
 import com.mycompany.petcomehome.model.Loc;
 import com.mycompany.petcomehome.model.Pet;
@@ -103,6 +103,9 @@ public class PetDaoDBImpl implements PetDao {
 
         jdbcTemplate.update(SQL_DELETE_USER_HAS_PET, pet.getPetId());
         jdbcTemplate.update(SQL_DELETE_PET_HAS_LOCATION, pet.getPetId());
+        insertUserHasPet(pet);
+        insertPetHasLocation(pet);
+
     }
 
     @Override
@@ -112,7 +115,11 @@ public class PetDaoDBImpl implements PetDao {
 
     @Override
     public void deletePetById(int petId) {
+        jdbcTemplate.update(SQL_DELETE_USER_HAS_PET, petId);
+        jdbcTemplate.update(SQL_DELETE_PET_HAS_LOCATION, petId);
+
         jdbcTemplate.update(SQL_DELETE_PET, petId);
+
     }
 
     @Override

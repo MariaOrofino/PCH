@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.mycompany.petcomehome.Dao;
+package com.mycompany.petcomehome.dao;
 
 import com.mycompany.petcomehome.model.Pet;
 import java.util.List;
