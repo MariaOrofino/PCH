@@ -64,7 +64,7 @@ public class PetDaoDBImpl implements PetDao {
         jdbcTemplate.update(SQL_INSERT_PET,
                 pet.getPetName(),
                 pet.getPetChipTag(),
-                pet.getPetRabbiesTag(),
+                pet.getPetRabiesTag(),
                 pet.getPetDesc(),
                 pet.getPetBreed(),
                 pet.getPetSize(),
@@ -91,7 +91,7 @@ public class PetDaoDBImpl implements PetDao {
         jdbcTemplate.update(SQL_UPDATE_PET_BY_ID,
                 pet.getPetName(),
                 pet.getPetChipTag(),
-                pet.getPetRabbiesTag(),
+                pet.getPetRabiesTag(),
                 pet.getPetDesc(),
                 pet.getPetBreed(),
                 pet.getPetSize(),
@@ -164,13 +164,13 @@ public class PetDaoDBImpl implements PetDao {
             petMap.setPetId(rs.getInt("petId"));
             petMap.setPetName(rs.getString("petName"));
             petMap.setPetChipTag(rs.getString("petChipTag"));
-            petMap.setPetRabbiesTag(rs.getString("petRabbiesTag"));
+            petMap.setPetRabiesTag(rs.getString("petRabiesTag"));
             petMap.setPetDesc(rs.getString("petDesc"));
             petMap.setPetBreed(rs.getString("petBreed"));
             petMap.setPetSize(rs.getString("petSize"));
             petMap.setPetColor(rs.getString("petColor"));
             petMap.setPetImgURL(rs.getString("petImgUrl"));
-            petMap.setPetRabbiesTag(rs.getString("petRabbiesTag"));
+            petMap.setPetRabiesTag(rs.getString("petRabiesTag"));
             petMap.setPetCreateDate(rs.getDate("petCreateDate").toLocalDate());
             petMap.setPetModifiedDate(rs.getDate("petModifiedDate").toLocalDate());
             petMap.setPetLostDate(rs.getDate("petLostDate").toLocalDate());

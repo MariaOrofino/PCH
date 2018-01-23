@@ -65,7 +65,7 @@ public class PetDaoTest {
         newPet.setPetId(0);
         newPet.setPetName("Roxy");
         newPet.setPetChipTag("123456");
-        newPet.setPetRabbiesTag("78910");
+        newPet.setPetRabiesTag("78910");
         newPet.setPetDesc("crack lab that is cray");
         newPet.setPetBreed("BlackLab");
         newPet.setPetSize("large");
@@ -107,7 +107,7 @@ public class PetDaoTest {
         assertNotNull(newPet);
         assertEquals("Roxy", newPet.getPetName());
         assertEquals("123456", newPet.getPetChipTag());
-        assertEquals("78910", newPet.getPetRabbiesTag());
+        assertEquals("78910", newPet.getPetRabiesTag());
         assertEquals("crack lab that is cray", newPet.getPetDesc());
         assertEquals("BlackLab", newPet.getPetBreed());
         assertEquals("Large", newPet.getPetSize());

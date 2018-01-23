@@ -19,7 +19,7 @@ public class Pet {
     private String petName;
     private String petDesc;
     private String petChipTag;
-    private String PetRabbiesTag;
+    private String PetRabiesTag;
     private String petBreed;
     private String petSize;
     private String petColor;
@@ -66,12 +66,12 @@ public class Pet {
         this.petChipTag = petChipTag;
     }
 
-    public String getPetRabbiesTag() {
-        return PetRabbiesTag;
+    public String getPetRabiesTag() {
+        return PetRabiesTag;
     }
 
-    public void setPetRabbiesTag(String PetRabbiesTag) {
-        this.PetRabbiesTag = PetRabbiesTag;
+    public void setPetRabiesTag(String PetRabiesTag) {
+        this.PetRabiesTag = PetRabiesTag;
     }
 
     public String getPetBreed() {
@@ -185,7 +185,7 @@ public class Pet {
         hash = 89 * hash + Objects.hashCode(this.petName);
         hash = 89 * hash + Objects.hashCode(this.petDesc);
         hash = 89 * hash + Objects.hashCode(this.petChipTag);
-        hash = 89 * hash + Objects.hashCode(this.PetRabbiesTag);
+        hash = 89 * hash + Objects.hashCode(this.PetRabiesTag);
         hash = 89 * hash + Objects.hashCode(this.petBreed);
         hash = 89 * hash + Objects.hashCode(this.petSize);
         hash = 89 * hash + Objects.hashCode(this.petColor);
@@ -226,7 +226,7 @@ public class Pet {
         if (!Objects.equals(this.petChipTag, other.petChipTag)) {
             return false;
         }
-        if (!Objects.equals(this.PetRabbiesTag, other.PetRabbiesTag)) {
+        if (!Objects.equals(this.PetRabiesTag, other.PetRabiesTag)) {
             return false;
         }
         if (!Objects.equals(this.petBreed, other.petBreed)) {
