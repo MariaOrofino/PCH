@@ -14,7 +14,7 @@ import java.util.List;
  */
 public interface PetStatusDao {
 
-    public PetStatus createPettype(PetStatus petStatus);
+    public PetStatus createPetStatus(PetStatus petStatus);
 
     public PetStatus updatePetStatus(PetStatus petStatus);
 

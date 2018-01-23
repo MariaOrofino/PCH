@@ -54,4 +54,14 @@
           class="com.mycompany.petcomehome.dao.LocDaoDBImpl">
         <property name="jdbcTemplate" ref="jdbcTemplate"/>
     </bean>
+
+    <bean id="petStatusDao"
+          class="com.mycompany.petcomehome.dao.PetStatusDBImpl">
+        <property name="jdbcTemplate" ref="jdbcTemplate"/>
+    </bean>
+
+    <bean id="petTypeDao"
+          class="com.mycompany.petcomehome.dao.PetTypeDBImpl">
+        <property name="jdbcTemplate" ref="jdbcTemplate"/>
+    </bean>
 </beans>

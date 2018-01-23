@@ -19,7 +19,7 @@ public class Pet {
     private String petName;
     private String petDesc;
     private String petChipTag;
-    private String PetRabbiesTag;
+    private String PetRabiesTag;
     private String petBreed;
     private String petSize;
     private String petColor;
@@ -66,12 +66,12 @@ public class Pet {
         this.petChipTag = petChipTag;
     }
 
-    public String getPetRabbiesTag() {
-        return PetRabbiesTag;
+    public String getPetRabiesTag() {
+        return PetRabiesTag;
     }
 
-    public void setPetRabbiesTag(String PetRabbiesTag) {
-        this.PetRabbiesTag = PetRabbiesTag;
+    public void setPetRabiesTag(String PetRabiesTag) {
+        this.PetRabiesTag = PetRabiesTag;
     }
 
     public String getPetBreed() {
@@ -180,25 +180,25 @@ public class Pet {
 
     @Override
     public int hashCode() {
-        int hash = 3;
-        hash = 89 * hash + this.petId;
-        hash = 89 * hash + Objects.hashCode(this.petName);
-        hash = 89 * hash + Objects.hashCode(this.petDesc);
-        hash = 89 * hash + Objects.hashCode(this.petChipTag);
-        hash = 89 * hash + Objects.hashCode(this.PetRabbiesTag);
-        hash = 89 * hash + Objects.hashCode(this.petBreed);
-        hash = 89 * hash + Objects.hashCode(this.petSize);
-        hash = 89 * hash + Objects.hashCode(this.petColor);
-        hash = 89 * hash + Objects.hashCode(this.petImgURL);
-        hash = 89 * hash + Objects.hashCode(this.petCreateDate);
-        hash = 89 * hash + Objects.hashCode(this.petModifiedDate);
-        hash = 89 * hash + Objects.hashCode(this.petLostDate);
-        hash = 89 * hash + Objects.hashCode(this.petFoundDate);
-        hash = 89 * hash + Objects.hashCode(this.petSightedDate);
-        hash = 89 * hash + Objects.hashCode(this.user);
-        hash = 89 * hash + Objects.hashCode(this.loc);
-        hash = 89 * hash + Objects.hashCode(this.petStatus);
-        hash = 89 * hash + Objects.hashCode(this.petType);
+        int hash = 5;
+        hash = 37 * hash + this.petId;
+        hash = 37 * hash + Objects.hashCode(this.petName);
+        hash = 37 * hash + Objects.hashCode(this.petDesc);
+        hash = 37 * hash + Objects.hashCode(this.petChipTag);
+        hash = 37 * hash + Objects.hashCode(this.PetRabiesTag);
+        hash = 37 * hash + Objects.hashCode(this.petBreed);
+        hash = 37 * hash + Objects.hashCode(this.petSize);
+        hash = 37 * hash + Objects.hashCode(this.petColor);
+        hash = 37 * hash + Objects.hashCode(this.petImgURL);
+        hash = 37 * hash + Objects.hashCode(this.petCreateDate);
+        hash = 37 * hash + Objects.hashCode(this.petModifiedDate);
+        hash = 37 * hash + Objects.hashCode(this.petLostDate);
+        hash = 37 * hash + Objects.hashCode(this.petFoundDate);
+        hash = 37 * hash + Objects.hashCode(this.petSightedDate);
+        hash = 37 * hash + Objects.hashCode(this.user);
+        hash = 37 * hash + Objects.hashCode(this.loc);
+        hash = 37 * hash + Objects.hashCode(this.petStatus);
+        hash = 37 * hash + Objects.hashCode(this.petType);
         return hash;
     }
 
@@ -226,7 +226,7 @@ public class Pet {
         if (!Objects.equals(this.petChipTag, other.petChipTag)) {
             return false;
         }
-        if (!Objects.equals(this.PetRabbiesTag, other.PetRabbiesTag)) {
+        if (!Objects.equals(this.PetRabiesTag, other.PetRabiesTag)) {
             return false;
         }
         if (!Objects.equals(this.petBreed, other.petBreed)) {
