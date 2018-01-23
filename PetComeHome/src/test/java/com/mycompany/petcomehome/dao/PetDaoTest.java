@@ -17,6 +17,7 @@ import org.junit.After;
 import org.junit.AfterClass;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertNull;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
@@ -139,13 +140,10 @@ public class PetDaoTest {
      */
     @Test
     public void testUpdatePet() {
-    }
+        newPet.setPetName("Louie");
+        petDao.updatePet(newPet);
+        assertEquals("Louie", newPet.getPetName());
 
-    /**
-     * Test of savePet method, of class PetDaoDBImpl.
-     */
-    @Test
-    public void testSavePet() {
     }
 
     /**
@@ -153,6 +151,8 @@ public class PetDaoTest {
      */
     @Test
     public void testDeletePetById() {
+        petDao.deletePetById(newPet.getPetId());
+        assertNull(petDao.getPetByPetId(newPet.getPetId()));
     }
 
     /**
@@ -160,6 +160,8 @@ public class PetDaoTest {
      */
     @Test
     public void testGetPetByPetId() {
+        Pet fromDao = petDao.getPetByPetId(newPet.getPetId());
+        assertEquals(fromDao, newPet);
     }
 
     /**
@@ -167,6 +169,7 @@ public class PetDaoTest {
      */
     @Test
     public void testGetAllpets() {
+
     }
 
 }
