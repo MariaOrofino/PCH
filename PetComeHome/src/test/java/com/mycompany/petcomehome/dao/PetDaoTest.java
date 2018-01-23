@@ -6,14 +6,17 @@
  */
 package com.mycompany.petcomehome.dao;
 
+import com.mycompany.petcomehome.model.Loc;
 import com.mycompany.petcomehome.model.Pet;
 import com.mycompany.petcomehome.model.PetStatus;
 import com.mycompany.petcomehome.model.PetType;
+import com.mycompany.petcomehome.model.User;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 import javax.inject.Inject;
+import javax.tools.JavaFileManager.Location;
 import org.junit.After;
 import org.junit.AfterClass;
 import static org.junit.Assert.assertEquals;
@@ -35,11 +38,15 @@ public class PetDaoTest {
     PetType newPetType = new PetType();
     PetStatus newPetStatus = new PetStatus();
     List<Pet> petList = new ArrayList<>();
+    User newUser = new User();
+    Loc newLoc = new Loc();
 
     @Inject
     PetDao petDao;
     PetTypeDao petTypeDao;
     PetStatusDao petStatusDao;
+    UserDao userDao;
+    LocDao locDao;
 
     public PetDaoTest() {
     }
@@ -73,6 +80,9 @@ public class PetDaoTest {
         newPetStatus.setPetStatusId(1);
         newPetType.setPetTypeId(1);
 
+        newUser.setUserId(21);
+        newLoc.setLocId(1);
+
         newPet.setPetId(0);
         newPet.setPetName("Roxy");
         newPet.setPetChipTag("123456");
@@ -98,6 +108,9 @@ public class PetDaoTest {
 
         newPet.setPetType(null);
         newPet.setPetStatus(null);
+//
+//        newUser.setUserId(null);
+//        newLoc.setLoc(null);
     }
 
     @After
@@ -141,9 +154,12 @@ public class PetDaoTest {
      */
     @Test
     public void testUpdatePet() {
+        newPet.setPetType(newPetType);
+        newPet.setPetStatus(newPetStatus);
+
         newPet.setPetName("Louie");
-        petDao.updatePet(newPet);
-        assertEquals("Louie", newPet.getPetName());
+        Pet updatedPet = petDao.updatePet(newPet);
+        assertEquals("Louie", updatedPet.getPetName());
 
     }
 
@@ -170,7 +186,9 @@ public class PetDaoTest {
      */
     @Test
     public void testGetAllpets() {
-
+        List<Pet> fromDao = petDao.getAllpets();
+        assertEquals(petList, fromDao);
+        assertNotNull(fromDao);
     }
 
 }
