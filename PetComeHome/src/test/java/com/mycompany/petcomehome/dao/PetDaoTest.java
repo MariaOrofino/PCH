@@ -1,3 +1,4 @@
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -6,6 +7,8 @@
 package com.mycompany.petcomehome.dao;
 
 import com.mycompany.petcomehome.model.Pet;
+import com.mycompany.petcomehome.model.PetStatus;
+import com.mycompany.petcomehome.model.PetType;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
@@ -15,6 +18,7 @@ import org.junit.After;
 import org.junit.AfterClass;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertNull;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
@@ -28,10 +32,14 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 public class PetDaoTest {
 
     Pet newPet = new Pet();
+    PetType newPetType = new PetType();
+    PetStatus newPetStatus = new PetStatus();
     List<Pet> petList = new ArrayList<>();
 
     @Inject
     PetDao petDao;
+    PetTypeDao petTypeDao;
+    PetStatusDao petStatusDao;
 
     public PetDaoTest() {
     }
@@ -62,6 +70,9 @@ public class PetDaoTest {
             petDao.deletePetById(currentPet.getPetId());
         }
 
+        newPetStatus.setPetStatusId(1);
+        newPetType.setPetTypeId(1);
+
         newPet.setPetId(0);
         newPet.setPetName("Roxy");
         newPet.setPetChipTag("123456");
@@ -72,6 +83,9 @@ public class PetDaoTest {
         newPet.setPetColor("black");
         newPet.setPetImgURL("http://imagesarefun.html");
 
+        newPet.setPetType(newPetType);
+        newPet.setPetStatus(newPetStatus);
+
         DateTimeFormatter f2 = DateTimeFormatter.ofPattern("yyyy-MM-dd");
         LocalDate petDate = LocalDate.parse("2017-01-01", f2);
         newPet.setPetCreateDate(petDate);
@@ -80,11 +94,10 @@ public class PetDaoTest {
         newPet.setPetFoundDate(petDate);
         newPet.setPetSightedDate(petDate);
 
-//        petStatusDao.getPetType petDao
-//        .createPet(newPet);
-//        petList = petDao.getAllpets();
-//        newPet.setLoc(null);
-//        newPet.setUser(null);
+        petDao.createPet(newPet);
+
+        newPet.setPetType(null);
+        newPet.setPetStatus(null);
     }
 
     @After
@@ -104,20 +117,20 @@ public class PetDaoTest {
     @Test
     public void testCreatePet() {
         Pet fromDao = petDao.getPetByPetId(newPet.getPetId());
-        assertNotNull(newPet);
-        assertEquals("Roxy", newPet.getPetName());
-        assertEquals("123456", newPet.getPetChipTag());
-        assertEquals("78910", newPet.getPetRabiesTag());
-        assertEquals("crack lab that is cray", newPet.getPetDesc());
-        assertEquals("BlackLab", newPet.getPetBreed());
-        assertEquals("Large", newPet.getPetSize());
-        assertEquals("Black", newPet.getPetColor());
-        assertEquals("http://imagesarefun.html", newPet.getPetImgURL());
-        assertEquals("2017-01-01", newPet.getPetCreateDate());
-        assertEquals("2017-01-01", newPet.getPetModifiedDate());
-        assertEquals("2017-01-01", newPet.getPetLostDate());
-        assertEquals("2017-01-01", newPet.getPetFoundDate());
-        assertEquals("2017-01-01", newPet.getPetSightedDate());
+        assertNotNull(fromDao);
+//        assertEquals("Roxy", newPet.getPetName());
+//        assertEquals("123456", newPet.getPetChipTag());
+//        assertEquals("78910", newPet.getPetRabbiesTag());
+//        assertEquals("crack lab that is cray", newPet.getPetDesc());
+//        assertEquals("BlackLab", newPet.getPetBreed());
+//        assertEquals("Large", newPet.getPetSize());
+//        assertEquals("Black", newPet.getPetColor());
+//        assertEquals("http://imagesarefun.html", newPet.getPetImgURL());
+//        assertEquals("2017-01-01", newPet.getPetCreateDate());
+//        assertEquals("2017-01-01", newPet.getPetModifiedDate());
+//        assertEquals("2017-01-01", newPet.getPetLostDate());
+//        assertEquals("2017-01-01", newPet.getPetFoundDate());
+//        assertEquals("2017-01-01", newPet.getPetSightedDate());
 
         assertEquals(fromDao, newPet);
 
@@ -128,13 +141,10 @@ public class PetDaoTest {
      */
     @Test
     public void testUpdatePet() {
-    }
+        newPet.setPetName("Louie");
+        petDao.updatePet(newPet);
+        assertEquals("Louie", newPet.getPetName());
 
-    /**
-     * Test of savePet method, of class PetDaoDBImpl.
-     */
-    @Test
-    public void testSavePet() {
     }
 
     /**
@@ -142,6 +152,8 @@ public class PetDaoTest {
      */
     @Test
     public void testDeletePetById() {
+        petDao.deletePetById(newPet.getPetId());
+        assertNull(petDao.getPetByPetId(newPet.getPetId()));
     }
 
     /**
@@ -149,6 +161,8 @@ public class PetDaoTest {
      */
     @Test
     public void testGetPetByPetId() {
+        Pet fromDao = petDao.getPetByPetId(newPet.getPetId());
+        assertEquals(fromDao, newPet);
     }
 
     /**
@@ -156,6 +170,7 @@ public class PetDaoTest {
      */
     @Test
     public void testGetAllpets() {
+
     }
 
 }
