@@ -28,12 +28,12 @@ public class PetDaoDBImpl implements PetDao {
         this.jdbcTemplate = jdbcTemplate;
     }
     private static final String SQL_INSERT_PET
-            = "insert into Pet (petName, petChipTag, petRabiesTag, petDescripton, petBreed, petSize, petColor, petImgUrl, petCreateDate, petModifiedDate, petLostDate, petFoundDate, petSightedDate) "
-            + "values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+            = "insert into Pet (petName, petChipTag, petRabiesTag, petDescripton, petBreed, petSize, petColor, petImgUrl, petType_petTypeId, petCreateDate, petModifiedDate, petLostDate, petFoundDate, petSightedDate, petStatus_petStatusId,) "
+            + "values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 
     private static final String SQL_UPDATE_PET_BY_ID
             = "update pet "
-            + "set petName=?, petChipTag=?, petRabiesTag=?, petDescripton=?, petBreed=?, petSize=?, petColor=?, petImgUrl=?, petCreateDate=?, petModifiedDate=?, petLostDate=?, petFoundDate=?, petSightedDate=? "
+            + "set petName=?, petChipTag=?, petRabiesTag=?, petDescripton=?, petBreed=?, petSize=?, petColor=?, petImgUrl=?, petType_petTypeId=?, petCreateDate=?, petModifiedDate=?, petLostDate=?, petFoundDate=?, petSightedDate=?, petStatus_petStatusId=? "
             + "where petId =?";
 
     private static final String SQL_DELETE_PET
@@ -64,17 +64,19 @@ public class PetDaoDBImpl implements PetDao {
         jdbcTemplate.update(SQL_INSERT_PET,
                 pet.getPetName(),
                 pet.getPetChipTag(),
-                pet.getPetRabbiesTag(),
+                pet.getPetRabiesTag(),
                 pet.getPetDesc(),
                 pet.getPetBreed(),
                 pet.getPetSize(),
                 pet.getPetColor(),
                 pet.getPetImgURL(),
-                pet.getPetCreateDate(),
-                pet.getPetModifiedDate(),
-                pet.getPetLostDate(),
-                pet.getPetFoundDate(),
-                pet.getPetSightedDate());
+                pet.getPetType().getPetTypeId(),
+                pet.getPetCreateDate().toString(),
+                pet.getPetModifiedDate().toString(),
+                pet.getPetLostDate().toString(),
+                pet.getPetFoundDate().toString(),
+                pet.getPetSightedDate().toString(),
+                pet.getPetStatus().getPetStatusId());
         int petId = jdbcTemplate.queryForObject("select LAST_INSERT_ID()",
                 Integer.class);
 
@@ -89,28 +91,25 @@ public class PetDaoDBImpl implements PetDao {
         jdbcTemplate.update(SQL_UPDATE_PET_BY_ID,
                 pet.getPetName(),
                 pet.getPetChipTag(),
-                pet.getPetRabbiesTag(),
+                pet.getPetRabiesTag(),
                 pet.getPetDesc(),
                 pet.getPetBreed(),
                 pet.getPetSize(),
                 pet.getPetColor(),
                 pet.getPetImgURL(),
+                pet.getPetType().getPetTypeId(),
                 pet.getPetCreateDate(),
                 pet.getPetModifiedDate(),
                 pet.getPetLostDate(),
                 pet.getPetFoundDate(),
-                pet.getPetSightedDate());
+                pet.getPetSightedDate().toString(),
+                pet.getPetStatus().getPetStatusId());
 
         jdbcTemplate.update(SQL_DELETE_USER_HAS_PET, pet.getPetId());
         jdbcTemplate.update(SQL_DELETE_PET_HAS_LOCATION, pet.getPetId());
         insertUserHasPet(pet);
         insertPetHasLocation(pet);
 
-    }
-
-    @Override
-    public void savePet(Pet pet) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
@@ -165,13 +164,13 @@ public class PetDaoDBImpl implements PetDao {
             petMap.setPetId(rs.getInt("petId"));
             petMap.setPetName(rs.getString("petName"));
             petMap.setPetChipTag(rs.getString("petChipTag"));
-            petMap.setPetRabbiesTag(rs.getString("petRabbiesTag"));
+            petMap.setPetRabiesTag(rs.getString("petRabiesTag"));
             petMap.setPetDesc(rs.getString("petDesc"));
             petMap.setPetBreed(rs.getString("petBreed"));
             petMap.setPetSize(rs.getString("petSize"));
             petMap.setPetColor(rs.getString("petColor"));
             petMap.setPetImgURL(rs.getString("petImgUrl"));
-            petMap.setPetRabbiesTag(rs.getString("petRabbiesTag"));
+            petMap.setPetRabiesTag(rs.getString("petRabiesTag"));
             petMap.setPetCreateDate(rs.getDate("petCreateDate").toLocalDate());
             petMap.setPetModifiedDate(rs.getDate("petModifiedDate").toLocalDate());
             petMap.setPetLostDate(rs.getDate("petLostDate").toLocalDate());

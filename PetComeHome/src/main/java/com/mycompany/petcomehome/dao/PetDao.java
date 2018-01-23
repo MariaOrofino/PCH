@@ -18,8 +18,6 @@ public interface PetDao {
 
     public void updatePet(Pet pet);
 
-    public void savePet(Pet pet);
-
     public void deletePetById(int petId);
 
     public Pet getPetByPetId(int petId);
