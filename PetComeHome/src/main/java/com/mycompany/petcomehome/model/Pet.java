@@ -180,7 +180,6 @@ public class Pet {
 
     @Override
     public int hashCode() {
-
         int hash = 5;
         hash = 37 * hash + this.petId;
         hash = 37 * hash + Objects.hashCode(this.petName);
@@ -200,26 +199,6 @@ public class Pet {
         hash = 37 * hash + Objects.hashCode(this.loc);
         hash = 37 * hash + Objects.hashCode(this.petStatus);
         hash = 37 * hash + Objects.hashCode(this.petType);
-
-        hash = 89 * hash + this.petId;
-        hash = 89 * hash + Objects.hashCode(this.petName);
-        hash = 89 * hash + Objects.hashCode(this.petDesc);
-        hash = 89 * hash + Objects.hashCode(this.petChipTag);
-        hash = 89 * hash + Objects.hashCode(this.PetRabiesTag);
-        hash = 89 * hash + Objects.hashCode(this.petBreed);
-        hash = 89 * hash + Objects.hashCode(this.petSize);
-        hash = 89 * hash + Objects.hashCode(this.petColor);
-        hash = 89 * hash + Objects.hashCode(this.petImgURL);
-        hash = 89 * hash + Objects.hashCode(this.petCreateDate);
-        hash = 89 * hash + Objects.hashCode(this.petModifiedDate);
-        hash = 89 * hash + Objects.hashCode(this.petLostDate);
-        hash = 89 * hash + Objects.hashCode(this.petFoundDate);
-        hash = 89 * hash + Objects.hashCode(this.petSightedDate);
-        hash = 89 * hash + Objects.hashCode(this.user);
-        hash = 89 * hash + Objects.hashCode(this.loc);
-        hash = 89 * hash + Objects.hashCode(this.petStatus);
-        hash = 89 * hash + Objects.hashCode(this.petType);
-
         return hash;
     }
 

@@ -87,7 +87,7 @@ public class PetDaoDBImpl implements PetDao {
 
     @Override
     @Transactional(propagation = Propagation.REQUIRED, readOnly = false)
-    public void updatePet(Pet pet) {
+    public Pet updatePet(Pet pet) {
         jdbcTemplate.update(SQL_UPDATE_PET_BY_ID,
                 pet.getPetName(),
                 pet.getPetChipTag(),
@@ -98,17 +98,19 @@ public class PetDaoDBImpl implements PetDao {
                 pet.getPetColor(),
                 pet.getPetImgURL(),
                 pet.getPetType().getPetTypeId(),
-                pet.getPetCreateDate(),
-                pet.getPetModifiedDate(),
-                pet.getPetLostDate(),
-                pet.getPetFoundDate(),
+                pet.getPetCreateDate().toString(),
+                pet.getPetModifiedDate().toString(),
+                pet.getPetLostDate().toString(),
+                pet.getPetFoundDate().toString(),
                 pet.getPetSightedDate().toString(),
-                pet.getPetStatus().getPetStatusId());
+                pet.getPetStatus().getPetStatusId(),
+                pet.getPetId());
 
         jdbcTemplate.update(SQL_DELETE_USER_HAS_PET, pet.getPetId());
         jdbcTemplate.update(SQL_DELETE_PET_HAS_LOCATION, pet.getPetId());
         insertUserHasPet(pet);
         insertPetHasLocation(pet);
+        return pet;
 
     }
 
