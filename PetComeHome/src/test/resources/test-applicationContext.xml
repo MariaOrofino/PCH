@@ -67,7 +67,12 @@
 
     <bean id="petSL" class="com.mycompany.petcomehome.service.PetSLImpl">
         <constructor-arg ref = "petDao"/>
-        <constructor-arg ref = "petStatusDao"/>
-        <constructor-arg ref = "petTypeDao"/>
+
+        <constructor-arg ref = "petStatus"/>
+        <constructor-arg ref = "petType"/>
+        <constructor-arg ref = "userDao"/>
+        <constructor-arg ref = "locDao"/>
+
     </bean>
+
 </beans>
