@@ -26,23 +26,23 @@ public class LocDaoDBImpl implements LocDao {
     public void setJdbcTemplate(JdbcTemplate jdbcTemplate) {
         this.jdbcTemplate = jdbcTemplate;
     }
-    
+
     private static final String SQL_INSERT_LOC
-        = "insert into location (locName, locDesc, locAddress, locCity, locState, "
-        + "locZip, locInd, locLat, locLong) "
-        + "values (?, ?, ?, ?, ?, ?, ?, ?, ?)";
-    
+            = "insert into location (locName, locDesc, locCity, locState, "
+            + "locZip, locInd, locLat, locLong) "
+            + "values (?, ?, ?, ?, ?, ?, ?, ?)";
+
     private static final String SQL_EDIT_LOC
-        = "update location set locName = ?, locDesc = ?, locAddress = ?, "
-        + "locCity = ?, locState = ?, locZip = ?, locInd = ?, "
-        + "locLat = ?, locLong = ? where locId = ?";
-    
+            = "update location set locName = ?, locDesc = ?,  "
+            + "locCity = ?, locState = ?, locZip = ?, locInd = ?, "
+            + "locLat = ?, locLong = ? where locId = ?";
+
     private static final String SQL_DELETE_LOC
-        = "delete from location where locId = ?";
-    
+            = "delete from location where locId = ?";
+
     private static final String SQL_RETRIEVE_ONE_LOC
-        = "select * from location where locId = ?";
-    
+            = "select * from location where locId = ?";
+
     private static final String SQL_RETRIEVE_ALL_LOCS
         = "select * from location";
         
@@ -57,7 +57,6 @@ public class LocDaoDBImpl implements LocDao {
         jdbcTemplate.update(SQL_INSERT_LOC,
                 loc.getLocName(),
                 loc.getLocDesc(),
-                loc.getLocAddress(),
                 loc.getLocCity(),
                 loc.getLocState(),
                 loc.getLocZip(),
@@ -65,7 +64,7 @@ public class LocDaoDBImpl implements LocDao {
                 loc.getLocLat(),
                 loc.getLocLong());
         loc.setLocId(
-            jdbcTemplate.queryForObject("select LAST_INSERT_ID()",
+                jdbcTemplate.queryForObject("select LAST_INSERT_ID()",
                         Integer.class));
         return loc;
     }
@@ -74,17 +73,16 @@ public class LocDaoDBImpl implements LocDao {
     @Transactional(propagation = Propagation.REQUIRED, readOnly = false)
     public Loc editLoc(Loc loc) {
         jdbcTemplate.update(SQL_EDIT_LOC,
-            loc.getLocId(),
-            loc.getLocName(),
-            loc.getLocDesc(),
-            loc.getLocAddress(),
-            loc.getLocCity(),
-            loc.getLocState(),
-            loc.getLocZip(),
-            loc.getLocInd(),
-            loc.getLocLat(),
-            loc.getLocLong());
-        
+                loc.getLocId(),
+                loc.getLocName(),
+                loc.getLocDesc(),
+                loc.getLocCity(),
+                loc.getLocState(),
+                loc.getLocZip(),
+                loc.getLocInd(),
+                loc.getLocLat(),
+                loc.getLocLong());
+
         return loc;
     }
 
@@ -116,7 +114,7 @@ public class LocDaoDBImpl implements LocDao {
 //                new LocMapper());
 //        return petLocList;
 //    }
-    
+
     private static final class LocMapper implements RowMapper<Loc> {
 
         @Override
@@ -125,7 +123,6 @@ public class LocDaoDBImpl implements LocDao {
             loc.setLocId(rs.getInt("locId"));
             loc.setLocName(rs.getString("locName"));
             loc.setLocDesc(rs.getString("locDesc"));
-            loc.setLocAddress(rs.getString("locAddress"));
             loc.setLocCity(rs.getString("locCity"));
             loc.setLocState("locState");
             loc.setLocZip(rs.getString("locZip"));
@@ -136,5 +133,5 @@ public class LocDaoDBImpl implements LocDao {
             return loc;
         }
     }
-    
+
 }

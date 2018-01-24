@@ -32,7 +32,6 @@ public class PetSLImpl implements PetSL {
         this.petDao = petDao;
         this.petTypeDao = petTypeDao;
         this.petStatusDao = petStatusDao;
-
     }
 
     @Override
