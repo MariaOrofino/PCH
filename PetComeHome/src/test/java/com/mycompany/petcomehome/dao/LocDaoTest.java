@@ -5,6 +5,7 @@
  */
 package com.mycompany.petcomehome.dao;
 
+import javax.inject.Inject;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -17,6 +18,9 @@ import org.junit.Test;
  * @author n0135705
  */
 public class LocDaoTest {
+    
+    @Inject
+    LocDao locDao;
     
     public LocDaoTest() {
     }

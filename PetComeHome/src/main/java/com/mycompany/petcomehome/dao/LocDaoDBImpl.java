@@ -46,8 +46,10 @@ public class LocDaoDBImpl implements LocDao {
     private static final String SQL_RETRIEVE_ALL_LOCS
         = "select * from location";
         
-    private static final String SQL_RETRIEVE_LOC_BY_PETS
-        = "select * from location ";   //NEED JOIN STATEMENT
+//    private static final String SQL_RETRIEVE_LOC_BY_PETS
+//        = "select l.locName, l.locDesc, l.locAddress, l.locCity, l.locState, "
+//        + "l.locZip, l.locInd, l.locLat, l.locLong from location l "
+//            + "join pet_has_location phl";   
     
     @Override
     @Transactional(propagation = Propagation.REQUIRED, readOnly = false)
@@ -108,12 +110,12 @@ public class LocDaoDBImpl implements LocDao {
         return locList;
     }
 
-    @Override
-    public List<Loc> retrieveLocByPets() {
-        List<Loc> petLocList = jdbcTemplate.query(SQL_RETRIEVE_LOC_BY_PETS,
-                new LocMapper());
-        return petLocList;
-    }
+//    @Override
+//    public List<Loc> retrieveLocByPets() {
+//        List<Loc> petLocList = jdbcTemplate.query(SQL_RETRIEVE_LOC_BY_PETS,
+//                new LocMapper());
+//        return petLocList;
+//    }
     
     private static final class LocMapper implements RowMapper<Loc> {
 
