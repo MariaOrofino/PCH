@@ -23,11 +23,10 @@ public class DaoTestHelper {
         loc.setLocId(num);
         loc.setLocName("Elysian Fields" + num);
         loc.setLocDesc("Rolling hills of green");
-        loc.setLocAddress("150 Liberty Way");
         loc.setLocCity("Dover");
         loc.setLocState("NH");
         loc.setLocZip("03820");
-        loc.setLocInd("locInd");
+        loc.setLocInd("L");
         loc.setLocLat(new BigDecimal("42.7509976"));
         loc.setLocLong(new BigDecimal("-71.4833652"));
         return loc;

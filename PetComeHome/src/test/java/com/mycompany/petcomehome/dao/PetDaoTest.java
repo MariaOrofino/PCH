@@ -29,7 +29,7 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
  * @author n0263892
  */
 public class PetDaoTest {
-
+    
     Pet newPet = new Pet();
     PetType newPetType = new PetType();
     PetStatus newPetStatus = new PetStatus();
@@ -38,33 +38,35 @@ public class PetDaoTest {
     Loc newLoc = new Loc();
     List<User> userList = new ArrayList<>();
     List<Loc> locList = new ArrayList<>();
-
+    
     @Inject
     PetDao petDao;
     PetTypeDao petTypeDao;
     PetStatusDao petStatusDao;
     UserDao userDao;
     LocDao locDao;
-
+    
     public PetDaoTest() {
     }
-
+    
     @BeforeClass
     public static void setUpClass() {
     }
-
+    
     @AfterClass
     public static void tearDownClass() {
     }
-
+    
     @Before
     public void setUp() {
         ApplicationContext ctx = new ClassPathXmlApplicationContext("test-applicationContext.xml");
         petDao = ctx.getBean("petDao", PetDao.class);
         userDao = ctx.getBean("userDao", UserDao.class);
         locDao = ctx.getBean("locDao", LocDao.class);
-
+        
         petList = petDao.getAllpets();
+        userList = userDao.retrieveAllUsers();
+        locList = locDao.retrieveAllLocs();
 //
 //        List<User> users = serDao.getAllusers();
 //        for (user currentUser : users) {
@@ -73,28 +75,31 @@ public class PetDaoTest {
 //        }
 //
 //        List<Pet> pets = petDao.getAllpets();
+        for (User currentUser : userList) {
+            userDao.deleteUser(currentUser.getUserId());
+        }
         for (Pet currentPet : petList) {
             petDao.deletePetById(currentPet.getPetId());
         }
-
+        
         newPet = DaoTestHelper.createPet(1);
-
+        
         for (User currentUser : newPet.getUser()) {
             userDao.createUser(currentUser);
         }
-
+        
         for (Loc currentLoc : newPet.getLoc()) {
             locDao.createLoc(currentLoc);
         }
-
+        
         petDao.createPet(newPet);
-
+        
         newPet.setPetType(null);
         newPet.setPetStatus(null);
         newPet.setLoc(null);
         newPet.setUser(null);
     }
-
+    
     @After
     public void tearDown() {
     }
@@ -118,7 +123,7 @@ public class PetDaoTest {
         assertNull(fromDao.getUser());
         assertNull(fromDao.getPetStatus());
         assertNull(fromDao.getPetType());
-
+        
     }
 
     /**
@@ -128,11 +133,11 @@ public class PetDaoTest {
     public void testUpdatePet() {
         newPet.setPetType(newPetType);
         newPet.setPetStatus(newPetStatus);
-
+        
         newPet.setPetName("Louie");
         Pet updatedPet = petDao.updatePet(newPet);
         assertEquals("Louie", updatedPet.getPetName());
-
+        
     }
 
     /**
@@ -162,5 +167,5 @@ public class PetDaoTest {
         assertEquals(petList, fromDao);
         assertNotNull(fromDao);
     }
-
+    
 }
