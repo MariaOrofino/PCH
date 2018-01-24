@@ -180,7 +180,7 @@ public class Pet {
 
     @Override
     public int hashCode() {
-<<<<<<< HEAD
+
         int hash = 5;
         hash = 37 * hash + this.petId;
         hash = 37 * hash + Objects.hashCode(this.petName);
@@ -200,8 +200,7 @@ public class Pet {
         hash = 37 * hash + Objects.hashCode(this.loc);
         hash = 37 * hash + Objects.hashCode(this.petStatus);
         hash = 37 * hash + Objects.hashCode(this.petType);
-=======
-        int hash = 3;
+
         hash = 89 * hash + this.petId;
         hash = 89 * hash + Objects.hashCode(this.petName);
         hash = 89 * hash + Objects.hashCode(this.petDesc);
@@ -220,7 +219,7 @@ public class Pet {
         hash = 89 * hash + Objects.hashCode(this.loc);
         hash = 89 * hash + Objects.hashCode(this.petStatus);
         hash = 89 * hash + Objects.hashCode(this.petType);
->>>>>>> 61c0ce37549ca1dedd7102ce3b6fbcddfb1df074
+
         return hash;
     }
 
