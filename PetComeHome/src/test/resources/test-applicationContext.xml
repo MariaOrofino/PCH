@@ -64,4 +64,9 @@
           class="com.mycompany.petcomehome.dao.PetTypeDBImpl">
         <property name="jdbcTemplate" ref="jdbcTemplate"/>
     </bean>
+
+    <bean id="petSL" class="com.mycompany.petcomehome.service.PetSLImpl">
+        <constructor-arg ref = "PetDao"/>
+        <constructor-arg ref = "PetStatus"/>
+        <constructor-arg ref = "PetType"/>
 </beans>
