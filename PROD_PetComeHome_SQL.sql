@@ -42,7 +42,7 @@ CREATE TABLE IF NOT EXISTS PCH.Pet (
   petName VARCHAR(45) NULL,
   petChipTag VARCHAR(45) NULL,
   petRabiesTag VARCHAR(45) NULL,
-  petDescripton VARCHAR(280) NOT NULL,
+  petDesc VARCHAR(280) NOT NULL,
   petBreed VARCHAR(45) NULL,
   petSize VARCHAR(45) NOT NULL,
   petColor VARCHAR(45) NOT NULL,
@@ -76,16 +76,16 @@ CREATE TABLE IF NOT EXISTS PCH.Pet (
 DROP TABLE IF EXISTS PCH.Location ;
 
 CREATE TABLE IF NOT EXISTS PCH.Location (
-  locationId INT NOT NULL AUTO_INCREMENT,
+  locId INT NOT NULL AUTO_INCREMENT,
   locLat DECIMAL(9,6) NULL,
   locLong DECIMAL(9,6) NULL,
   locName VARCHAR(45) NULL,
-  locDescription VARCHAR(280) NOT NULL,
+  locDesc VARCHAR(280) NOT NULL,
   locState CHAR(2) NOT NULL,
   locCity VARCHAR(45) NULL,
   locZip VARCHAR(5) NULL,
   locInd CHAR(1) NOT NULL,
-  PRIMARY KEY (locationId));
+  PRIMARY KEY (locId));
 
 -- -----------------------------------------------------
 -- Table PCH.User
@@ -115,9 +115,9 @@ DROP TABLE IF EXISTS PCH.Pet_has_Location ;
 
 CREATE TABLE IF NOT EXISTS PCH.Pet_has_Location (
   Pet_petId INT NOT NULL,
-  Location_locationId INT NOT NULL,
-  PRIMARY KEY (Pet_petId, Location_locationId),
-  INDEX fk_Pet_has_Location_Location1_idx (Location_locationId ASC),
+  Location_locId INT NOT NULL,
+  PRIMARY KEY (Pet_petId, Location_locId),
+  INDEX fk_Pet_has_Location_Location1_idx (Location_locId ASC),
   INDEX fk_Pet_has_Location_Pet1_idx (Pet_petId ASC),
   CONSTRAINT fk_Pet_has_Location_Pet1
     FOREIGN KEY (Pet_petId)
@@ -125,8 +125,8 @@ CREATE TABLE IF NOT EXISTS PCH.Pet_has_Location (
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
   CONSTRAINT fk_Pet_has_Location_Location1
-    FOREIGN KEY (Location_locationId)
-    REFERENCES PCH.Location (locationId)
+    FOREIGN KEY (Location_locId)
+    REFERENCES PCH.Location (locId)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION);
 
