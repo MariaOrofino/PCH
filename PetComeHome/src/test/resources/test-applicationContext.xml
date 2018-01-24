@@ -69,6 +69,5 @@
         <constructor-arg ref = "petDao"/>
         <constructor-arg ref = "petStatusDao"/>
         <constructor-arg ref = "petTypeDao"/>
-        
     </bean>
 </beans>
