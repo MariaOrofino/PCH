@@ -13,11 +13,10 @@ import java.util.Objects;
  * @author n0147313
  */
 public class Loc {
-    
+
     private int locId;
     private String locName;
     private String locDesc;
-    private String locAddress;
     private String locCity;
     private String locState;
     private String locZip;
@@ -47,14 +46,6 @@ public class Loc {
 
     public void setLocDesc(String locDesc) {
         this.locDesc = locDesc;
-    }
-
-    public String getLocAddress() {
-        return locAddress;
-    }
-
-    public void setLocAddress(String locAddress) {
-        this.locAddress = locAddress;
     }
 
     public String getLocCity() {
@@ -107,17 +98,16 @@ public class Loc {
 
     @Override
     public int hashCode() {
-        int hash = 5;
-        hash = 97 * hash + this.locId;
-        hash = 97 * hash + Objects.hashCode(this.locName);
-        hash = 97 * hash + Objects.hashCode(this.locDesc);
-        hash = 97 * hash + Objects.hashCode(this.locAddress);
-        hash = 97 * hash + Objects.hashCode(this.locCity);
-        hash = 97 * hash + Objects.hashCode(this.locState);
-        hash = 97 * hash + Objects.hashCode(this.locZip);
-        hash = 97 * hash + Objects.hashCode(this.locInd);
-        hash = 97 * hash + Objects.hashCode(this.locLat);
-        hash = 97 * hash + Objects.hashCode(this.locLong);
+        int hash = 3;
+        hash = 37 * hash + this.locId;
+        hash = 37 * hash + Objects.hashCode(this.locName);
+        hash = 37 * hash + Objects.hashCode(this.locDesc);
+        hash = 37 * hash + Objects.hashCode(this.locCity);
+        hash = 37 * hash + Objects.hashCode(this.locState);
+        hash = 37 * hash + Objects.hashCode(this.locZip);
+        hash = 37 * hash + Objects.hashCode(this.locInd);
+        hash = 37 * hash + Objects.hashCode(this.locLat);
+        hash = 37 * hash + Objects.hashCode(this.locLong);
         return hash;
     }
 
@@ -142,9 +132,6 @@ public class Loc {
         if (!Objects.equals(this.locDesc, other.locDesc)) {
             return false;
         }
-        if (!Objects.equals(this.locAddress, other.locAddress)) {
-            return false;
-        }
         if (!Objects.equals(this.locCity, other.locCity)) {
             return false;
         }
@@ -165,6 +152,5 @@ public class Loc {
         }
         return true;
     }
-    
-    
+
 }

@@ -33,7 +33,7 @@ public class PetSLImpl implements PetSL {
 //    public void setJdbcTemplate(JdbcTemplate jdbcTemplate) {
 //        this.jdbcTemplate = jdbcTemplate;
     @Inject
-    public PetSLImpl(PetDao petDao, PetTypeDao petTypeDao, PetStatusDao petStatusDao, UserDao userDao) {
+    public PetSLImpl(PetDao petDao, PetTypeDao petTypeDao, PetStatusDao petStatusDao, UserDao userDao, LocDao locDao) {
         this.petDao = petDao;
         this.petTypeDao = petTypeDao;
         this.petStatusDao = petStatusDao;

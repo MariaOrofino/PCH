@@ -46,11 +46,11 @@ public class PetDaoDBImpl implements PetDao {
             = "delete from pet where petId = ?";
 
     private static final String SQL_INSERT_USER_HAS_PET
-            = "insert into user_hasPet (user_userId, pet_petId) "
+            = "insert into user_has_Pet (User_userId, Pet_petId) "
             + "values (?, ?)";
 
     private static final String SQL_INSERT_PET_HAS_LOCATION
-            = "insert into pet_has_location (pet_petId, location_locationId) "
+            = "insert into pet_has_location (Pet_petId, Location_locId) "
             + "values (?, ?)";
 
     private static final String SQL_SELECT_PET_BY_ID
@@ -60,6 +60,7 @@ public class PetDaoDBImpl implements PetDao {
             = "select * from pet ";
 
     @Override
+    @Transactional(propagation = Propagation.REQUIRED, readOnly = false)
     public Pet createPet(Pet pet) {
         jdbcTemplate.update(SQL_INSERT_PET,
                 pet.getPetName(),
@@ -81,6 +82,9 @@ public class PetDaoDBImpl implements PetDao {
                 Integer.class);
 
         pet.setPetId(petId);
+        insertUserHasPet(pet);
+        insertPetHasLocation(pet);
+
         return pet;
 
     }
