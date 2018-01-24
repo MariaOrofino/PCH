@@ -10,6 +10,7 @@ import com.mycompany.petcomehome.dao.PetStatusDao;
 import com.mycompany.petcomehome.dao.PetTypeDao;
 import com.mycompany.petcomehome.model.Pet;
 import java.util.List;
+import javax.inject.Inject;
 
 /**
  *
@@ -17,14 +18,20 @@ import java.util.List;
  */
 public class PetSLImpl implements PetSL {
 
-    private final PetDao petDao;
-    private final PetStatusDao petStatusDao;
-    private final PetTypeDao petTypeDao;
+    PetDao petDao;
+    PetTypeDao petTypeDao;
+    PetStatusDao petStatusDao;
+//
 
-    public PetSLImpl(PetDao petDao, PetStatusDao petStatusDao, PetTypeDao petTypeDao) {
+//    private JdbcTemplate jdbcTemplate;
+//
+//    public void setJdbcTemplate(JdbcTemplate jdbcTemplate) {
+//        this.jdbcTemplate = jdbcTemplate;
+    @Inject
+    public PetSLImpl(PetDao petDao, PetTypeDao petTypeDao, PetStatusDao petStatusDao) {
         this.petDao = petDao;
-        this.petStatusDao = petStatusDao;
         this.petTypeDao = petTypeDao;
+        this.petStatusDao = petStatusDao;
     }
 
     @Override
