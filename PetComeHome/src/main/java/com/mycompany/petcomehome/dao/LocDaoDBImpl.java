@@ -28,26 +28,26 @@ public class LocDaoDBImpl implements LocDao {
     }
     
     private static final String SQL_INSERT_LOC
-        = "insert into loc (locName, locDesc, locAddress, locCity, locState, "
+        = "insert into location (locName, locDesc, locAddress, locCity, locState, "
         + "locZip, locInd, locLat, locLong) "
         + "values (?, ?, ?, ?, ?, ?, ?, ?, ?)";
     
     private static final String SQL_EDIT_LOC
-        = "update loc set locName = ?, locDesc = ?, locAddress = ?, "
+        = "update location set locName = ?, locDesc = ?, locAddress = ?, "
         + "locCity = ?, locState = ?, locZip = ?, locInd = ?, "
         + "locLat = ?, locLong = ? where locId = ?";
     
     private static final String SQL_DELETE_LOC
-        = "delete from loc where locId = ?";
+        = "delete from location where locId = ?";
     
     private static final String SQL_RETRIEVE_ONE_LOC
-        = "select * from loc where locId = ?";
+        = "select * from location where locId = ?";
     
     private static final String SQL_RETRIEVE_ALL_LOCS
-        = "select * from loc";
+        = "select * from location";
         
     private static final String SQL_RETRIEVE_LOC_BY_PETS
-        = "select * from loc ";   //NEED JOIN STATEMENT
+        = "select * from location ";   //NEED JOIN STATEMENT
     
     @Override
     @Transactional(propagation = Propagation.REQUIRED, readOnly = false)
