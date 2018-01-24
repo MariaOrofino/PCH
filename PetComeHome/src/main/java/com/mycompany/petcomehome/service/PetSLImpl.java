@@ -5,10 +5,13 @@
  */
 package com.mycompany.petcomehome.service;
 
+import com.mycompany.petcomehome.dao.LocDao;
 import com.mycompany.petcomehome.dao.PetDao;
 import com.mycompany.petcomehome.dao.PetStatusDao;
 import com.mycompany.petcomehome.dao.PetTypeDao;
+import com.mycompany.petcomehome.dao.UserDao;
 import com.mycompany.petcomehome.model.Pet;
+import com.mycompany.petcomehome.model.User;
 import java.util.List;
 import javax.inject.Inject;
 
@@ -21,6 +24,8 @@ public class PetSLImpl implements PetSL {
     PetDao petDao;
     PetTypeDao petTypeDao;
     PetStatusDao petStatusDao;
+    LocDao locDao;
+    UserDao userDao;
 //
 
 //    private JdbcTemplate jdbcTemplate;
@@ -28,30 +33,33 @@ public class PetSLImpl implements PetSL {
 //    public void setJdbcTemplate(JdbcTemplate jdbcTemplate) {
 //        this.jdbcTemplate = jdbcTemplate;
     @Inject
-    public PetSLImpl(PetDao petDao, PetTypeDao petTypeDao, PetStatusDao petStatusDao) {
+    public PetSLImpl(PetDao petDao, PetTypeDao petTypeDao, PetStatusDao petStatusDao, UserDao userDao, LocDao locDao) {
         this.petDao = petDao;
         this.petTypeDao = petTypeDao;
         this.petStatusDao = petStatusDao;
+        this.userDao = userDao;
+        this.locDao = locDao;
+
     }
 
     @Override
     public Pet createPet(Pet pet) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return petDao.createPet(pet);
     }
 
     @Override
-    public Pet updatePet(Pet pet) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public void updatePet(Pet pet) {
+        petDao.updatePet(pet);
     }
 
     @Override
-    public Pet deletePet(Pet pet) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public void deletePet(int petId) {
+        petDao.deletePetById(petId);
     }
 
     @Override
     public Pet getPetByPetId(int petId) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return petDao.getPetByPetId(petId);
     }
 
     @Override

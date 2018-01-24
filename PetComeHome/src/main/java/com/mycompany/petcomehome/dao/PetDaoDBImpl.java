@@ -39,14 +39,14 @@ public class PetDaoDBImpl implements PetDao {
     private static final String SQL_DELETE_PET
             = "delete from pet where petId = ?";
 
-    private static final String SQL_DELETE_USER_HAS_PET
-            = "delete from pet where petId = ?";
+    private static final String SQL_DELETE_PET_HAS_USER
+            = "delete from pet_has_user where pet_petId = ?";
 
     private static final String SQL_DELETE_PET_HAS_LOCATION
-            = "delete from pet where petId = ?";
+            = "delete from pet_has_location where pet_petId = ?";
 
-    private static final String SQL_INSERT_USER_HAS_PET
-            = "insert into user_has_Pet (User_userId, Pet_petId) "
+    private static final String SQL_INSERT_PET_HAS_USER
+            = "insert into Pet_has_User (Pet_petId, User_userId) "
             + "values (?, ?)";
 
     private static final String SQL_INSERT_PET_HAS_LOCATION
@@ -82,7 +82,7 @@ public class PetDaoDBImpl implements PetDao {
                 Integer.class);
 
         pet.setPetId(petId);
-        insertUserHasPet(pet);
+        insertPetHasUser(pet);
         insertPetHasLocation(pet);
 
         return pet;
@@ -110,17 +110,18 @@ public class PetDaoDBImpl implements PetDao {
                 pet.getPetStatus().getPetStatusId(),
                 pet.getPetId());
 
-        jdbcTemplate.update(SQL_DELETE_USER_HAS_PET, pet.getPetId());
+        jdbcTemplate.update(SQL_DELETE_PET_HAS_USER, pet.getPetId());
         jdbcTemplate.update(SQL_DELETE_PET_HAS_LOCATION, pet.getPetId());
-        insertUserHasPet(pet);
+        insertPetHasUser(pet);
         insertPetHasLocation(pet);
         return pet;
 
     }
 
     @Override
+    @Transactional(propagation = Propagation.REQUIRED, readOnly = false)
     public void deletePetById(int petId) {
-        jdbcTemplate.update(SQL_DELETE_USER_HAS_PET, petId);
+        jdbcTemplate.update(SQL_DELETE_PET_HAS_USER, petId);
         jdbcTemplate.update(SQL_DELETE_PET_HAS_LOCATION, petId);
 
         jdbcTemplate.update(SQL_DELETE_PET, petId);
@@ -145,10 +146,10 @@ public class PetDaoDBImpl implements PetDao {
 
     }
 
-    private void insertUserHasPet(Pet pet) {
+    private void insertPetHasUser(Pet pet) {
         final List<User> userList = pet.getUser();
         for (User currentUser : userList) {
-            jdbcTemplate.update(SQL_INSERT_USER_HAS_PET, pet.getPetId(), currentUser.getUserId());
+            jdbcTemplate.update(SQL_INSERT_PET_HAS_USER, pet.getPetId(), currentUser.getUserId());
 
         }
     }

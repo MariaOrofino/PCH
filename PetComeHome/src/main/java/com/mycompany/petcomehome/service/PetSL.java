@@ -14,11 +14,11 @@ import java.util.List;
  */
 public interface PetSL {
 
-    public Pet createPet(Pet pet);
+    public Pet createPet(Pet petId);
 
-    public Pet updatePet(Pet pet);
+    public void updatePet(Pet pet);
 
-    public Pet deletePet(Pet pet);
+    public void deletePet(int petId);
 
     public Pet getPetByPetId(int petId);
 
