@@ -18,7 +18,7 @@ public class DaoTestHelper {
     PetTypeDao petTypeDao;
     UserDao userDao;
 
-    private static final Loc createLoc(int num){
+    public static final Loc createLoc(int num) {
         Loc loc = new Loc();
         loc.setLocId(num);
         loc.setLocName("Elysian Fields" + num);
@@ -33,7 +33,8 @@ public class DaoTestHelper {
         return loc;
     }
 
-    private static final Pet createPet(int num){
+    public static final Pet createPet(int num) {
+
         Pet pet = new Pet();
         pet.setPetId(num);
         pet.setPetName("Ellington" + num);
@@ -44,11 +45,11 @@ public class DaoTestHelper {
         pet.setPetSize("Medium Small");
         pet.setPetColor("Black");
         pet.setPetImgURL("000001.jpg");
-        pet.setPetCreateDate(LocalDate.parse("01-02-2018"));
-        pet.setPetModifiedDate(LocalDate.parse("01-08-2018"));
-        pet.setPetLostDate(LocalDate.parse("01-01-2018"));
-        pet.setPetFoundDate(LocalDate.parse("01-15-2018"));
-        pet.setPetSightedDate(LocalDate.parse("01-12-2018"));
+        pet.setPetCreateDate(LocalDate.parse("2018-01-02"));
+        pet.setPetModifiedDate(LocalDate.parse("2018-01-08"));
+        pet.setPetLostDate(LocalDate.parse("2018-01-01"));
+        pet.setPetFoundDate(LocalDate.parse("2018-01-15"));
+        pet.setPetSightedDate(LocalDate.parse("2018-01-12"));
         List<User> userList = new ArrayList<>();
         List<Loc> locList = new ArrayList<>();
         for (int i = 0; i < 5; i++) {
@@ -62,22 +63,22 @@ public class DaoTestHelper {
         return pet;
     }
 
-    private static final PetStatus createPetStatus (int num){
+    public static final PetStatus createPetStatus(int num) {
         PetStatus petStatus = new PetStatus();
         petStatus.setPetStatusId(num);
-        petStatus.setPetStatus("petStatus");
+        petStatus.setPetStatus("LOST");
         return petStatus;
     }
 
-    private static final PetType createPetType (int num) {
+    public static final PetType createPetType(int num) {
         PetType petType = new PetType();
         petType.setPetTypeId(num);
-        petType.setPetSpec("Cat");
+        petType.setPetSpec("Dog");
         petType.setOther("N/A");
         return petType;
     }
 
-    private static final User createUser (int num){
+    public static final User createUser(int num) {
         User user = new User();
         user.setUserId(num);
         user.setUserLogin("catLover123");

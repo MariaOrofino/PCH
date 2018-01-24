@@ -5,6 +5,9 @@
  */
 package com.mycompany.petcomehome.service;
 
+import com.mycompany.petcomehome.dao.PetDao;
+import com.mycompany.petcomehome.dao.PetStatusDao;
+import com.mycompany.petcomehome.dao.PetTypeDao;
 import com.mycompany.petcomehome.model.Pet;
 import java.util.List;
 
@@ -13,6 +16,16 @@ import java.util.List;
  * @author n0263892
  */
 public class PetSLImpl implements PetSL {
+
+    private final PetDao petDao;
+    private final PetStatusDao petStatusDao;
+    private final PetTypeDao petTypeDao;
+
+    public PetSLImpl(PetDao petDao, PetStatusDao petStatusDao, PetTypeDao petTypeDao) {
+        this.petDao = petDao;
+        this.petStatusDao = petStatusDao;
+        this.petTypeDao = petTypeDao;
+    }
 
     @Override
     public Pet createPet(Pet pet) {
