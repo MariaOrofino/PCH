@@ -5,7 +5,6 @@ import com.mycompany.petcomehome.dao.*;
 import com.mycompany.petcomehome.model.User;
 
 import javax.inject.Inject;
-import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -66,19 +65,6 @@ public class UserSLImpl implements UserSL {
 
     @Override
     public List<User> retrieveUsersByPet(int petId) {
-        List<User> usersByPet = new ArrayList<>();
-        return usersByPet;
-    }
-
-    @Override
-    public List<User> retrieveUsersByLoc(int locId) {
-        List<User> usersByLoc = new ArrayList<>();
-        return usersByLoc;
-    }
-
-    @Override
-    public List<User> retrieveUsersByPetStatus(int petStatusId) {
-        List<User> usersByPetStatus = new ArrayList<>();
-        return usersByPetStatus;
+        return userDao.retrieveUsersByPet(petId);
     }
 }

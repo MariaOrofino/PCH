@@ -6,9 +6,11 @@
 package com.mycompany.petcomehome.dao;
 
 import com.mycompany.petcomehome.model.User;
+
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.List;
+
 import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
@@ -16,7 +18,6 @@ import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
 /**
- *
  * @author n0147313
  */
 public class UserDaoDBImpl implements UserDao {
@@ -57,7 +58,6 @@ public class UserDaoDBImpl implements UserDao {
             = "select * from user join user_has_pet p on userId = p.User_userId "
             + "where p.Pet_petId = ?";
 
-    
     private static final String SQL_DELETE_PET_HAS_USER
             = "delete from pet_has_user where user_userid = ?";
 
@@ -94,7 +94,7 @@ public class UserDaoDBImpl implements UserDao {
 
     }
 
-
+    @Override
     public List<User> retrieveUsersByPet(int petId) {
         try {
             return jdbcTemplate.query(SQL_RETRIEVE_USERS_BY_PET,
@@ -104,8 +104,6 @@ public class UserDaoDBImpl implements UserDao {
             return null;
         }
     }
-
-
 
     @Override
     public List<User> retrieveAllUsers() {

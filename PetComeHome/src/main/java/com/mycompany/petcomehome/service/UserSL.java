@@ -26,7 +26,4 @@ public interface UserSL {
 
     List<User> retrieveUsersByPet(int petId);
 
-    List<User> retrieveUsersByLoc(int locId);
-
-    List<User> retrieveUsersByPetStatus(int petStatusId);
 }
