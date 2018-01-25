@@ -44,7 +44,7 @@ public class LocDaoDBImpl implements LocDao {
             = "select * from location where locId = ?";
 
     private static final String SQL_RETRIEVE_ALL_LOCS
-        = "select * from location";
+        = "select * from location order by locId";
         
 //    private static final String SQL_RETRIEVE_LOC_BY_PETS
 //        = "select l.locName, l.locDesc, l.locAddress, l.locCity, l.locState, "
@@ -124,11 +124,11 @@ public class LocDaoDBImpl implements LocDao {
             loc.setLocName(rs.getString("locName"));
             loc.setLocDesc(rs.getString("locDesc"));
             loc.setLocCity(rs.getString("locCity"));
-            loc.setLocState("locState");
+            loc.setLocState(rs.getString("locState"));
             loc.setLocZip(rs.getString("locZip"));
             loc.setLocInd(rs.getString("locInd"));
-            loc.setLocLat(rs.getBigDecimal("locLat"));
-            loc.setLocLong(rs.getBigDecimal("locLong"));
+            loc.setLocLat(rs.getDouble("locLat"));
+            loc.setLocLong(rs.getDouble("locLong"));
 
             return loc;
         }

@@ -7,9 +7,13 @@ package com.mycompany.petcomehome.dao;
 
 import com.mycompany.petcomehome.helper.DaoTestHelper;
 import com.mycompany.petcomehome.model.Loc;
+import java.util.ArrayList;
+import java.util.List;
 import javax.inject.Inject;
 import org.junit.After;
 import org.junit.AfterClass;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
@@ -22,10 +26,13 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
  */
 public class LocDaoTest {
 
+    Loc newLoc;
+    Loc addedLoc;
+
     @Inject
     LocDao locDao;
 
-     public LocDaoTest() {
+    public LocDaoTest() {
     }
 
     @BeforeClass
@@ -41,9 +48,16 @@ public class LocDaoTest {
 
         ApplicationContext ctx = new ClassPathXmlApplicationContext("test-applicationContext.xml");
         locDao = ctx.getBean("locDao", LocDao.class);
-
-        Loc newLoc = DaoTestHelper.createLoc(1);
         
+        List<Loc> newLocList = new ArrayList<>();
+        
+        for (Loc currentLoc : newLocList)  {
+            locDao.deleteLoc(currentLoc.getLocId());
+        }
+
+        newLoc = DaoTestHelper.createLoc(1);
+        addedLoc = locDao.createLoc(newLoc);
+
     }
 
     @After
@@ -55,6 +69,11 @@ public class LocDaoTest {
      */
     @Test
     public void testCreateLoc() {
+        assertNotNull(newLoc);
+        Loc fromDao = locDao.retrieveLocByLocId(addedLoc.getLocId());
+        assertNotNull(fromDao);
+        assertEquals(fromDao, addedLoc);
+        
 
     }
 
