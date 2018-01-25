@@ -50,7 +50,7 @@ public class LocDaoDBImpl implements LocDao {
             = "delete from pet_has_location where location_locid = ?";
 
     private static final String SQL_RETRIEVE_PETS_BY_LOC
-            = "select l.locName, l.locDesc, l.locCity, l.locState, "
+            = "select l.locName, l.locDesc,  l.locCity, l.locState, "
             + "l.locZip, l.locInd, l.locLat, l.locLong "
             + "from location l "
             + "join pet_has_location phl "

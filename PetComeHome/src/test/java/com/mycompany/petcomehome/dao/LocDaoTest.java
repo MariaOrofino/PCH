@@ -56,7 +56,6 @@ public class LocDaoTest {
 
         newLoc = DaoTestHelper.createLoc(1);
         addedLoc = locDao.createLoc(newLoc);
-
     }
 
     @After
@@ -118,7 +117,7 @@ public class LocDaoTest {
      * Test of retrieveLocByPets method, of class LocDao.
      */
     @Test
-    public void testRetrieveLocByPets() {
+    public void testRetrievePetsByLoc() {
         List<Loc> locListByPets = locDao.retrievePetsByLoc(newLoc.getLocId());
         assertNotNull(locListByPets);
         for (Loc currentLoc : locListByPets) {
