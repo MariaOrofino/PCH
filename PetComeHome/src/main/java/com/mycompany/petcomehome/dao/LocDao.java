@@ -24,5 +24,6 @@ public interface LocDao {
     
     public List<Loc> retrieveAllLocs();
         
-//    public List<Loc> retrieveLocByPets();
+    public List<Loc> retrievePetsByLoc(int locId);
+
 }
