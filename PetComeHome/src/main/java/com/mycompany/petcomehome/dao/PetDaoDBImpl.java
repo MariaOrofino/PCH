@@ -59,6 +59,46 @@ public class PetDaoDBImpl implements PetDao {
     private static final String SQL_SELECT_ALL_PETS
             = "select * from pet ";
 
+    private static final String SQL_SELECT_PETS_BY_USER_ID
+            = "select p.petName, p.petChipTag, p.petRabiesTag, p.petDesc, p.petBreed, p.petSize, p.petColor, p.petImgUrl, p.petType_petTypeId, p.petCreateDate, p.petModifiedDate, p.petLostDate, p.petFoundDate, p.petSightedDate, p.petStatus_petStatusId "
+            + "from pet p join pet_has_user pu on p.petId = pu.userId "
+            + "join user u on pu.userId = u.userLogin "
+            + "where u.userId = ?";
+
+    private static final String SQL_SELECT_PETS_BY_LOC_ID
+            = "select p.petName, p.petChipTag, p.petRabiesTag, p.petDesc, p.petBreed, p.petSize, p.petColor, p.petImgUrl, p.petType_petTypeId, p.petCreateDate, p.petModifiedDate, p.petLostDate, p.petFoundDate, p.petSightedDate, p.petStatus_petStatusId "
+            + "from pet p join pet_has_location pl on p.petId = pl.locId "
+            + "join loc l on pl.locId = l.locName, l.locAddress1, l.locCity, l.locState, l.locZip "
+            + "where l.locId = ?";
+
+    private static final String SQL_SELECT_PETS_BY_TYPE
+            = "select * from petType "
+            + "where  petTypeId = ?";
+
+    private static final String SQL_SELECT_PET_BY_COLOR
+            = "select * from pet "
+            + "where petColor = ?";
+
+    private static final String SQL_SELECT_PET_BY_SIZE
+            = "select * from pet "
+            + "where petSize = ?";
+
+    private static final String SQL_SELECT_PET_BY_BREED
+            = "select * from pet "
+            + "where petBreed = ?";
+
+    private static final String SQL_SELECT_PET_BY_CHIPTAG
+            = "select * from pet "
+            + "where petChipTag = ?";
+
+    private static final String SQL_SELECT_PET_BY_RABIESTAG
+            = "select * from pet "
+            + "where petRabiesTag = ?";
+
+    private static final String SQL_SELECT_PET_BY_PETNAME
+            = "select * from pet "
+            + "where petName = ?";
+
     @Override
     @Transactional(propagation = Propagation.REQUIRED, readOnly = false)
     public Pet createPet(Pet pet) {
@@ -148,47 +188,68 @@ public class PetDaoDBImpl implements PetDao {
 
     @Override
     public List<Pet> getPetsByUserId(int userId) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        try {
+            return jdbcTemplate.query(SQL_SELECT_PETS_BY_USER_ID,
+                    new petMapper(),
+                    userId);
+        } catch (Exception e) {
+            return null;
+        }
     }
 
     @Override
     public List<Pet> getPetsByLocId(int locId) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        try {
+            return jdbcTemplate.query(SQL_SELECT_PETS_BY_LOC_ID,
+                    new petMapper(),
+                    locId);
+        } catch (Exception e) {
+            return null;
+        }
     }
 
     @Override
     public List<Pet> getPetsByTypeId(int typeId) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return jdbcTemplate.query(SQL_SELECT_PETS_BY_TYPE,
+                new petMapper(),
+                typeId);
     }
 
     @Override
-    public <List> Pet getPetByColor(String color) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public List<Pet> getPetByColor(String color) {
+        return jdbcTemplate.query(SQL_SELECT_PET_BY_COLOR,
+                new petMapper(), color);
+
     }
 
     @Override
-    public <List> Pet getPetBySize(String size) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public List<Pet> getPetBySize(String size) {
+        return jdbcTemplate.query(SQL_SELECT_PET_BY_SIZE,
+                new petMapper(), size);
     }
 
     @Override
-    public <List> Pet getPetByBreed(String breed) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public List<Pet> getPetByBreed(String breed) {
+        return jdbcTemplate.query(SQL_SELECT_PET_BY_BREED,
+                new petMapper(), breed);
     }
 
     @Override
-    public <List> Pet getPetByChipTag(String chipTag) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public List<Pet> getPetByChipTag(String chipTag) {
+        return jdbcTemplate.query(SQL_SELECT_PET_BY_CHIPTAG,
+                new petMapper(), chipTag);
     }
 
     @Override
-    public <List> Pet getPetByRabiesTag(String rabiesTag) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public List<Pet> getPetByRabiesTag(String rabiesTag) {
+        return jdbcTemplate.query(SQL_SELECT_PET_BY_RABIESTAG,
+                new petMapper(), rabiesTag);
     }
 
     @Override
-    public <List> Pet getPetByName(String name) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public List<Pet> getPetByName(String name) {
+        return jdbcTemplate.query(SQL_SELECT_PET_BY_PETNAME,
+                new petMapper(), name);
     }
 
     private void insertPetHasUser(Pet pet) {

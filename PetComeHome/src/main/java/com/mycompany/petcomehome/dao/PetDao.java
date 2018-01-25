@@ -31,16 +31,16 @@ public interface PetDao {
 
     public List<Pet> getPetsByTypeId(int typeId);
 
-    public <List> Pet getPetByColor(String color);
+    public List<Pet> getPetByColor(String color);
 
-    public <List> Pet getPetBySize(String size);
+    public List<Pet> getPetBySize(String size);
 
-    public <List> Pet getPetByBreed(String breed);
+    public List<Pet> getPetByBreed(String breed);
 
-    public <List> Pet getPetByChipTag(String chipTag);
+    public List<Pet> getPetByChipTag(String chipTag);
 
-    public <List> Pet getPetByRabiesTag(String rabiesTag);
+    public List<Pet> getPetByRabiesTag(String rabiesTag);
 
-    public <List> Pet getPetByName(String name);
+    public List<Pet> getPetByName(String name);
 
 }
