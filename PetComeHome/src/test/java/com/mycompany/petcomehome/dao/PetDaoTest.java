@@ -163,15 +163,16 @@ public class PetDaoTest {
         }
     }
 
-//    @Test
-//    public void getPetsByLocId() {
-//        for (Loc currentLoc : locList) {
-//            List<Pet> pets = petDao.getPetsByLocId(currentLoc.getLocId());
-//            for (Pet currentPet : pets) {
-//                assertEquals(newPet.getPetId(), currentPet.getPetId());
-//            }
-//        }
-//    }
+    @Test
+    public void getPetsByLocId() {
+        for (Loc currentLoc : locList) {
+            List<Pet> pets = petDao.getPetsByLocId(currentLoc.getLocId());
+            for (Pet currentPet : pets) {
+                assertEquals(newPet.getPetId(), currentPet.getPetId());
+            }
+        }
+    }
+
     @Test
     public void getPetsByTypeId() {
         List<Pet> petTypeList = petDao.getPetsByTypeId(newPet.getPetType().getPetTypeId());

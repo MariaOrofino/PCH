@@ -60,22 +60,27 @@ public class PetDaoDBImpl implements PetDao {
             = "select * from pet ";
 
     private static final String SQL_SELECT_PETS_BY_USER_ID
-            = "select p.petName, p.petChipTag, p.petRabiesTag, p.petDesc, p.petBreed, p.petSize, p.petColor, p.petImgUrl, p.petType_petTypeId, p.petCreateDate, p.petModifiedDate, p.petLostDate, p.petFoundDate, p.petSightedDate, p.petStatus_petStatusId "
+            = "select p.petId, p.petName, p.petChipTag, p.petRabiesTag, p.petDesc, p.petBreed, p.petSize, "
+            + "p.petColor, p.petImgUrl, p.petCreateDate, p.petModifiedDate, "
+            + "p.petLostDate, p.petFoundDate, p.petSightedDate"
             + "from pet p join pet_has_user pu on p.petId = pu.userId "
             + "join user u on pu.userId = u.userLogin "
             + "where u.userId = ?";
 
     private static final String SQL_SELECT_PETS_BY_LOC_ID
-            = "select p.petName, p.petChipTag, p.petRabiesTag, p.petDesc, p.petBreed, p.petSize, p.petColor, p.petImgUrl, p.petType_petTypeId, p.petCreateDate, p.petModifiedDate, p.petLostDate, p.petFoundDate, p.petSightedDate, p.petStatus_petStatusId "
-            + "from pet p join pet_has_location pl on p.petId = pl.locId "
-            + "join loc l on pl.locId = l.locName, l.locAddress1, l.locCity, l.locState, l.locZip "
+            = "select p.petId, p.petName, p.petChipTag, p.petRabiesTag, p.petDesc, p.petBreed, p.petSize, p.petColor, p.petImgUrl, "
+            + "p.petCreateDate, p.petModifiedDate, p.petLostDate, p.petFoundDate, p.petSightedDate"
+            + "from pet p join pet_has_location pl on p.petId = pl.pet_petId "
+            + "join loc l on pl.locId = pl.location_locId "
             + "where l.locId = ?";
 
     private static final String SQL_SELECT_PETS_BY_TYPE
-            = "select p.petName, p.petChipTag, p.petRabiesTag, p.petDesc, p.petBreed, p.petSize, p.petColor, p.petImgUrl, p.petType_petTypeId, p.petCreateDate, p.petModifiedDate, p.petLostDate, p.petFoundDate, p.petSightedDate, p.petStatus_petStatusId "
-            + "from pet p "
-            + "join petType pt on pt.petTypeId = p.PetType_petTypeId "
-            + "where pt.petTypeId = ?";
+            = "select p.petId, p.petName, p.petChipTag, p.petRabiesTag, p.petDesc, p.petBreed, p.petSize, p.petColor,"
+            + " p.petImgUrl, p.petCreateDate, p.petModifiedDate, p.petLostDate,"
+            + " p.petFoundDate, p.petSightedDate"
+            + " from pet p"
+            + " join petType pt on pt.petTypeId = p.PetType_petTypeId"
+            + " where pt.petTypeId = ?";
 
     private static final String SQL_SELECT_PET_BY_COLOR
             = "select * from pet "
