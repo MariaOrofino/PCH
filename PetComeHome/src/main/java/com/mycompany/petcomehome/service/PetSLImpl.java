@@ -63,8 +63,9 @@ public class PetSLImpl implements PetSL {
     }
 
     @Override
-    public Pet getPetbyuserId(int userId) {
+    public List<Pet> getPetbyuserId(int userId) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+
     }
 
     @Override

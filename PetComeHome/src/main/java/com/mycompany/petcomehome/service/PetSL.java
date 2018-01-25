@@ -22,7 +22,7 @@ public interface PetSL {
 
     public Pet getPetByPetId(int petId);
 
-    public Pet getPetbyuserId(int userId);
+    public List<Pet> getPetbyuserId(int userId);
 
     public Pet getPetByLocId(int locId);
 
