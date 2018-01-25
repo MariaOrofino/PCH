@@ -44,13 +44,20 @@ public class LocDaoDBImpl implements LocDao {
             = "select * from location where locId = ?";
 
     private static final String SQL_RETRIEVE_ALL_LOCS
-        = "select * from location order by locId";
-        
-//    private static final String SQL_RETRIEVE_LOC_BY_PETS
-//        = "select l.locName, l.locDesc, l.locAddress, l.locCity, l.locState, "
-//        + "l.locZip, l.locInd, l.locLat, l.locLong from location l "
-//            + "join pet_has_location phl";   
-    
+            = "select * from location order by locId";
+
+    private static final String SQL_DELETE_PET_HAS_LOC
+            = "delete from pet_has_location where location_locid = ?";
+
+    private static final String SQL_RETRIEVE_PETS_BY_LOC
+            = "select l.locName, l.locDesc, l.locCity, l.locState, "
+            + "l.locZip, l.locInd, l.locLat, l.locLong "
+            + "from location l "
+            + "join pet_has_location phl "
+            + "on l.locid = phl.location_locid "
+            + "where l.locid = ? "
+            + "order by l.locid";
+
     @Override
     @Transactional(propagation = Propagation.REQUIRED, readOnly = false)
     public Loc createLoc(Loc loc) {
@@ -87,7 +94,9 @@ public class LocDaoDBImpl implements LocDao {
     }
 
     @Override
+    @Transactional(propagation = Propagation.REQUIRED, readOnly = false)
     public void deleteLoc(int locId) {
+        jdbcTemplate.update(SQL_DELETE_PET_HAS_LOC, locId);
         jdbcTemplate.update(SQL_DELETE_LOC, locId);
     }
 
@@ -108,12 +117,12 @@ public class LocDaoDBImpl implements LocDao {
         return locList;
     }
 
-//    @Override
-//    public List<Loc> retrieveLocByPets() {
-//        List<Loc> petLocList = jdbcTemplate.query(SQL_RETRIEVE_LOC_BY_PETS,
-//                new LocMapper());
-//        return petLocList;
-//    }
+    @Override
+    public List<Loc> retrievePetsByLoc(int locId) {
+        List<Loc> petLocList = jdbcTemplate.query(SQL_RETRIEVE_PETS_BY_LOC,
+                new LocMapper(), locId);
+        return petLocList;
+    }
 
     private static final class LocMapper implements RowMapper<Loc> {
 
