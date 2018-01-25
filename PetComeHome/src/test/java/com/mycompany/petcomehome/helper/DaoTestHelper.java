@@ -27,8 +27,8 @@ public class DaoTestHelper {
         loc.setLocState("NH");
         loc.setLocZip("03820");
         loc.setLocInd("L");
-        loc.setLocLat(new BigDecimal("42.7509976"));
-        loc.setLocLong(new BigDecimal("-71.4833652"));
+        loc.setLocLat(new Double("42.7509976"));
+        loc.setLocLong(new Double("-71.4833652"));
         return loc;
     }
 

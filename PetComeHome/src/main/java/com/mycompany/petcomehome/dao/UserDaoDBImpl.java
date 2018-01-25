@@ -19,7 +19,6 @@ import org.springframework.transaction.annotation.Transactional;
  *
  * @author n0147313
  */
-
 public class UserDaoDBImpl implements UserDao {
 
     private JdbcTemplate jdbcTemplate;
@@ -38,16 +37,16 @@ public class UserDaoDBImpl implements UserDao {
 
     private static final String SQL_RETRIEVE_ALL_USERS
             = "select * from user";
-    
+
     private static final String SQL_EDIT_USER
             = "update user set userLogin = ?, userPassword = ?, userFirstName = ?, "
             + "userLastName = ?, userCity = ?, userState = ?, "
             + "userZip = ?, userMobile = ?, userAltPhone = ?, userEmail = ?, userAltEmail = ? "
             + "where userId = ?";
-    
+
     private static final String SQL_DELETE_USER
             = "delete from user where userId = ?";
-    
+
     private static final String SQL_RETRIEVE_USERS_BY_CITYSTATE
             = " select * from user where usercity = ? and userstate = ?";
 
@@ -59,6 +58,9 @@ public class UserDaoDBImpl implements UserDao {
             + "where p.Pet_petId = ?";
 
     
+    private static final String SQL_DELETE_PET_HAS_USER
+            = "delete from pet_has_user where user_userid = ?";
+
     @Override
     @Transactional(propagation = Propagation.REQUIRED, readOnly = false)
     public User createUser(User user) {
@@ -128,26 +130,27 @@ public class UserDaoDBImpl implements UserDao {
                 user.getUserAltPhone(),
                 user.getUserEmail(),
                 user.getUserAltEmail());
-                
+
         return user;
-        
+
     }
 
     @Override
     public void deleteUser(int userId) {
+        jdbcTemplate.update(SQL_DELETE_PET_HAS_USER, userId);
         jdbcTemplate.update(SQL_DELETE_USER, userId);
     }
 
     @Override
     public List<User> retrieveUsersByCityState(String city, String state) {
-        List<User> userList = jdbcTemplate.query(SQL_RETRIEVE_USERS_BY_CITYSTATE, 
+        List<User> userList = jdbcTemplate.query(SQL_RETRIEVE_USERS_BY_CITYSTATE,
                 new UserDaoDBImpl.UserMapper(), city, state);
         return userList;
     }
 
     @Override
     public List<User> retrieveUsersByZip(String zip) {
-                List<User> userList = jdbcTemplate.query(SQL_RETRIEVE_USERS_BY_ZIP, 
+        List<User> userList = jdbcTemplate.query(SQL_RETRIEVE_USERS_BY_ZIP,
                 new UserDaoDBImpl.UserMapper(), zip);
         return userList;
     }

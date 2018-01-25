@@ -83,8 +83,8 @@ DROP TABLE IF EXISTS PCH_test.Location ;
 
 CREATE TABLE IF NOT EXISTS PCH_test.Location (
   locId INT NOT NULL AUTO_INCREMENT,
-  locLat DECIMAL(9,6) NULL,
-  locLong DECIMAL(9,6) NULL,
+  locLat DECIMAL(10,7) NULL,
+  locLong DECIMAL(10,7) NULL,
   locName VARCHAR(45) NULL,
   locDesc VARCHAR(280) NOT NULL,
   locState CHAR(2) NOT NULL,
