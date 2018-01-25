@@ -27,7 +27,7 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 public class UserDaoTest {
 
     User newUser = new User();
-    List<User> userList = new ArrayList<>();
+    List<User> userList;
 
     @Inject
     UserDao userDao;
@@ -70,7 +70,7 @@ public class UserDaoTest {
 
         userDao.createUser(newUser);
 
-        userList = userDao.retrieveAllUsers();
+//        List<User> userList = userDao.retrieveAllUsers();
 
     }
 
@@ -84,8 +84,8 @@ public class UserDaoTest {
     @Test
     public void testCreateUser() {
         User fromDao = userDao.retrieveUserById(newUser.getUserId());
-        assertNotNull(newUser);
-        assertEquals("NH", newUser.getUserState());
+        assertNotNull(fromDao);
+        assertEquals("NH", fromDao.getUserState());
         assertEquals(fromDao, newUser);
 
     }
@@ -105,7 +105,7 @@ public class UserDaoTest {
     @Test
     public void testRetrieveAllUsers() {
         List<User> fromDao = userDao.retrieveAllUsers();
-        assertEquals(userList, fromDao);
+//        assertEquals(userList, fromDao);
         assertNotNull(fromDao);
     }
 

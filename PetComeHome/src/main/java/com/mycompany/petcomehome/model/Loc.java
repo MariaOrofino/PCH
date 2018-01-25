@@ -21,8 +21,8 @@ public class Loc {
     private String locState;
     private String locZip;
     private String locInd;
-    private BigDecimal locLat;
-    private BigDecimal locLong;
+    private Double locLat;
+    private Double locLong;
 
     public int getLocId() {
         return locId;
@@ -80,34 +80,34 @@ public class Loc {
         this.locInd = locInd;
     }
 
-    public BigDecimal getLocLat() {
+    public Double getLocLat() {
         return locLat;
     }
 
-    public void setLocLat(BigDecimal locLat) {
+    public void setLocLat(Double locLat) {
         this.locLat = locLat;
     }
 
-    public BigDecimal getLocLong() {
+    public Double getLocLong() {
         return locLong;
     }
 
-    public void setLocLong(BigDecimal locLong) {
+    public void setLocLong(Double locLong) {
         this.locLong = locLong;
     }
 
     @Override
     public int hashCode() {
         int hash = 3;
-        hash = 37 * hash + this.locId;
-        hash = 37 * hash + Objects.hashCode(this.locName);
-        hash = 37 * hash + Objects.hashCode(this.locDesc);
-        hash = 37 * hash + Objects.hashCode(this.locCity);
-        hash = 37 * hash + Objects.hashCode(this.locState);
-        hash = 37 * hash + Objects.hashCode(this.locZip);
-        hash = 37 * hash + Objects.hashCode(this.locInd);
-        hash = 37 * hash + Objects.hashCode(this.locLat);
-        hash = 37 * hash + Objects.hashCode(this.locLong);
+        hash = 13 * hash + this.locId;
+        hash = 13 * hash + Objects.hashCode(this.locName);
+        hash = 13 * hash + Objects.hashCode(this.locDesc);
+        hash = 13 * hash + Objects.hashCode(this.locCity);
+        hash = 13 * hash + Objects.hashCode(this.locState);
+        hash = 13 * hash + Objects.hashCode(this.locZip);
+        hash = 13 * hash + Objects.hashCode(this.locInd);
+        hash = 13 * hash + Objects.hashCode(this.locLat);
+        hash = 13 * hash + Objects.hashCode(this.locLong);
         return hash;
     }
 
@@ -152,5 +152,8 @@ public class Loc {
         }
         return true;
     }
+
+ 
+    
 
 }
