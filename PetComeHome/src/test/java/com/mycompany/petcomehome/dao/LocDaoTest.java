@@ -5,34 +5,47 @@
  */
 package com.mycompany.petcomehome.dao;
 
+import com.mycompany.petcomehome.helper.DaoTestHelper;
+import com.mycompany.petcomehome.model.Loc;
+import javax.inject.Inject;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
-
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 /**
  *
  * @author n0135705
  */
 public class LocDaoTest {
-    
-    public LocDaoTest() {
+
+    @Inject
+    LocDao locDao;
+
+     public LocDaoTest() {
     }
-    
+
     @BeforeClass
     public static void setUpClass() {
     }
-    
+
     @AfterClass
     public static void tearDownClass() {
     }
-    
+
     @Before
     public void setUp() {
+
+        ApplicationContext ctx = new ClassPathXmlApplicationContext("test-applicationContext.xml");
+        locDao = ctx.getBean("locDao", LocDao.class);
+
+        Loc newLoc = DaoTestHelper.createLoc(1);
+        
     }
-    
+
     @After
     public void tearDown() {
     }
@@ -85,6 +98,4 @@ public class LocDaoTest {
 
     }
 
- 
-    
 }
