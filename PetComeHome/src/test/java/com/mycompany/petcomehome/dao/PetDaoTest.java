@@ -10,6 +10,7 @@ import com.mycompany.petcomehome.helper.DaoTestHelper;
 import com.mycompany.petcomehome.model.Loc;
 import com.mycompany.petcomehome.model.Pet;
 import com.mycompany.petcomehome.model.User;
+import java.util.ArrayList;
 import java.util.List;
 import javax.inject.Inject;
 import org.junit.After;
@@ -150,6 +151,63 @@ public class PetDaoTest {
         newPet.setUser(null);
         List<Pet> fromDao = petDao.getAllpets();
         assertEquals(petList.size(), fromDao.size());
+    }
+
+    @Test
+    public void getPetsByUserId() {
+        for (User currentUser : userList) {
+            List<Pet> pets = petDao.getPetsByUserId(currentUser.getUserId());
+            for (Pet currentPet : pets) {
+                assertEquals(newPet.getPetId(), currentPet.getPetId());
+            }
+        }
+    }
+
+//    @Test
+//    public void getPetsByLocId() {
+//        for (Loc currentLoc : locList) {
+//            List<Pet> pets = petDao.getPetsByLocId(currentLoc.getLocId());
+//            for (Pet currentPet : pets) {
+//                assertEquals(newPet.getPetId(), currentPet.getPetId());
+//            }
+//        }
+//    }
+    @Test
+    public void getPetsByTypeId() {
+        List<Pet> petTypeList = petDao.getPetsByTypeId(newPet.getPetType().getPetTypeId());
+        for (Pet currentPet : petTypeList) {
+            assertEquals(newPet.getPetType(), currentPet.getPetType());
+        }
+    }
+
+    @Test
+    public void getPetByColor() {
+
+    }
+
+    @Test
+    public void getPetBySize() {
+
+    }
+
+    @Test
+    public void getPetByBreed() {
+
+    }
+
+    @Test
+    public void getPetByChipTag() {
+
+    }
+
+    @Test
+    public void getPetByRabiesTag() {
+
+    }
+
+    @Test
+    public void getPetByName() {
+
     }
 
 }

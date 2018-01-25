@@ -72,8 +72,10 @@ public class PetDaoDBImpl implements PetDao {
             + "where l.locId = ?";
 
     private static final String SQL_SELECT_PETS_BY_TYPE
-            = "select * from petType "
-            + "where  petTypeId = ?";
+            = "select p.petName, p.petChipTag, p.petRabiesTag, p.petDesc, p.petBreed, p.petSize, p.petColor, p.petImgUrl, p.petType_petTypeId, p.petCreateDate, p.petModifiedDate, p.petLostDate, p.petFoundDate, p.petSightedDate, p.petStatus_petStatusId "
+            + "from pet p "
+            + "join petType pt on pt.petTypeId = p.PetType_petTypeId "
+            + "where pt.petTypeId = ?";
 
     private static final String SQL_SELECT_PET_BY_COLOR
             = "select * from pet "
@@ -217,9 +219,13 @@ public class PetDaoDBImpl implements PetDao {
 
     @Override
     public List<Pet> getPetByColor(String color) {
-        return jdbcTemplate.query(SQL_SELECT_PET_BY_COLOR,
-                new petMapper(), color);
-
+        try {
+            return jdbcTemplate.query(SQL_SELECT_PET_BY_COLOR,
+                    new petMapper(),
+                    color);
+        } catch (Exception e) {
+            return null;
+        }
     }
 
     @Override
@@ -236,20 +242,35 @@ public class PetDaoDBImpl implements PetDao {
 
     @Override
     public List<Pet> getPetByChipTag(String chipTag) {
-        return jdbcTemplate.query(SQL_SELECT_PET_BY_CHIPTAG,
-                new petMapper(), chipTag);
+        try {
+            return jdbcTemplate.query(SQL_SELECT_PET_BY_CHIPTAG,
+                    new petMapper(),
+                    chipTag);
+        } catch (Exception e) {
+            return null;
+        }
     }
 
     @Override
     public List<Pet> getPetByRabiesTag(String rabiesTag) {
-        return jdbcTemplate.query(SQL_SELECT_PET_BY_RABIESTAG,
-                new petMapper(), rabiesTag);
+        try {
+            return jdbcTemplate.query(SQL_SELECT_PET_BY_RABIESTAG,
+                    new petMapper(),
+                    rabiesTag);
+        } catch (Exception e) {
+            return null;
+        }
     }
 
     @Override
     public List<Pet> getPetByName(String name) {
-        return jdbcTemplate.query(SQL_SELECT_PET_BY_PETNAME,
-                new petMapper(), name);
+        try {
+            return jdbcTemplate.query(SQL_SELECT_PET_BY_PETNAME,
+                    new petMapper(),
+                    name);
+        } catch (Exception e) {
+            return null;
+        }
     }
 
     private void insertPetHasUser(Pet pet) {
