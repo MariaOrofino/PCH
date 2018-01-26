@@ -5,11 +5,32 @@
  */
 package com.mycompany.petcomehome.service;
 
+import com.mycompany.petcomehome.dao.LocDao;
+import com.mycompany.petcomehome.dao.PetDao;
+import com.mycompany.petcomehome.dao.PetStatusDao;
+import com.mycompany.petcomehome.dao.PetTypeDao;
+import com.mycompany.petcomehome.dao.UserDao;
 import com.mycompany.petcomehome.model.Loc;
 import java.util.List;
-
+import javax.inject.Inject;
 
 public class LocSLImpl implements LocSL {
+
+    PetDao petDao;
+    PetTypeDao petTypeDao;
+    PetStatusDao petStatusDao;
+    LocDao locDao;
+    UserDao userDao;
+
+    @Inject
+    public LocSLImpl(PetDao petDao, PetTypeDao petTypeDao, PetStatusDao petStatusDao, UserDao userDao, LocDao locDao) {
+        this.petDao = petDao;
+        this.petTypeDao = petTypeDao;
+        this.petStatusDao = petStatusDao;
+        this.userDao = userDao;
+        this.locDao = locDao;
+
+    }
 
     @Override
     public Loc createLoc(Loc loc) {
