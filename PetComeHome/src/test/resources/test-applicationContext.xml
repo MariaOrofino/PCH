@@ -73,4 +73,12 @@
         <constructor-arg ref = "locDao"/>
     </bean>
 
+    <bean id="userSL" class="com.mycompany.petcomehome.service.UserSLi mpl">
+        <constructor-arg ref = "petDao"/>
+        <constructor-arg ref = "petStatusDao"/>
+        <constructor-arg ref = "petTypeDao"/>
+        <constructor-arg ref = "userDao"/>
+        <constructor-arg ref = "locDao"/>
+    </bean>
+
 </beans>

@@ -41,6 +41,8 @@ public class PetSLImpl implements PetSL {
         this.locDao = locDao;
 
     }
+    @Inject
+    UserSL userSL;
 
     @Override
     public Pet createPet(Pet pet) {
@@ -57,14 +59,20 @@ public class PetSLImpl implements PetSL {
         petDao.deletePetById(petId);
     }
 
+    /////////NOT COMPLETE-----MARIA //////////
     @Override
     public Pet getPetByPetId(int petId) {
-        return petDao.getPetByPetId(petId);
+        Pet pet = petDao.getPetByPetId(petId);
+
+        pet.setUser(userSL.retrieveUsersByPet(petId));
+//        pet.setLoc(locSL.retrieveLocByPet(getPetByLocId(petId)));
+        return null;
     }
 
     @Override
     public List<Pet> getPetbyuserId(int userId) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        List<Pet> petList = petDao.getPetsByUserId(userId);
+        return associateAllObjectsWithPet(petList);
 
     }
 
@@ -76,6 +84,17 @@ public class PetSLImpl implements PetSL {
     @Override
     public List<Pet> getAllPets() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    private List<Pet> associateAllObjectsWithPet(List<Pet> petList) {
+//        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+
+        for (Pet currentPet : petList) {
+            currentPet.setUser(userSL.retrieveUsersByPet(currentPet.getPetId()));
+//            currentPet.setLoc(LocSL.retrieveLocsByPet(currentPet.getPetId()));
+
+        }
+        return petList;
     }
 
 }
