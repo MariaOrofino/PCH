@@ -25,4 +25,5 @@ public interface LocSL {
     public List<Loc> retrieveAllLocs();
 
     public List<Loc> retrievePetsByLoc(int locId);
+
 }
