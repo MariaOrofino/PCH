@@ -32,7 +32,11 @@ public class PetDaoTest {
     User newUser;
     Loc newLoc;
     List<Pet> petList;
+
     List<User> userList;
+    List<User> newUserList = new ArrayList<>();
+    List<Pet> newPetList = new ArrayList<>();
+    List<Loc> newLocList = new ArrayList<>();
     List<Loc> locList;
 
     @Inject
@@ -77,10 +81,12 @@ public class PetDaoTest {
 
         for (User currentUser : newPet.getUser()) {
             userDao.createUser(currentUser);
+            newUserList.add(currentUser);
         }
 
         for (Loc currentLoc : newPet.getLoc()) {
             locDao.createLoc(currentLoc);
+            newLocList.add(currentLoc);
         }
 
         petDao.createPet(newPet);
@@ -155,9 +161,9 @@ public class PetDaoTest {
 
     @Test
     public void getPetsByUserId() {
-        for (User currentUser : userList) {
-            List<Pet> pets = petDao.getPetsByUserId(currentUser.getUserId());
-            for (Pet currentPet : pets) {
+        for (User currentUser : newUserList) {
+            List<Pet> petLists = petDao.getPetsByUserId(currentUser.getUserId());
+            for (Pet currentPet : petLists) {
                 assertEquals(newPet.getPetId(), currentPet.getPetId());
             }
         }
@@ -165,7 +171,7 @@ public class PetDaoTest {
 
     @Test
     public void getPetsByLocId() {
-        for (Loc currentLoc : locList) {
+        for (Loc currentLoc : newLocList) {
             List<Pet> pets = petDao.getPetsByLocId(currentLoc.getLocId());
             for (Pet currentPet : pets) {
                 assertEquals(newPet.getPetId(), currentPet.getPetId());
@@ -175,9 +181,11 @@ public class PetDaoTest {
 
     @Test
     public void getPetsByTypeId() {
-        List<Pet> petTypeList = petDao.getPetsByTypeId(newPet.getPetType().getPetTypeId());
+
+        List<Pet> petTypeList = new ArrayList<>();
+        petTypeList = petDao.getPetsByTypeId(newPet.getPetType().getPetTypeId());
         for (Pet currentPet : petTypeList) {
-            assertEquals(newPet.getPetType(), currentPet.getPetType());
+            assertEquals(newPet.getPetId(), currentPet.getPetId());
         }
     }
 
