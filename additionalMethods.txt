@@ -1,14 +1,18 @@
 Additional methods
 
 Pet
-petsByLocation - associate pets to location (prep statement and method)
-petsByUser - associate pets to user (prep statement and method)
+Private for table insert - petsByLocation  
+Private for table insert - petsByUser 
+
+Retrieve methods:
+petsByUserId -  (prep statement and method)
+petsByLocationId - retrieve method (prep statement and method)
 petsByTypeId - (SQL separate methd for Other and method)
-petsBYColor - (SQL and method)
+petsByColor - (SQL and method)
 petsBySize - (SQL and method)
 petByBreed - (SQL and method)
 petByChipTag
-petByRabbiesTag
+petByRabiesTag
 petByName
 
 loc
