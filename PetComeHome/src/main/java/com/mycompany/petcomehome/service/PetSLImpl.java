@@ -22,12 +22,12 @@ import javax.inject.Inject;
 public class PetSLImpl implements PetSL {
 
     PetDao petDao;
-    PetTypeDao petTypeDao;
     PetStatusDao petStatusDao;
-    LocDao locDao;
+    PetTypeDao petTypeDao;
     UserDao userDao;
-//
+    LocDao locDao;
 
+//
 //    private JdbcTemplate jdbcTemplate;
 //
 //    public void setJdbcTemplate(JdbcTemplate jdbcTemplate) {
