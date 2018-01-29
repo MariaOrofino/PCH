@@ -53,12 +53,12 @@ public class LocSLImpl implements LocSL {
 
     @Override
     public List<Loc> retrieveAllLocs() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return locDao.retrieveAllLocs();
     }
 
     @Override
-    public List<Loc> retrievePetsByLoc(int locId) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public List<Loc> retrieveLocsByPet(int petId) {
+        return null;
     }
 
 }

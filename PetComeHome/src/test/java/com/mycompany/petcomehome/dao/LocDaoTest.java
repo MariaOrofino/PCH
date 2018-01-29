@@ -7,6 +7,7 @@ package com.mycompany.petcomehome.dao;
 
 import com.mycompany.petcomehome.helper.DaoTestHelper;
 import com.mycompany.petcomehome.model.Loc;
+import com.mycompany.petcomehome.model.Pet;
 import java.util.List;
 import javax.inject.Inject;
 import org.junit.After;
@@ -28,9 +29,11 @@ public class LocDaoTest {
 
     Loc newLoc;
     Loc addedLoc;
+    Pet newCreatedPet;
 
     @Inject
     LocDao locDao;
+    PetDao petDao;
 
     public LocDaoTest() {
     }
@@ -45,7 +48,6 @@ public class LocDaoTest {
 
     @Before
     public void setUp() {
-
         ApplicationContext ctx = new ClassPathXmlApplicationContext("test-applicationContext.xml");
         locDao = ctx.getBean("locDao", LocDao.class);
 
@@ -55,7 +57,10 @@ public class LocDaoTest {
         }
 
         newLoc = DaoTestHelper.createLoc(1);
-        addedLoc = locDao.createLoc(newLoc);
+        newCreatedPet = DaoTestHelper.createPet(1);
+        for (Loc currentLocList : newCreatedPet.getLoc()) {
+            addedLoc = locDao.createLoc(currentLocList);
+        }
     }
 
     @After
@@ -118,7 +123,7 @@ public class LocDaoTest {
      */
     @Test
     public void testRetrievePetsByLoc() {
-        List<Loc> locListByPets = locDao.retrievePetsByLoc(newLoc.getLocId());
+        List<Loc> locListByPets = locDao.retrieveLocsByPet(newCreatedPet.getPetId());
         assertNotNull(locListByPets);
         for (Loc currentLoc : locListByPets) {
             assertEquals("NH", currentLoc.getLocState());

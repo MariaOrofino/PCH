@@ -49,13 +49,13 @@ public class LocDaoDBImpl implements LocDao {
     private static final String SQL_DELETE_PET_HAS_LOC
             = "delete from pet_has_location where location_locid = ?";
 
-    private static final String SQL_RETRIEVE_PETS_BY_LOC
+    private static final String SQL_RETRIEVE_LOCS_BY_PET
             = "select l.locName, l.locDesc,  l.locCity, l.locState, "
             + "l.locZip, l.locInd, l.locLat, l.locLong "
             + "from location l "
             + "join pet_has_location phl "
             + "on l.locid = phl.location_locid "
-            + "where l.locid = ? "
+            + "where phl.pet_petid = ? "
             + "order by l.locid";
 
     @Override
@@ -118,9 +118,9 @@ public class LocDaoDBImpl implements LocDao {
     }
 
     @Override
-    public List<Loc> retrievePetsByLoc(int locId) {
-        List<Loc> petLocList = jdbcTemplate.query(SQL_RETRIEVE_PETS_BY_LOC,
-                new LocMapper(), locId);
+    public List<Loc> retrieveLocsByPet(int petId) {
+        List<Loc> petLocList = jdbcTemplate.query(SQL_RETRIEVE_LOCS_BY_PET,
+                new LocMapper(), petId);
         return petLocList;
     }
 
