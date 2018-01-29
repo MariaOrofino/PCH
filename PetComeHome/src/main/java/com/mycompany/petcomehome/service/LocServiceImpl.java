@@ -14,7 +14,11 @@ import com.mycompany.petcomehome.model.Loc;
 import java.util.List;
 import javax.inject.Inject;
 
-public class LocSLImpl implements LocSL {
+/**
+ *
+ * @author n0147313
+ */
+public class LocServiceImpl implements LocSL {
 
     PetDao petDao;
     PetTypeDao petTypeDao;
@@ -23,7 +27,7 @@ public class LocSLImpl implements LocSL {
     UserDao userDao;
 
     @Inject
-    public LocSLImpl(PetDao petDao, PetTypeDao petTypeDao, PetStatusDao petStatusDao, UserDao userDao, LocDao locDao) {
+    public LocServiceImpl(PetDao petDao, PetTypeDao petTypeDao, PetStatusDao petStatusDao, UserDao userDao, LocDao locDao) {
         this.petDao = petDao;
         this.petTypeDao = petTypeDao;
         this.petStatusDao = petStatusDao;
@@ -58,7 +62,7 @@ public class LocSLImpl implements LocSL {
 
     @Override
     public List<Loc> retrieveLocsByPet(int petId) {
-       return locDao.retrieveLocsByPet(petId);
+        return locDao.retrieveLocsByPet(petId);
     }
 
 }
