@@ -5,14 +5,21 @@
  */
 package com.mycompany.petcomehome.service;
 
+import com.mycompany.petcomehome.model.Loc;
 import com.mycompany.petcomehome.model.Pet;
+import com.mycompany.petcomehome.model.User;
 import java.util.List;
 import org.junit.After;
 import org.junit.AfterClass;
+import org.junit.Assert;
+import static org.junit.Assert.assertNotNull;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
-import static org.junit.Assert.*;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
+import com.mycompany.petcomehome.helper.DaoTestHelper;
+import java.util.ArrayList;
 
 /**
  *
@@ -20,11 +27,29 @@ import static org.junit.Assert.*;
  */
 public class PetSLTest {
 
+    private UserSL userSL;
+    private LocSL locSL;
+    private PetSL petSL;
+
+    List<Loc> locList;
+    List<User> userList;
+    List<Pet> petList;
+
+    Loc loc;
+    User user;
+    Pet pet;
+
     public PetSLTest() {
+        ApplicationContext ctx = new ClassPathXmlApplicationContext("test-applicationContext.xml");
+        petSL = ctx.getBean("petSL", PetSL.class);
+        userSL = ctx.getBean("userSL", UserSL.class);
+        locSL = ctx.getBean("locSL", LocSL.class);
+
     }
 
     @BeforeClass
     public static void setUpClass() {
+
     }
 
     @AfterClass
@@ -33,10 +58,22 @@ public class PetSLTest {
 
     @Before
     public void setUp() {
+
+        //createLoc
+        loc = DaoTestHelper.createLoc(0);
+        locSL.createLoc(loc);
+        locList = new ArrayList<>();
+        locList.add(loc);
+
+        //createUser
+        user = DaoTestHelper.createUser(1);
+        userSL.createUser(user);
+
     }
 
     @After
     public void tearDown() {
+
     }
 
     /**
@@ -44,6 +81,7 @@ public class PetSLTest {
      */
     @Test
     public void testCreatePet() {
+
     }
 
     /**
