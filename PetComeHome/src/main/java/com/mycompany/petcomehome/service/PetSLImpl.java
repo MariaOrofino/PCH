@@ -12,7 +12,6 @@ import com.mycompany.petcomehome.dao.PetTypeDao;
 import com.mycompany.petcomehome.dao.UserDao;
 import com.mycompany.petcomehome.model.Loc;
 import com.mycompany.petcomehome.model.Pet;
-import com.mycompany.petcomehome.model.User;
 import java.util.List;
 import javax.inject.Inject;
 
@@ -23,12 +22,12 @@ import javax.inject.Inject;
 public class PetSLImpl implements PetSL {
 
     PetDao petDao;
-    PetTypeDao petTypeDao;
     PetStatusDao petStatusDao;
-    LocDao locDao;
+    PetTypeDao petTypeDao;
     UserDao userDao;
-//
+    LocDao locDao;
 
+//
 //    private JdbcTemplate jdbcTemplate;
 //
 //    public void setJdbcTemplate(JdbcTemplate jdbcTemplate) {

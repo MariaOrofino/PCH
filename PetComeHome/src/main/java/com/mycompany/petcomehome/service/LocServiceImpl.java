@@ -14,7 +14,11 @@ import com.mycompany.petcomehome.model.Loc;
 import java.util.List;
 import javax.inject.Inject;
 
-public class LocSLImpl implements LocSL {
+/**
+ *
+ * @author n0147313
+ */
+public class LocServiceImpl implements LocSL {
 
     PetDao petDao;
     PetTypeDao petTypeDao;
@@ -23,43 +27,42 @@ public class LocSLImpl implements LocSL {
     UserDao userDao;
 
     @Inject
-    public LocSLImpl(PetDao petDao, PetTypeDao petTypeDao, PetStatusDao petStatusDao, UserDao userDao, LocDao locDao) {
+    public LocServiceImpl(PetDao petDao, PetTypeDao petTypeDao, PetStatusDao petStatusDao, UserDao userDao, LocDao locDao) {
         this.petDao = petDao;
         this.petTypeDao = petTypeDao;
         this.petStatusDao = petStatusDao;
         this.userDao = userDao;
         this.locDao = locDao;
-
     }
 
     @Override
     public Loc createLoc(Loc loc) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return locDao.createLoc(loc);
     }
 
     @Override
     public Loc editLoc(Loc loc) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return locDao.editLoc(loc);
     }
 
     @Override
     public void deleteLoc(int locId) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        locDao.deleteLoc(locId);
     }
 
     @Override
     public Loc retrieveLocByLocId(int locId) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return locDao.retrieveLocByLocId(locId);
     }
 
     @Override
     public List<Loc> retrieveAllLocs() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return locDao.retrieveAllLocs();
     }
 
     @Override
-    public List<Loc> retrievePetsByLoc(int locId) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public List<Loc> retrieveLocsByPet(int petId) {
+        return locDao.retrieveLocsByPet(petId);
     }
 
 }
