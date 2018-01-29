@@ -10,6 +10,7 @@ import com.mycompany.petcomehome.dao.PetDao;
 import com.mycompany.petcomehome.dao.PetStatusDao;
 import com.mycompany.petcomehome.dao.PetTypeDao;
 import com.mycompany.petcomehome.dao.UserDao;
+import com.mycompany.petcomehome.model.Loc;
 import com.mycompany.petcomehome.model.Pet;
 import com.mycompany.petcomehome.model.User;
 import java.util.List;
@@ -43,6 +44,7 @@ public class PetSLImpl implements PetSL {
     }
     @Inject
     UserSL userSL;
+    LocSL locSL;
 
     @Override
     public Pet createPet(Pet pet) {
@@ -65,33 +67,34 @@ public class PetSLImpl implements PetSL {
         Pet pet = petDao.getPetByPetId(petId);
 
         pet.setUser(userSL.retrieveUsersByPet(petId));
-//        pet.setLoc(locSL.retrieveLocByPet(getPetByLocId(petId)));
-        return null;
+        pet.setLoc(locSL.retrievePetsByLoc(petId));
+
+        return pet;
     }
 
     @Override
     public List<Pet> getPetbyuserId(int userId) {
         List<Pet> petList = petDao.getPetsByUserId(userId);
-        return associateAllObjectsWithPet(petList);
+        return associateAllThingsWithPet(petList);
 
     }
 
     @Override
-    public Pet getPetByLocId(int locId) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public List<Pet> getPetByLocId(int locId) {
+        List<Pet> petList = petDao.getPetsByLocId(locId);
+        return associateAllThingsWithPet(petList);
     }
 
     @Override
     public List<Pet> getAllPets() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return petDao.getAllpets();
     }
 
-    private List<Pet> associateAllObjectsWithPet(List<Pet> petList) {
-//        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    private List<Pet> associateAllThingsWithPet(List<Pet> petList) {
 
         for (Pet currentPet : petList) {
             currentPet.setUser(userSL.retrieveUsersByPet(currentPet.getPetId()));
-//            currentPet.setLoc(LocSL.retrieveLocsByPet(currentPet.getPetId()));
+            currentPet.setLoc(locSL.retrievePetsByLoc(currentPet.getPetId()));
 
         }
         return petList;

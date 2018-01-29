@@ -5,6 +5,7 @@
  */
 package com.mycompany.petcomehome.service;
 
+import com.mycompany.petcomehome.model.Loc;
 import com.mycompany.petcomehome.model.Pet;
 import java.util.List;
 
@@ -24,7 +25,7 @@ public interface PetSL {
 
     public List<Pet> getPetbyuserId(int userId);
 
-    public Pet getPetByLocId(int locId);
+    public List<Pet> getPetByLocId(int locId);
 
     public List<Pet> getAllPets();
 
