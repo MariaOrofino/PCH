@@ -11,7 +11,6 @@ import com.mycompany.petcomehome.dao.PetStatusDao;
 import com.mycompany.petcomehome.dao.PetTypeDao;
 import com.mycompany.petcomehome.dao.UserDao;
 import com.mycompany.petcomehome.model.Pet;
-import com.mycompany.petcomehome.model.User;
 import java.util.List;
 import javax.inject.Inject;
 

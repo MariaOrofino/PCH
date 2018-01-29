@@ -33,22 +33,22 @@ public class LocSLImpl implements LocSL {
 
     @Override
     public Loc createLoc(Loc loc) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return locDao.createLoc(loc);
     }
 
     @Override
     public Loc editLoc(Loc loc) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return locDao.editLoc(loc);
     }
 
     @Override
     public void deleteLoc(int locId) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        locDao.deleteLoc(locId);
     }
 
     @Override
     public Loc retrieveLocByLocId(int locId) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return locDao.retrieveLocByLocId(locId);
     }
 
     @Override
