@@ -58,7 +58,7 @@ public class LocSLImpl implements LocSL {
 
     @Override
     public List<Loc> retrieveLocsByPet(int petId) {
-        return locDao.retrieveLocsByPet(petId);
+       return locDao.retrieveLocsByPet(petId);
     }
 
 }
