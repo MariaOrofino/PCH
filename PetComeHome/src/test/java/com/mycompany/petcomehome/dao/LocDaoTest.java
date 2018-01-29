@@ -8,6 +8,7 @@ package com.mycompany.petcomehome.dao;
 import com.mycompany.petcomehome.helper.DaoTestHelper;
 import com.mycompany.petcomehome.model.Loc;
 import com.mycompany.petcomehome.model.Pet;
+import java.util.ArrayList;
 import java.util.List;
 import javax.inject.Inject;
 import org.junit.After;
@@ -28,8 +29,8 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 public class LocDaoTest {
 
     Loc newLoc;
-    Loc addedLoc;
-    Pet newCreatedPet;
+    List<Loc> addedLoc;
+//    Pet newCreatedPet;
 
     @Inject
     LocDao locDao;
@@ -57,10 +58,9 @@ public class LocDaoTest {
         }
 
         newLoc = DaoTestHelper.createLoc(1);
-        newCreatedPet = DaoTestHelper.createPet(1);
-        for (Loc currentLocList : newCreatedPet.getLoc()) {
-            addedLoc = locDao.createLoc(currentLocList);
-        }
+
+        locDao.createLoc(newLoc);
+
     }
 
     @After
@@ -73,9 +73,9 @@ public class LocDaoTest {
     @Test
     public void testCreateLoc() {
         assertNotNull(newLoc);
-        Loc fromDao = locDao.retrieveLocByLocId(addedLoc.getLocId());
+        Loc fromDao = locDao.retrieveLocByLocId(newLoc.getLocId());
         assertNotNull(fromDao);
-        assertEquals(fromDao, addedLoc);
+        assertEquals(fromDao.getLocId(), newLoc.getLocId());
     }
 
     /**
@@ -122,11 +122,10 @@ public class LocDaoTest {
      * Test of retrieveLocByPets method, of class LocDao.
      */
     @Test
-    public void testRetrievePetsByLoc() {
-        List<Loc> locListByPets = locDao.retrieveLocsByPet(newCreatedPet.getPetId());
-        assertNotNull(locListByPets);
-        for (Loc currentLoc : locListByPets) {
-            assertEquals("NH", currentLoc.getLocState());
-        }
+    public void testRetrieveLocsByPet() {
+        Pet newCreatedPet = DaoTestHelper.createPet(1);
+        List<Loc> locListByPet = locDao.retrieveLocsByPet(newCreatedPet.getPetId());
+
+        assertNotNull(locListByPet);
     }
 }
