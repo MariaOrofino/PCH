@@ -66,7 +66,7 @@ public class PetSLImpl implements PetSL {
         Pet pet = petDao.getPetByPetId(petId);
 
         pet.setUser(userSL.retrieveUsersByPet(petId));
-        pet.setLoc(locSL.retrievePetsByLoc(petId));
+        pet.setLoc(locSL.retrieveLocsByPet(petId));
 
         return pet;
     }
@@ -93,7 +93,7 @@ public class PetSLImpl implements PetSL {
 
         for (Pet currentPet : petList) {
             currentPet.setUser(userSL.retrieveUsersByPet(currentPet.getPetId()));
-            currentPet.setLoc(locSL.retrievePetsByLoc(currentPet.getPetId()));
+            currentPet.setLoc(locSL.retrieveLocsByPet(currentPet.getPetId()));
 
         }
         return petList;
