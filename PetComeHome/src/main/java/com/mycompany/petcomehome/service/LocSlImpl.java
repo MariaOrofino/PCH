@@ -29,6 +29,7 @@ public class LocSLImpl implements LocSL {
         this.petStatusDao = petStatusDao;
         this.userDao = userDao;
         this.locDao = locDao;
+
     }
 
     @Override
