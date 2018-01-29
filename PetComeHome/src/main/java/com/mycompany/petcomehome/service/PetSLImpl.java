@@ -26,11 +26,6 @@ public class PetSLImpl implements PetSL {
     UserDao userDao;
     LocDao locDao;
 
-//
-//    private JdbcTemplate jdbcTemplate;
-//
-//    public void setJdbcTemplate(JdbcTemplate jdbcTemplate) {
-//        this.jdbcTemplate = jdbcTemplate;
     @Inject
     public PetSLImpl(PetDao petDao, PetTypeDao petTypeDao, PetStatusDao petStatusDao, UserDao userDao, LocDao locDao) {
         this.petDao = petDao;
@@ -42,6 +37,7 @@ public class PetSLImpl implements PetSL {
     }
     @Inject
     UserSL userSL;
+    LocSL locSL;
 
     @Override
     public Pet createPet(Pet pet) {
@@ -64,33 +60,34 @@ public class PetSLImpl implements PetSL {
         Pet pet = petDao.getPetByPetId(petId);
 
         pet.setUser(userSL.retrieveUsersByPet(petId));
-//        pet.setLoc(locSL.retrieveLocByPet(getPetByLocId(petId)));
-        return null;
+        pet.setLoc(locSL.retrieveLocsByPet(petId));
+
+        return pet;
     }
 
     @Override
     public List<Pet> getPetbyuserId(int userId) {
         List<Pet> petList = petDao.getPetsByUserId(userId);
-        return associateAllObjectsWithPet(petList);
+        return associateAllThingsWithPet(petList);
 
     }
 
     @Override
-    public Pet getPetByLocId(int locId) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public List<Pet> getPetByLocId(int locId) {
+        List<Pet> petList = petDao.getPetsByLocId(locId);
+        return associateAllThingsWithPet(petList);
     }
 
     @Override
     public List<Pet> getAllPets() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return petDao.getAllpets();
     }
 
-    private List<Pet> associateAllObjectsWithPet(List<Pet> petList) {
-//        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    private List<Pet> associateAllThingsWithPet(List<Pet> petList) {
 
         for (Pet currentPet : petList) {
             currentPet.setUser(userSL.retrieveUsersByPet(currentPet.getPetId()));
-//            currentPet.setLoc(LocSL.retrieveLocsByPet(currentPet.getPetId()));
+            currentPet.setLoc(locSL.retrieveLocsByPet(currentPet.getPetId()));
 
         }
         return petList;

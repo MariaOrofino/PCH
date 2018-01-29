@@ -24,7 +24,7 @@ public interface PetSL {
 
     public List<Pet> getPetbyuserId(int userId);
 
-    public Pet getPetByLocId(int locId);
+    public List<Pet> getPetByLocId(int locId);
 
     public List<Pet> getAllPets();
 
