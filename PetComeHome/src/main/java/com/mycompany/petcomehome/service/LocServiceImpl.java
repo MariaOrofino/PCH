@@ -64,5 +64,4 @@ public class LocServiceImpl implements LocSL {
     public List<Loc> retrieveLocsByPet(int petId) {
         return locDao.retrieveLocsByPet(petId);
     }
-
 }

@@ -5,7 +5,6 @@
  */
 package com.mycompany.petcomehome.model;
 
-import java.math.BigDecimal;
 import java.util.Objects;
 
 /**
@@ -152,8 +151,5 @@ public class Loc {
         }
         return true;
     }
-
- 
-    
 
 }
