@@ -10,7 +10,7 @@ import com.mycompany.petcomehome.model.Loc;
 import java.util.List;
 import org.junit.After;
 import org.junit.AfterClass;
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
@@ -23,14 +23,14 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
  */
 public class LocServiceImplTest {
 
-    LocSL locService;
+    LocSL locSL;
     Loc newLoc;
     List<Loc> locList;
 
     public LocServiceImplTest() {
         ApplicationContext ctx = new ClassPathXmlApplicationContext("test-applicationContext.xml");
 
-        locService = ctx.getBean("locService", LocSL.class);
+        locSL = ctx.getBean("locSL", LocSL.class);
 
     }
 
@@ -44,12 +44,12 @@ public class LocServiceImplTest {
 
     @Before
     public void setUp() {
-        locList = locService.retrieveAllLocs();
+        locList = locSL.retrieveAllLocs();
         for (Loc currentLoc : locList) {
-            locService.deleteLoc(currentLoc.getLocId());
+            locSL.deleteLoc(currentLoc.getLocId());
         }
         newLoc = DaoTestHelper.createLoc(1);
-        locService.createLoc(newLoc);
+        locSL.createLoc(newLoc);
     }
 
     @After
@@ -61,7 +61,7 @@ public class LocServiceImplTest {
      */
     @Test
     public void testCreateLoc() {
-        Loc locFromDB = locService.retrieveLocByLocId(newLoc.getLocId());
+        Loc locFromDB = locSL.retrieveLocByLocId(newLoc.getLocId());
         assertEquals(newLoc, locFromDB);
     }
 
@@ -77,7 +77,7 @@ public class LocServiceImplTest {
      */
     @Test
     public void testDeleteLoc() {
-        assertEquals(0, locService.retrieveAllLocs().size());
+        assertEquals(1, locSL.retrieveAllLocs().size());
     }
 
     /**

@@ -81,7 +81,7 @@
         <constructor-arg ref = "locDao"/>
     </bean>
     
-    <bean id="locService" class="com.mycompany.petcomehome.service.LocServiceImpl">
+    <bean id="locSL" class="com.mycompany.petcomehome.service.LocServiceImpl">
         <constructor-arg ref = "petDao"/>
         <constructor-arg ref = "petStatusDao"/>
         <constructor-arg ref = "petTypeDao"/>
