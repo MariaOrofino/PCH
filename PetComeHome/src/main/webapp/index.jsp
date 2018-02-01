@@ -48,6 +48,7 @@
                 <li data-target="#myCarousel" data-slide-to="1"></li>
                 <li data-target="#myCarousel" data-slide-to="2"></li>
                 <li data-target="#myCarousel" data-slide-to="3"></li>
+                <li data-target="#myCarousel" data-slide-to="4"></li>
             </ol>
 
             <!-- Wrapper for slides -->
@@ -85,6 +86,14 @@
                     </div>
                 </div>
 
+                <div class="item">
+                    <img src="images/monkey.jpg" alt="Meal" width="360" height="245">
+                    <div class="carousel-caption">
+                        <h3>Missing Monkey</h3>
+                        <p>Missing monkey in Dover area.</p>
+                    </div>
+                </div>
+
             </div>
 
             <!-- Left and right controls -->
@@ -97,20 +106,20 @@
                 <span class="sr-only">Next</span>
             </a>
         </div>
-    <div class="container">
-        <h1>Spring MVC Application from Archetype</h1>
-        <hr/>
-        <div class="navbar">
-            <ul class="nav nav-tabs">
-                <li role="presentation" class="active"><a href="${pageContext.request.contextPath}/index.jsp">Home</a></li>
-                <li role="presentation"><a href="${pageContext.request.contextPath}/hello/sayhi">Pet Controller</a></li>
-            </ul>    
+        <div class="container">
+            <h1>Spring MVC Application from Archetype</h1>
+            <hr/>
+            <div class="navbar">
+                <ul class="nav nav-tabs">
+                    <li role="presentation" class="active"><a href="${pageContext.request.contextPath}/index.jsp">Home</a></li>
+                    <li role="presentation"><a href="${pageContext.request.contextPath}/hello/sayhi">Pet Controller</a></li>
+                </ul>    
+            </div>
+            <h2>Home Page</h2>
         </div>
-        <h2>Home Page</h2>
-    </div>
-    <!-- Placed at the end of the document so the pages load faster -->
-    <script src="${pageContext.request.contextPath}/js/jquery-3.1.1.min.js"></script>
-    <script src="${pageContext.request.contextPath}/js/bootstrap.min.js"></script>
+        <!-- Placed at the end of the document so the pages load faster -->
+        <script src="${pageContext.request.contextPath}/js/jquery-3.1.1.min.js"></script>
+        <script src="${pageContext.request.contextPath}/js/bootstrap.min.js"></script>
 
 </body>
 </html>
