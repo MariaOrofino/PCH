@@ -107,15 +107,15 @@
             </a>
         </div>
         <div class="container">
-            <h1>Spring MVC Application from Archetype</h1>
+            <h1>The World's Best Pet Locator Website</h1>
             <hr/>
             <div class="navbar">
                 <ul class="nav nav-tabs">
-                    <li role="presentation" class="active"><a href="${pageContext.request.contextPath}/index.jsp">Home</a></li>
-                    <li role="presentation"><a href="${pageContext.request.contextPath}/hello/sayhi">Pet Controller</a></li>
+                    <li role="presentation" class="active"><a href="${pageContext.request.contextPath}/index.jsp">Search</a></li>
+                    <li role="presentation"><a href="${pageContext.request.contextPath}/hello/sayhi">Add Pet Information</a></li>
                 </ul>    
             </div>
-            <h2>Home Page</h2>
+            <h2>This is where the search information will be added.  This will be open for all with no authentication.</h2>
         </div>
         <!-- Placed at the end of the document so the pages load faster -->
         <script src="${pageContext.request.contextPath}/js/jquery-3.1.1.min.js"></script>
