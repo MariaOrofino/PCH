@@ -14,7 +14,7 @@
         <!-- Call Bootstrap CSS styles -->
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="bootstrap-3.3.5/bootstrap-3.3.7-dist/bootstrap-3.3.7-dist/css/bootstrap.min.css">
+        <!--<link rel="stylesheet" href="bootstrap-3.3.5/bootstrap-3.3.7-dist/bootstrap-3.3.7-dist/css/bootstrap.min.css">-->
         <!--       <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">  -->
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
@@ -49,6 +49,7 @@
                 <li data-target="#myCarousel" data-slide-to="2"></li>
                 <li data-target="#myCarousel" data-slide-to="3"></li>
                 <li data-target="#myCarousel" data-slide-to="4"></li>
+                <li data-target="#myCarousel" data-slide-to="5"></li>
             </ol>
 
             <!-- Wrapper for slides -->
@@ -71,7 +72,7 @@
                 </div>
 
                 <div class="item">
-                    <img src="images/snake.jpg" alt="Garlic Bread" width="360" height="245">
+                    <img src="images/snake.jpg" alt="snake" width="360" height="245">
                     <div class="carousel-caption">
                         <h3>Missing Snake</h3>
                         <p>From Slithering House.  Contact Harry Potter!</p>
@@ -79,7 +80,7 @@
                 </div>
 
                 <div class="item">
-                    <img src="images/horse.jpg" alt="Meal" width="360" height="245">
+                    <img src="images/horse.jpg" alt="horse" width="360" height="245">
                     <div class="carousel-caption">
                         <h3>Found Horse</h3>
                         <p>Missing horse has been FOUND!!!</p>
@@ -87,10 +88,18 @@
                 </div>
 
                 <div class="item">
-                    <img src="images/monkey.jpg" alt="Meal" width="360" height="245">
+                    <img src="images/monkey.jpg" alt="monkey" width="360" height="245">
                     <div class="carousel-caption">
                         <h3>Missing Monkey</h3>
                         <p>Missing monkey in Dover area.</p>
+                    </div>
+                </div>
+
+                <div class="item">
+                    <img src="images/cockatoo.jpg" alt="bird" width="360" height="245">
+                    <div class="carousel-caption">
+                        <h3>Missing Cockatoo</h3>
+                        <p>Please be on the lookout for missing Cockatoo in Portsmouth!!!</p>
                     </div>
                 </div>
 
