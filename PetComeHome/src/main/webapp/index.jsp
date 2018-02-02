@@ -14,7 +14,7 @@
         <!-- Call Bootstrap CSS styles -->
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="bootstrap-3.3.5/bootstrap-3.3.7-dist/bootstrap-3.3.7-dist/css/bootstrap.min.css">
+        <!--<link rel="stylesheet" href="bootstrap-3.3.5/bootstrap-3.3.7-dist/bootstrap-3.3.7-dist/css/bootstrap.min.css">-->
         <!--       <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">  -->
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
@@ -32,8 +32,9 @@
             </div>
             <ul class="nav navbar-nav">
                 <li class="active"><a href="index.jsp"><span class="glyphicon glyphicon-home"></span></a></li>
-                <li><a href="">Lost</a></li>
-                <li><a href="">Found</a></li>
+                <li><a href="lost.jsp">Lost</a></li>
+                <li><a href="found.jsp">Found</a></li>
+                <li><a href="contactus.jsp">Contact Us</a></li>
             </ul>
         </div>
     </nav>
@@ -49,6 +50,7 @@
                 <li data-target="#myCarousel" data-slide-to="2"></li>
                 <li data-target="#myCarousel" data-slide-to="3"></li>
                 <li data-target="#myCarousel" data-slide-to="4"></li>
+                <li data-target="#myCarousel" data-slide-to="5"></li>
             </ol>
 
             <!-- Wrapper for slides -->
@@ -71,7 +73,7 @@
                 </div>
 
                 <div class="item">
-                    <img src="images/snake.jpg" alt="Garlic Bread" width="360" height="245">
+                    <img src="images/snake.jpg" alt="snake" width="360" height="245">
                     <div class="carousel-caption">
                         <h3>Missing Snake</h3>
                         <p>From Slithering House.  Contact Harry Potter!</p>
@@ -79,7 +81,7 @@
                 </div>
 
                 <div class="item">
-                    <img src="images/horse.jpg" alt="Meal" width="360" height="245">
+                    <img src="images/horse.jpg" alt="horse" width="360" height="245">
                     <div class="carousel-caption">
                         <h3>Found Horse</h3>
                         <p>Missing horse has been FOUND!!!</p>
@@ -87,10 +89,18 @@
                 </div>
 
                 <div class="item">
-                    <img src="images/monkey.jpg" alt="Meal" width="360" height="245">
+                    <img src="images/monkey.jpg" alt="monkey" width="360" height="245">
                     <div class="carousel-caption">
                         <h3>Missing Monkey</h3>
                         <p>Missing monkey in Dover area.</p>
+                    </div>
+                </div>
+
+                <div class="item">
+                    <img src="images/cockatoo.jpg" alt="bird" width="360" height="245">
+                    <div class="carousel-caption">
+                        <h3>Missing Cockatoo</h3>
+                        <p>Please be on the lookout for missing Cockatoo in Portsmouth!!!</p>
                     </div>
                 </div>
 
@@ -122,5 +132,12 @@
         <script src="${pageContext.request.contextPath}/js/bootstrap.min.js"></script>
 
 </body>
+<footer style="color:blue;margin-left:30px;">
+    <hr>
+    <center>Jan Gentille - Director of Pet Services</center>
+    <center>123 North Main Street, Anywhere, USA</center>
+    <center>800-873-5463</center>
+    <hr>
+</footer>
 </html>
 
