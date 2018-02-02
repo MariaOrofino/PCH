@@ -125,7 +125,6 @@ public class LocDaoTest {
     public void testRetrieveLocsByPet() {
         Pet newCreatedPet = DaoTestHelper.createPet(1);
         List<Loc> locListByPet = locDao.retrieveLocsByPet(newCreatedPet.getPetId());
-
         assertNotNull(locListByPet);
     }
 }

@@ -7,10 +7,14 @@ package com.mycompany.petcomehome.service;
 
 import com.mycompany.petcomehome.helper.DaoTestHelper;
 import com.mycompany.petcomehome.model.Loc;
+import com.mycompany.petcomehome.model.Pet;
+import com.mycompany.petcomehome.model.User;
+import java.util.ArrayList;
 import java.util.List;
 import org.junit.After;
 import org.junit.AfterClass;
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
@@ -24,6 +28,8 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 public class LocServiceImplTest {
 
     LocSL locSL;
+    PetSL petSL;
+    UserSL userSL;
     Loc newLoc;
     List<Loc> locList;
 
@@ -31,6 +37,8 @@ public class LocServiceImplTest {
         ApplicationContext ctx = new ClassPathXmlApplicationContext("test-applicationContext.xml");
 
         locSL = ctx.getBean("locSL", LocSL.class);
+        petSL = ctx.getBean("petSL", PetSL.class);
+        userSL = ctx.getBean("userSL", UserSL.class);
 
     }
 
@@ -70,6 +78,9 @@ public class LocServiceImplTest {
      */
     @Test
     public void testEditLoc() {
+        newLoc.setLocState("MA");
+        locSL.editLoc(newLoc);
+        assertEquals("MA", newLoc.getLocState());
     }
 
     /**
@@ -77,7 +88,8 @@ public class LocServiceImplTest {
      */
     @Test
     public void testDeleteLoc() {
-        assertEquals(1, locSL.retrieveAllLocs().size());
+        locSL.deleteLoc(newLoc.getLocId());
+        assertEquals(0, locSL.retrieveAllLocs().size());
     }
 
     /**
@@ -85,6 +97,9 @@ public class LocServiceImplTest {
      */
     @Test
     public void testRetrieveLocByLocId() {
+        Loc oneLoc = locSL.retrieveLocByLocId(newLoc.getLocId());
+        assertEquals(newLoc, oneLoc);
+
     }
 
     /**
@@ -92,6 +107,10 @@ public class LocServiceImplTest {
      */
     @Test
     public void testRetrieveAllLocs() {
+        List<Loc> newLocList = locSL.retrieveAllLocs();
+        for (Loc currentLoc : newLocList) {
+            assertEquals(newLoc.getLocId(), currentLoc.getLocId());
+        }
     }
 
     /**
@@ -99,6 +118,38 @@ public class LocServiceImplTest {
      */
     @Test
     public void testRetrieveLocsByPet() {
-    }
+        List<User> newUserList = userSL.retrieveAllUsers();
+        for (User currentUser : newUserList) {
+            userSL.deleteUser(currentUser.getUserId());
+        }
 
+        List< Pet> newPetList = petSL.getAllPets();
+        for (Pet currentPet : newPetList) {
+            petSL.deletePet(currentPet.getPetId());
+        }
+        Pet newPet = DaoTestHelper.createPet(1);
+        List<Loc> newLocList = new ArrayList<>();
+        for (Loc currentLoc : newPet.getLoc()) {
+            locSL.createLoc(currentLoc);
+            newLocList.add(currentLoc);
+        }
+        List<User> newUsers = new ArrayList<>();
+        for (User currentUser : newPet.getUser()) {
+            userSL.createUser(currentUser);
+            newUsers.add(currentUser);
+        }
+        newPet.setLoc(null);
+        newPet.setLoc(newLocList);
+        newPet.setUser(null);
+        newPet.setUser(newUsers);
+        petSL.createPet(newPet);
+        locSL.retrieveLocsByPet(newPet.getPetId());
+
+//  Test template for testing all the locations aligned with a petid
+//        for (Loc currentLoc : newPet.getLoc()) {
+//            assertEquals(newPet.getLoc(), currentLoc);
+//        }
+        assertNotNull(locSL.retrieveLocsByPet(newPet.getPetId()));
+        assertEquals(5, locSL.retrieveLocsByPet(newPet.getPetId()).size());
+    }
 }
