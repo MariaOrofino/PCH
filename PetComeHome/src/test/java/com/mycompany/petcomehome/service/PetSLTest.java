@@ -18,6 +18,7 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 import com.mycompany.petcomehome.helper.DaoTestHelper;
 import java.util.ArrayList;
+import static org.junit.Assert.assertNotNull;
 
 /**
  *
@@ -28,6 +29,8 @@ public class PetSLTest {
     private UserSL userSL;
     private LocSL locSL;
     private PetSL petSL;
+
+    Pet myNewPet;
 
     List<Loc> locList;
     List<User> userList;
@@ -66,6 +69,8 @@ public class PetSLTest {
         //createUser
         user = DaoTestHelper.createUser(1);
         userSL.createUser(user);
+
+        myNewPet = DaoTestHelper.createPet(1);
 
     }
 
@@ -122,35 +127,6 @@ public class PetSLTest {
      */
     @Test
     public void testGetAllPets() {
-    }
-
-    public class PetSLImpl implements PetSL {
-
-        public Pet createPet(Pet petId) {
-            return null;
-        }
-
-        public void updatePet(Pet pet) {
-        }
-
-        public void deletePet(int petId) {
-        }
-
-        public Pet getPetByPetId(int petId) {
-            return null;
-        }
-
-        public List<Pet> getPetbyuserId(int userId) {
-            return null;
-        }
-
-        public List<Pet> getPetByLocId(int locId) {
-            return null;
-        }
-
-        public List<Pet> getAllPets() {
-            return null;
-        }
     }
 
 }
