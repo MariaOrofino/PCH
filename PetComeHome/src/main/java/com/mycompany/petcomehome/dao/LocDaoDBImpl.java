@@ -6,6 +6,8 @@
 package com.mycompany.petcomehome.dao;
 
 import com.mycompany.petcomehome.model.Loc;
+import com.mycompany.petcomehome.model.Pet;
+import com.mycompany.petcomehome.model.User;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.List;
@@ -142,5 +144,4 @@ public class LocDaoDBImpl implements LocDao {
             return loc;
         }
     }
-
 }

@@ -83,11 +83,9 @@ public class PetSLImpl implements PetSL {
     }
 
     private List<Pet> associateAllThingsWithPet(List<Pet> petList) {
-
         for (Pet currentPet : petList) {
             currentPet.setUser(userSL.retrieveUsersByPet(currentPet.getPetId()));
             currentPet.setLoc(locSL.retrieveLocsByPet(currentPet.getPetId()));
-
         }
         return petList;
     }
