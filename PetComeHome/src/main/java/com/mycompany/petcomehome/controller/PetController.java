@@ -3,12 +3,15 @@ package com.mycompany.petcomehome.controller;
 import com.mycompany.petcomehome.service.LocSL;
 import com.mycompany.petcomehome.service.PetSL;
 import com.mycompany.petcomehome.service.UserSL;
+import java.util.Map;
+import javax.inject.Inject;
+import javax.servlet.http.HttpServletRequest;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 @Controller
-@RequestMapping({"/hello"})
+
 public class PetController {
 
 //    public static final String pictureFolder = "images/";
@@ -26,8 +29,18 @@ public class PetController {
     public PetController() {
     }
 
+    @RequestMapping(value = "/", method = RequestMethod.GET)
+    public String showIndex() {
+        return "index";
+    }
+
     @RequestMapping(value = "/index", method = RequestMethod.GET)
     public String redirectHome() {
         return "redirect:/";
+    }
+
+    @RequestMapping(value = "/submitForm", method = RequestMethod.GET)
+    public String editblog(HttpServletRequest request) {
+        return "submitForm";
     }
 }
