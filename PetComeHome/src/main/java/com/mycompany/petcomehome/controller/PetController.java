@@ -26,11 +26,6 @@ public class PetController {
     public PetController() {
     }
 
-//    @RequestMapping(value = "/sayhi", method = RequestMethod.GET)
-//    public String sayHi(Map<String, Object> model) {
-//        model.put("message", "Hello from the controller");
-//        return "hello";
-//    }
     @RequestMapping(value = "/index", method = RequestMethod.GET)
     public String redirectHome() {
         return "redirect:/";
