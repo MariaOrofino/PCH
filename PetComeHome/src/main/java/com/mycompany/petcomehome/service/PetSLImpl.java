@@ -54,7 +54,6 @@ public class PetSLImpl implements PetSL {
         petDao.deletePetById(petId);
     }
 
-    /////////NOT COMPLETE-----MARIA //////////
     @Override
     public Pet getPetByPetId(int petId) {
         Pet pet = petDao.getPetByPetId(petId);

@@ -18,6 +18,7 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 import com.mycompany.petcomehome.helper.DaoTestHelper;
 import java.util.ArrayList;
+import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 
 /**
@@ -84,7 +85,11 @@ public class PetSLTest {
      */
     @Test
     public void testCreatePet() {
+        Pet petFromService = petSL.getPetByPetId(myNewPet.getPetId());
+//        assertNotNull(petFromService.getUser());
+//        assertNotNull(petFromService.getLoc());
 
+        assertEquals(myNewPet, petFromService);
     }
 
     /**
