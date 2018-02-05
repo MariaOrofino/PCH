@@ -40,12 +40,14 @@
     <nav class="navbar navbar-default">
         <div class="container-fluid">
             <div class="navbar-header">
-                <a class="navbar-brand" href="index.jsp">PCH</a>
+                <a class="navbar-brand" href="${pageContext.request.contextPath}/jsp/index.jsp">PCH</a>
             </div>
             <ul class="nav navbar-nav">
-                <li class="active"><a href="index.jsp"><span class="glyphicon glyphicon-home"></span></a></li>
-                <li><a href="${pageContext.request.contextPath}/PostLostPet">Lost</a></li>
-                <li><a href="">Found</a></li>
+                <li class="active"><a href="${pageContext.request.contextPath}/jsp/index.jsp"><span class="glyphicon glyphicon-home"></span></a></li>
+                <li><a href="${pageContext.request.contextPath}/submitForm">Report Lost Pet</a></li>
+                <li><a href="${pageContext.request.contextPath}/found.jsp">Report Found pet</a></li>
+                <li><a href="${pageContext.request.contextPath}/lost.jsp">Report a Sighting</a></li>
+                <li><a href="${pageContext.request.contextPath}/search.jsp">Search</a></li>
             </ul>
         </div>
     </nav>

@@ -28,14 +28,14 @@
     <nav class="navbar navbar-default">
         <div class="container-fluid">
             <div class="navbar-header">
-                <a class="navbar-brand" href="index.jsp">PCH</a>
+                <a class="navbar-brand" href="${pageContext.request.contextPath}/jsp/index.jsp">PCH</a>
             </div>
             <ul class="nav navbar-nav">
-                <li class="active"><a href="index.jsp"><span class="glyphicon glyphicon-home"></span></a></li>
+                <li class="active"><a href="${pageContext.request.contextPath}/jsp/index.jsp"><span class="glyphicon glyphicon-home"></span></a></li>
                 <li><a href="${pageContext.request.contextPath}/submitForm">Report Lost Pet</a></li>
-                <li><a href="">Report Found pet</a></li>
-                <li><a href="">Report a Sighting</a></li>
-                <li><a href="">Search</a></li>
+                <li><a href="${pageContext.request.contextPath}/found.jsp">Report Found pet</a></li>
+                <li><a href="${pageContext.request.contextPath}/lost.jsp">Report a Sighting</a></li>
+                <li><a href="${pageContext.request.contextPath}/search.jsp">Search</a></li>
             </ul>
         </div>
     </nav>
@@ -50,6 +50,8 @@
                 <li data-target="#myCarousel" data-slide-to="1"></li>
                 <li data-target="#myCarousel" data-slide-to="2"></li>
                 <li data-target="#myCarousel" data-slide-to="3"></li>
+                <li data-target="#myCarousel" data-slide-to="4"></li>
+                <li data-target="#myCarousel" data-slide-to="5"></li>
             </ol>
 
             <!-- Wrapper for slides -->
@@ -63,7 +65,7 @@
                 </div>
 
                 <div class="item">
-                    <img src="images/cat.jpg" alt="Pizza" width="360" height="245">
+                    <img src="${pageContext.request.contextPath}/images/cat.jpg" alt="Cat" width="360" height="245">
                     <div class="carousel-caption">
                         <h3>Missing Cat</h3>
                         <p>Named Vanna, beautiful and friendly!</p>
@@ -71,7 +73,7 @@
                 </div>
 
                 <div class="item">
-                    <img src="images/snake.jpg" alt="Garlic Bread" width="360" height="245">
+                    <img src="${pageContext.request.contextPath}/images/snake.jpg" alt="Snake" width="360" height="245">
                     <div class="carousel-caption">
                         <h3>Missing Snake</h3>
                         <p>From Slithering House.  Contact Harry Potter!</p>
@@ -79,10 +81,26 @@
                 </div>
 
                 <div class="item">
-                    <img src="images/horse.jpg" alt="Meal" width="360" height="245">
+                    <img src="${pageContext.request.contextPath}/images/horse.jpg" alt="Horse" width="360" height="245">
                     <div class="carousel-caption">
                         <h3>Found Horse</h3>
                         <p>Missing horse has been FOUND!!!</p>
+                    </div>
+                </div>
+                    
+                                    <div class="item">
+                    <img src="${pageContext.request.contextPath}/images/monkey.jpg" alt="Monkey" width="360" height="245">
+                    <div class="carousel-caption">
+                        <h3>Found Monkey</h3>
+                        <p>Monkey found in the woods in Danville, NH has been returned to it's owner!!!</p>
+                    </div>
+                </div>
+                    
+                                    <div class="item">
+                    <img src="${pageContext.request.contextPath}/images/cockatoo.jpg" alt="Cockatoo" width="360" height="245">
+                    <div class="carousel-caption">
+                        <h3>Cockatoo Missing</h3>
+                        <p>Missing cockatoo missing.  Last seen in Somersworth, NH.  Please help find my bird!!!</p>
                     </div>
                 </div>
 

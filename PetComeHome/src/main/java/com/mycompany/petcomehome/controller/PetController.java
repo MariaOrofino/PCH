@@ -3,8 +3,6 @@ package com.mycompany.petcomehome.controller;
 import com.mycompany.petcomehome.service.LocSL;
 import com.mycompany.petcomehome.service.PetSL;
 import com.mycompany.petcomehome.service.UserSL;
-import java.util.Map;
-import javax.inject.Inject;
 import javax.servlet.http.HttpServletRequest;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -14,7 +12,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 public class PetController {
 
-//    public static final String pictureFolder = "images/";
+    public static final String pictureFolder = "images/";
     LocSL locSL;
     PetSL petSL;
     UserSL userSL;

@@ -55,8 +55,9 @@ public class UserDaoDBImpl implements UserDao {
             = "select * from user where userzip = ?";
 
     private static final String SQL_RETRIEVE_USERS_BY_PET
-            = "select * from user join user_has_pet p on userId = p.User_userId "
-            + "where p.Pet_petId = ?";
+            = "select * from user as u "
+            + "join pet_has_user as phu on u.userId = phu.user_userId "
+            + "where phu.pet_petId = ?";
 
     private static final String SQL_DELETE_PET_HAS_USER
             = "delete from pet_has_user where user_userid = ?";
