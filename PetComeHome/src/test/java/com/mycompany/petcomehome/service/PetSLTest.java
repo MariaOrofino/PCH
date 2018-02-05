@@ -18,7 +18,7 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 import com.mycompany.petcomehome.helper.DaoTestHelper;
 import java.util.ArrayList;
-import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
 
 /**
  *
@@ -32,13 +32,13 @@ public class PetSLTest {
 
     Pet myNewPet;
 
-    List<Loc> locList;
-    List<User> userList;
-    List<Pet> petList;
+    List<Loc> locList = new ArrayList<>();
+    List<User> userList = new ArrayList<>();
+    List<Pet> petList = new ArrayList<>();
 
-    Loc loc;
-    User user;
-    Pet pet;
+    Loc newLoc;
+    User newUser;
+    Pet newPet;
 
     public PetSLTest() {
         ApplicationContext ctx = new ClassPathXmlApplicationContext("test-applicationContext.xml");
@@ -60,18 +60,40 @@ public class PetSLTest {
     @Before
     public void setUp() {
 
-        //createLoc
-        loc = DaoTestHelper.createLoc(0);
-        locSL.createLoc(loc);
-        locList = new ArrayList<>();
-        locList.add(loc);
+        List<User> removeUserList = userSL.retrieveAllUsers();
+        for (User currentUser : removeUserList) {
+            userSL.deleteUser(currentUser.getUserId());
+        }
 
-        //createUser
-        user = DaoTestHelper.createUser(1);
-        userSL.createUser(user);
+        List<Loc> removeLocList = locSL.retrieveAllLocs();
+        for (Loc currentLoc : removeLocList) {
+            locSL.deleteLoc(currentLoc.getLocId());
+        }
 
-        myNewPet = DaoTestHelper.createPet(1);
+        List<Pet> removePetList = petSL.getAllPets();
+        for (Pet currentPet : removePetList) {
+            petSL.deletePet(currentPet.getPetId());
+        }
 
+        List<Loc> newLocList = locSL.retrieveLocsByPet(newPet.getPetId());
+        for (Loc currentLoc : newLocList) {
+            locSL.createLoc(currentLoc);
+            newLocList.add(currentLoc);
+        }
+        
+        List<User> newUserList = userSL.retrieveUsersByPet(newPet.getPetId());
+        for (User currentUser : newUserList) {
+            userSL.createUser(currentUser);
+            newUserList.add(currentUser);
+        }
+
+        Pet newPet = DaoTestHelper.createPet(1);
+
+        newPet.setLoc(null);
+        newPet.setLoc(newLocList);
+        newPet.setUser(null);
+        newPet.setUser(newUserList);
+        petSL.createPet(newPet);
     }
 
     @After
@@ -84,11 +106,7 @@ public class PetSLTest {
      */
     @Test
     public void testCreatePet() {
-//        Pet petFromService = petSL.getPetByPetId(myNewPet.getPetId());
-//        assertNotNull(petFromService.getUser());
-//        assertNotNull(petFromService.getLoc());
-//
-//        assertEquals(myNewPet, petFromService);
+        assertNotNull(newPet);
     }
 
     /**
