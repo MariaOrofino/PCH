@@ -63,8 +63,4 @@ public class UserSLImpl implements UserSL {
         return userDao.retrieveUsersByZip(zip);
     }
 
-    @Override
-    public List<User> retrieveUsersByPet(int petId) {
-        return userDao.retrieveUsersByPet(petId);
-    }
 }

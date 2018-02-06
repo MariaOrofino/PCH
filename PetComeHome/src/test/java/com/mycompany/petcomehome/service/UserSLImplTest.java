@@ -137,46 +137,4 @@ public class UserSLImplTest {
 
     }
 
-    /**
-     * Test of retrieveUsersByPet method, of class UserSLImpl.
-     */
-    @Test
-    public void testRetrieveUsersByPet() {
-        List<User> newUserList = userSL.retrieveAllUsers();
-        for (User currentUser : newUserList) {
-            userSL.deleteUser(currentUser.getUserId());
-        }
-
-        List< Pet> newPetList = petSL.getAllPets();
-        for (Pet currentPet : newPetList) {
-            petSL.deletePet(currentPet.getPetId());
-        }
-        Pet newPet = DaoTestHelper.createPet(1);
-        
-        List<Loc> newLocList = new ArrayList<>();
-        for (Loc currentLoc : newPet.getLoc()) {
-            locSL.createLoc(currentLoc);
-            newLocList.add(currentLoc);
-        }
-        List<User> newUsers = new ArrayList<>();
-        for (User currentUser : newPet.getUser()) {
-            userSL.createUser(currentUser);
-            newUsers.add(currentUser);
-        }
-        newPet.setLoc(null);
-        newPet.setLoc(newLocList);
-        newPet.setUser(null);
-        newPet.setUser(newUsers);
-        petSL.createPet(newPet);
-        locSL.retrieveLocsByPet(newPet.getPetId());
-
-        assertNotNull(newPet.getUser());
-        assertNotNull(newPet.getLoc());
-
-        List<User> petListNew = userSL.retrieveUsersByPet(newPet.getPetId());
-        assertNotNull(petListNew);
-        assertEquals(5, petListNew.size());
-
-    }
-
 }

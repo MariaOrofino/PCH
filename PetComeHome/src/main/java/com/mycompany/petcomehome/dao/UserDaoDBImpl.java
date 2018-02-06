@@ -54,11 +54,6 @@ public class UserDaoDBImpl implements UserDao {
     private static final String SQL_RETRIEVE_USERS_BY_ZIP
             = "select * from user where userzip = ?";
 
-    private static final String SQL_RETRIEVE_USERS_BY_PET
-            = "select * from user as u "
-            + "join pet_has_user as phu on u.userId = phu.user_userId "
-            + "where phu.pet_petId = ?";
-
     private static final String SQL_DELETE_PET_HAS_USER
             = "delete from pet_has_user where user_userid = ?";
 
@@ -93,17 +88,6 @@ public class UserDaoDBImpl implements UserDao {
             return null;
         }
 
-    }
-
-    @Override
-    public List<User> retrieveUsersByPet(int petId) {
-        try {
-            return jdbcTemplate.query(SQL_RETRIEVE_USERS_BY_PET,
-                    new UserMapper(),
-                    petId);
-        } catch (EmptyResultDataAccessException ex) {
-            return null;
-        }
     }
 
     @Override

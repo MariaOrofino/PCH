@@ -23,7 +23,7 @@ public interface UserSL {
     List<User> retrieveUsersByCityState(String city, String state);
 
     List<User> retrieveUsersByZip(String zip);
-
-    List<User> retrieveUsersByPet(int petId);
+    
+    User retrieveUserByPetId(int petId);
 
 }

@@ -49,13 +49,13 @@ public class DaoTestHelper {
         pet.setPetLostDate(LocalDate.parse("2018-01-01"));
         pet.setPetFoundDate(LocalDate.parse("2018-01-15"));
         pet.setPetSightedDate(LocalDate.parse("2018-01-12"));
-        List<User> userList = new ArrayList<>();
+        User newUser = createUser(1);            
+
         List<Loc> locList = new ArrayList<>();
         for (int i = 0; i < 5; i++) {
-            userList.add(createUser(i));
             locList.add(createLoc(i));
         }
-        pet.setUser(userList);
+        pet.setUser(newUser);
         pet.setLoc(locList);
         pet.setPetStatus(createPetStatus(num));
         pet.setPetType(createPetType(num));

@@ -79,10 +79,7 @@ public class PetDaoTest {
 
         newPet = DaoTestHelper.createPet(1);
 
-        for (User currentUser : newPet.getUser()) {
-            userDao.createUser(currentUser);
-            newUserList.add(currentUser);
-        }
+        userDao.createUser(newPet.getUser());
 
         for (Loc currentLoc : newPet.getLoc()) {
             locDao.createLoc(currentLoc);
