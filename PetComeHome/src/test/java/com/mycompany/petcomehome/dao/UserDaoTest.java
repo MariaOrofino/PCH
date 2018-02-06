@@ -5,8 +5,8 @@
  */
 package com.mycompany.petcomehome.dao;
 
+import com.mycompany.petcomehome.model.Pet;
 import com.mycompany.petcomehome.model.User;
-import java.util.ArrayList;
 import java.util.List;
 import javax.inject.Inject;
 import org.junit.After;
@@ -27,10 +27,13 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 public class UserDaoTest {
 
     User newUser = new User();
+    Pet newPet = new Pet();
+
     List<User> userList;
 
     @Inject
     UserDao userDao;
+    PetDao petDao;
 
     public UserDaoTest() {
     }
@@ -49,6 +52,12 @@ public class UserDaoTest {
         ApplicationContext ctx
                 = new ClassPathXmlApplicationContext("test-applicationContext.xml");
         userDao = ctx.getBean("userDao", UserDao.class);
+        petDao = ctx.getBean("petDao", PetDao.class);
+
+        List<Pet> petList = petDao.getAllpets();
+        for (Pet currentPet : petList) {
+            petDao.deletePetById(currentPet.getPetId());
+        }
 
         List<User> users = userDao.retrieveAllUsers();
         for (User currentUser : users) {
@@ -69,9 +78,6 @@ public class UserDaoTest {
         newUser.setUserAltEmail("janedoe@libertymutusal.com");
 
         userDao.createUser(newUser);
-
-//        List<User> userList = userDao.retrieveAllUsers();
-
     }
 
     @After

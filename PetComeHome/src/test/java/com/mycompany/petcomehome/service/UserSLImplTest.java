@@ -15,6 +15,7 @@ import org.junit.After;
 import org.junit.AfterClass;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertNull;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
@@ -54,10 +55,6 @@ public class UserSLImplTest {
 
     @Before
     public void setUp() {
-        userList = userSL.retrieveAllUsers();
-        for (User currentUser : userList) {
-            userSL.deleteUser(currentUser.getUserId());
-        }
 
         locList = locSL.retrieveAllLocs();
         for (Loc currentLoc : locList) {
@@ -68,7 +65,10 @@ public class UserSLImplTest {
         for (Pet currentPet : petList) {
             petSL.deletePet(currentPet.getPetId());
         }
-
+        userList = userSL.retrieveAllUsers();
+        for (User currentUser : userList) {
+            userSL.deleteUser(currentUser.getUserId());
+        }
         newUser = DaoTestHelper.createUser(1);
 
         userSL.createUser(newUser);
@@ -102,7 +102,8 @@ public class UserSLImplTest {
      */
     @Test
     public void testRetrieveAllUsers() {
-
+        List<User> userList = userSL.retrieveAllUsers();
+        assertNotNull(userList);
     }
 
     /**
@@ -110,7 +111,9 @@ public class UserSLImplTest {
      */
     @Test
     public void testEditUser() {
-
+        newUser.setUserState("MA");
+        User editedUser = userSL.editUser(newUser);
+        assertEquals("MA", editedUser.getUserState());
     }
 
     /**
@@ -118,7 +121,9 @@ public class UserSLImplTest {
      */
     @Test
     public void testDeleteUser() {
-
+        userSL.deleteUser(newUser.getUserId());
+        User deletedUser = userSL.retrieveUserById(newUser.getUserId());
+        assertNull(deletedUser);
     }
 
     /**
@@ -126,7 +131,8 @@ public class UserSLImplTest {
      */
     @Test
     public void testRetrieveUsersByCityState() {
-
+        List<User> userList = userSL.retrieveUsersByCityState("Portsmouth", "NH");
+        assertNotNull(userList);
     }
 
     /**
@@ -134,7 +140,7 @@ public class UserSLImplTest {
      */
     @Test
     public void testRetrieveUsersByZip() {
-
+        List<User> userList = userSL.retrieveUsersByZip("03801");
+        assertNotNull(userList);
     }
-
 }

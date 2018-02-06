@@ -151,4 +151,3 @@ public class LocServiceImplTest {
 //        assertEquals(5, locSL.retrieveLocsByPet(newPet.getPetId()).size());
 //    }
 }
-}

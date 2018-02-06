@@ -27,7 +27,5 @@ public interface UserDao {
     public List<User> retrieveUsersByCityState(String city, String state);
 
     public List<User> retrieveUsersByZip(String zip);
-    
-    public User retrieveUsersByPet(int petId);
 
 }

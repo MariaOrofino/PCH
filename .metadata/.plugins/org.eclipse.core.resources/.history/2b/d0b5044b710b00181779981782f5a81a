@@ -63,13 +63,4 @@ public class UserSLImpl implements UserSL {
         return userDao.retrieveUsersByZip(zip);
     }
 
-	/* (non-Javadoc)
-	 * @see com.mycompany.petcomehome.service.UserSL#retrieveUserByPetId(int)
-	 */
-	@Override
-	public User retrieveUserByPetId(int petId) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
 }

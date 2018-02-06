@@ -159,13 +159,4 @@ public class UserDaoDBImpl implements UserDao {
             return user;
         }
     }
-
-	/* (non-Javadoc)
-	 * @see com.mycompany.petcomehome.dao.UserDao#retrieveUsersByPet(int)
-	 */
-	@Override
-	public User retrieveUsersByPet(int petId) {
-		// TODO Auto-generated method stub
-		return null;
-	}
 }
