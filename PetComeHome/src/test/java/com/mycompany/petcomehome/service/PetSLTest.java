@@ -101,13 +101,13 @@ public class PetSLTest {
     /**
      * Test of createPet method, of class PetSL.
      */
-    @Test
-    public void testCreatePet() {
-        assertNotNull(newLocList);
-        assertNotNull(newPet.getUser());
-        Pet petFromDB = petSL.getPetByPetId(newPet.getPetId());
-        assertEquals(newPet, petFromDB);
-    }
+//    @Test
+//    public void testCreatePet() {
+//        assertNotNull(newLocList);
+//        assertNotNull(newPet.getUser());
+//        Pet petFromDB = petSL.getPetByPetId(newPet.getPetId());
+//        assertEquals(newPet, petFromDB);
+//    }
 
     /**
      * Test of updatePet method, of class PetSL.
