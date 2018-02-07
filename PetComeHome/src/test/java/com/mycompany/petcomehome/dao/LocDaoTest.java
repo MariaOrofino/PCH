@@ -6,8 +6,8 @@
 package com.mycompany.petcomehome.dao;
 
 import com.mycompany.petcomehome.helper.DaoTestHelper;
-import com.mycompany.petcomehome.model.Loc;
 import com.mycompany.petcomehome.model.Pet;
+import com.mycompany.petcomehome.model.Loc;
 import java.util.List;
 import javax.inject.Inject;
 import org.junit.After;
