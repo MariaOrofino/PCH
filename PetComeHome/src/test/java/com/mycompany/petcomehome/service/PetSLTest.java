@@ -67,7 +67,7 @@ public class PetSLTest {
             locSL.deleteLoc(currentLoc.getLocId());
         }
 
-        petList = petSL.getAllPets();
+        petList = petSL.retrieveAllPets();
         for (Pet currentPet : petList) {
             petSL.deletePet(currentPet.getPetId());
         }
@@ -78,18 +78,18 @@ public class PetSLTest {
         }
 
         newPet = DaoTestHelper.createPet(1);
-        locList = null;
-        newLocList = new ArrayList<>();
-        
+//        locList = locSL.retrieveLocsByPet(newPet.getPetId());
+
+//        newLocList = new ArrayList<>();
         for (Loc currentLoc : newPet.getLoc()) {
             Loc addedLoc = locSL.createLoc(currentLoc);
-             newLocList.add(addedLoc);
+            newLocList.add(addedLoc);
         }
-        
+
         newPet.setLoc(newLocList);
         User addedUser = userSL.createUser(newPet.getUser());
         newPet.setUser(addedUser);
-        
+
         petSL.createPet(newPet);
     }
 
@@ -105,8 +105,7 @@ public class PetSLTest {
     public void testCreatePet() {
         assertNotNull(newLocList);
         assertNotNull(newPet.getUser());
-        Pet petFromDB = petSL.getPetByPetId(newPet.getPetId());
-        assertEquals(newPet, petFromDB);
+        assertNotNull(newPet);
     }
 
     /**
@@ -114,6 +113,10 @@ public class PetSLTest {
      */
     @Test
     public void testUpdatePet() {
+        newPet.setPetDesc("This is a test of Update!");
+        petSL.updatePet(newPet);
+        Pet fromDB = petSL.retrievePetByPetId(newPet.getPetId());
+        assertEquals(fromDB.getPetDesc(), newPet.getPetDesc());
     }
 
     /**
@@ -121,34 +124,37 @@ public class PetSLTest {
      */
     @Test
     public void testDeletePet() {
+        Pet deletedPet = petSL.retrievePetByPetId(newPet.getPetId());
+//        petSL.deletePet(newPet.getPetId());
+//        assertNull(deletedPet);
     }
 
     /**
-     * Test of getPetByPetId method, of class PetSL.
+     * Test of retrievePetByPetId method, of class PetSL.
      */
     @Test
-    public void testGetPetByPetId() {
+    public void testRetrievePetByPetId() {
     }
 
     /**
-     * Test of getPetbyuserId method, of class PetSL.
+     * Test of retrievePetByUserId method, of class PetSL.
      */
     @Test
-    public void testGetPetbyuserId() {
+    public void testRetrievePetbyuserId() {
     }
 
     /**
-     * Test of getPetByLocId method, of class PetSL.
+     * Test of retrievePetByLocId method, of class PetSL.
      */
     @Test
-    public void testGetPetByLocId() {
+    public void testRetrievePetByLocId() {
     }
 
     /**
-     * Test of getAllPets method, of class PetSL.
+     * Test of retrieveAllPets method, of class PetSL.
      */
     @Test
-    public void testGetAllPets() {
+    public void testRetrieveAllPets() {
     }
 
 }

@@ -1,6 +1,5 @@
 package com.mycompany.petcomehome.service;
 
-
 import com.mycompany.petcomehome.dao.*;
 import com.mycompany.petcomehome.model.User;
 
@@ -13,21 +12,22 @@ import java.util.List;
  */
 public class UserSLImpl implements UserSL {
 
-    PetDao petDao;
-    PetTypeDao petTypeDao;
-    PetStatusDao petStatusDao;
-    LocDao locDao;
-    UserDao userDao;
-
     @Inject
-    public UserSLImpl(PetDao petDao, PetTypeDao petTypeDao, PetStatusDao petStatusDao, UserDao userDao, LocDao locDao) {
+    PetDao petDao;
+    PetStatusDao petStatusDao;
+    PetTypeDao petTypeDao;
+    UserDao userDao;
+    LocDao locDao;
+
+    public UserSLImpl(PetDao petDao, PetStatusDao petStatusDao, PetTypeDao petTypeDao, UserDao userDao, LocDao locDao) {
         this.petDao = petDao;
-        this.petTypeDao = petTypeDao;
         this.petStatusDao = petStatusDao;
+        this.petTypeDao = petTypeDao;
         this.userDao = userDao;
         this.locDao = locDao;
     }
 
+    
     @Override
     public User createUser(User user) {
         return userDao.createUser(user);
@@ -63,13 +63,12 @@ public class UserSLImpl implements UserSL {
         return userDao.retrieveUsersByZip(zip);
     }
 
-	/* (non-Javadoc)
+    /* (non-Javadoc)
 	 * @see com.mycompany.petcomehome.service.UserSL#retrieveUserByPetId(int)
-	 */
-	@Override
-	public User retrieveUserByPetId(int petId) {
-		// TODO Auto-generated method stub
-		return null;
-	}
+     */
+    @Override
+    public User retrieveUserByPetId(int petId) {
+        return userDao.retrieveUsersByPet(petId);
+    }
 
 }

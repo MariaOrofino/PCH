@@ -61,7 +61,7 @@ public class UserSLImplTest {
             locSL.deleteLoc(currentLoc.getLocId());
         }
 
-        petList = petSL.getAllPets();
+        petList = petSL.retrieveAllPets();
         for (Pet currentPet : petList) {
             petSL.deletePet(currentPet.getPetId());
         }

@@ -20,17 +20,17 @@ import javax.inject.Inject;
  */
 public class LocServiceImpl implements LocSL {
 
-    PetDao petDao;
-    PetTypeDao petTypeDao;
-    PetStatusDao petStatusDao;
-    LocDao locDao;
-    UserDao userDao;
-
     @Inject
-    public LocServiceImpl(PetDao petDao, PetTypeDao petTypeDao, PetStatusDao petStatusDao, UserDao userDao, LocDao locDao) {
+    PetDao petDao;
+    PetStatusDao petStatusDao;
+    PetTypeDao petTypeDao;
+    UserDao userDao;
+    LocDao locDao;
+
+    public LocServiceImpl(PetDao petDao, PetStatusDao petStatusDao, PetTypeDao petTypeDao, UserDao userDao, LocDao locDao) {
         this.petDao = petDao;
-        this.petTypeDao = petTypeDao;
         this.petStatusDao = petStatusDao;
+        this.petTypeDao = petTypeDao;
         this.userDao = userDao;
         this.locDao = locDao;
     }

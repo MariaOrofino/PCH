@@ -20,12 +20,12 @@ public interface PetSL {
 
     public void deletePet(int petId);
 
-    public Pet getPetByPetId(int petId);
+    public Pet retrievePetByPetId(int petId);
 
-    public List<Pet> getPetbyuserId(int userId);
+    public List<Pet> retrievePetByUserId(int userId);
 
-    public List<Pet> getPetByLocId(int locId);
+    public List<Pet> retrievePetByLocId(int locId);
 
-    public List<Pet> getAllPets();
+    public List<Pet> retrieveAllPets();
 
 }

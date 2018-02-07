@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- Liquibase Change Log http://www.liquibase.org/documentation/index.html -->
+
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+	xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.0.xsd
+        http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
+
+	<changeSet id="1" author="tgelhar">
+		<sql>
+			DROP SCHEMA IF EXISTS PCH;
+			CREATE SCHEMA PCH;
+		</sql>
+	</changeSet>
+
+	<changeSet id="2" author="mariaOrofino">
+		<sql>
+			CREATE TABLE IF NOT EXISTS PCH.PETTYPE
+			(
+			pettypeid INT NOT NULL AUTO_INCREMENT,
+			petspec VARCHAR(45) NOT NULL,
+			dropdownind INT NULL,
+			PRIMARY KEY (pettypeid)
+			)
+		</sql>
+	</changeSet>
+
+	<changeSet id="5" author="mariaOrofino">
+		<sql>
+			CREATE TABLE IF NOT EXISTS PCH.Location
+			(
+			locId INT NOT NULL AUTO_INCREMENT,
+			locLat DECIMAL(10,7)
+			NULL,
+			locLong DECIMAL(10,7) NULL,
+			locName VARCHAR(45) NULL,
+			locDesc
+			VARCHAR(280) NOT NULL,
+			locState CHAR(2) NOT NULL,
+			locCity VARCHAR(45)
+			NULL,
+			locZip VARCHAR(5) NULL,
+			locInd CHAR(1) NOT NULL,
+			PRIMARY KEY
+			(locId)
+			)
+		</sql>
+	</changeSet>
+
+	<changeSet id="6" author="mariaOrofino">
+		<sql>
+			CREATE TABLE IF NOT EXISTS PCH.User (
+			userId INT NOT NULL
+			AUTO_INCREMENT,
+			userFirstName VARCHAR(45) NOT
+			NULL,
+			userLastName
+			VARCHAR(45) NOT NULL,
+			userLogin VARCHAR(15) NOT
+			NULL,
+			userState CHAR(2)
+			NOT NULL,
+			userCity VARCHAR(45) NOT NULL,
+			userMobile CHAR(10) NOT NULL,
+			userEmail VARCHAR(60) NOT NULL,
+			userAltPhone CHAR(10) NULL,
+			userAltEmail VARCHAR(60) NULL,
+			userPassword VARCHAR(15) NULL,
+			userZip
+			VARCHAR(5) NOT NULL,
+			PRIMARY KEY
+			(userId))
+			ENGINE = InnoDB;
+		</sql>
+	</changeSet>
+
+	<changeSet id="4" author="mariaOrofino">
+		<sql>
+			CREATE TABLE IF NOT EXISTS
+			PCH.Location (
+			locId INT NOT NULL
+			AUTO_INCREMENT,
+			locLat DECIMAL(10,7)
+			NULL,
+			locLong DECIMAL(10,7) NULL,
+			locName VARCHAR(45) NULL,
+			locDesc
+			VARCHAR(280) NOT NULL,
+			locState
+			CHAR(2) NOT NULL,
+			locCity VARCHAR(45)
+			NULL,
+			locZip VARCHAR(5) NULL,
+			locInd CHAR(1) NOT NULL,
+			PRIMARY KEY (locId)
+			)
+		</sql>
+	</changeSet>
+
+	<changeSet id="7" author="mariaOrofino">
+		<sql>
+			CREATE TABLE IF NOT EXISTS PCH.PetStatus
+			(
+			petStatusId INT NOT NULL AUTO_INCREMENT,
+			petStatus
+			VARCHAR(45) NOT
+			NULL,
+			PRIMARY KEY (petStatusId)
+			)
+		</sql>
+	</changeSet>
+
+	<changeSet id="8" author="mariaOrofino">
+		<sql>
+			CREATE TABLE IF NOT EXISTS pch.pet
+			(
+			petId INT NOT NULL AUTO_INCREMENT,
+			petName VARCHAR(45) NULL,
+			petChipTag VARCHAR(45) NULL,
+			petRabiesTag VARCHAR(45) NULL,
+			petTypeId INT,
+			petDesc VARCHAR(280) NOT NULL,
+			petBreed VARCHAR(45) NULL,
+			petSize VARCHAR(45) NOT NULL,
+			petColor VARCHAR(45) NOT NULL,
+			petImgUrl VARCHAR(100) NULL,
+			petCreateDate DATE NULL,
+			petModifiedDate DATE NULL,
+			petLostDate DATE NULL,
+			petFoundDate DATE NULL,
+			petSightedDate DATE NULL,
+			
+			UNIQUE INDEX petChipTag_UNIQUE (petChipTag ASC),
+			UNIQUE INDEX petRabiesTag_UNIQUE (petRabiesTag ASC),
+            <!-- foreign key (petStatusId) references PetStatus(petStatusId), -->
+            foreign key (petTypeId) references petType(petTypeId),
+			PRIMARY KEY (petId)
+			)
+		</sql>
+	</changeSet>
+	<changeSet id="10" author="mariaOrofino">
+		<sql>
+			CREATE TABLE IF NOT EXISTS PCH.Pet_has_User
+			(
+			petId INT NOT NULL,
+			petStatusId INT NOT NULL,
+			userId INT NOT NULL
+			)
+		</sql>
+	</changeSet>
+
+
+</databaseChangeLog>

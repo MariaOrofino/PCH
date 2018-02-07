@@ -10,7 +10,9 @@ import com.mycompany.petcomehome.dao.PetDao;
 import com.mycompany.petcomehome.dao.PetStatusDao;
 import com.mycompany.petcomehome.dao.PetTypeDao;
 import com.mycompany.petcomehome.dao.UserDao;
+import com.mycompany.petcomehome.model.Loc;
 import com.mycompany.petcomehome.model.Pet;
+import com.mycompany.petcomehome.model.User;
 import java.util.List;
 import javax.inject.Inject;
 
@@ -20,24 +22,20 @@ import javax.inject.Inject;
  */
 public class PetSLImpl implements PetSL {
 
+    @Inject
     PetDao petDao;
     PetStatusDao petStatusDao;
     PetTypeDao petTypeDao;
     UserDao userDao;
     LocDao locDao;
 
-    @Inject
-    public PetSLImpl(PetDao petDao, PetTypeDao petTypeDao, PetStatusDao petStatusDao, UserDao userDao, LocDao locDao) {
+    public PetSLImpl(PetDao petDao, PetStatusDao petStatusDao, PetTypeDao petTypeDao, UserDao userDao, LocDao locDao) {
         this.petDao = petDao;
-        this.petTypeDao = petTypeDao;
         this.petStatusDao = petStatusDao;
+        this.petTypeDao = petTypeDao;
         this.userDao = userDao;
         this.locDao = locDao;
-
     }
-    @Inject
-    UserSL userSL;
-    LocSL locSL;
 
     @Override
     public Pet createPet(Pet pet) {
@@ -55,39 +53,38 @@ public class PetSLImpl implements PetSL {
     }
 
     @Override
-    public Pet getPetByPetId(int petId) {
-        Pet pet = petDao.getPetByPetId(petId);
-
-        pet.setUser(userSL.retrieveUserByPetId(petId));
-        pet.setLoc(locSL.retrieveLocsByPet(petId));
-
+    public Pet retrievePetByPetId(int petId) {
+        Pet pet = petDao.retrievePetByPetId(petId);
+        List<Loc> petLocList = locDao.retrieveLocsByPet(petId);
+        pet.setLoc(petLocList);
+        User petUser = userDao.retrieveUsersByPet(petId);
+        pet.setUser(petUser);
         return pet;
     }
 
     @Override
-    public List<Pet> getPetbyuserId(int userId) {
-        List<Pet> petList = petDao.getPetsByUserId(userId);
+    public List<Pet> retrievePetByUserId(int userId) {
+        List<Pet> petList = petDao.retrievePetsByUserId(userId);
         return associateAllThingsWithPet(petList);
 
     }
 
     @Override
-    public List<Pet> getPetByLocId(int locId) {
-        List<Pet> petList = petDao.getPetsByLocId(locId);
+    public List<Pet> retrievePetByLocId(int locId) {
+        List<Pet> petList = petDao.retrievePetsByLocId(locId);
         return associateAllThingsWithPet(petList);
     }
 
     @Override
-    public List<Pet> getAllPets() {
-        return petDao.getAllpets();
+    public List<Pet> retrieveAllPets() {
+        return petDao.retrieveAllPets();
     }
 
     private List<Pet> associateAllThingsWithPet(List<Pet> petList) {
         for (Pet currentPet : petList) {
-            currentPet.setUser(userSL.retrieveUserByPetId(currentPet.getPetId()));
-            currentPet.setLoc(locSL.retrieveLocsByPet(currentPet.getPetId()));
+            currentPet.setUser(userDao.retrieveUsersByPet(currentPet.getPetId()));
+            currentPet.setLoc(locDao.retrieveLocsByPet(currentPet.getPetId()));
         }
         return petList;
     }
-
 }

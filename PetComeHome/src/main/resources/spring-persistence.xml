@@ -16,7 +16,7 @@
 
     <!-- Bean definitions go here -->
    
-    <tx:annotation-driven/>
+   <tx:annotation-driven/>
 
     <context:component-scan base-package="com.mycompany.petcomehome.dao" />
     <bean id="dataSource"
@@ -80,7 +80,7 @@
         <constructor-arg ref = "userDao"/>
         <constructor-arg ref = "locDao"/>
     </bean>
-    
+
     <bean id="locSL" class="com.mycompany.petcomehome.service.LocServiceImpl">
         <constructor-arg ref = "petDao"/>
         <constructor-arg ref = "petStatusDao"/>

@@ -54,7 +54,7 @@ public class UserDaoTest {
         userDao = ctx.getBean("userDao", UserDao.class);
         petDao = ctx.getBean("petDao", PetDao.class);
 
-        List<Pet> petList = petDao.getAllpets();
+        List<Pet> petList = petDao.retrieveAllPets();
         for (Pet currentPet : petList) {
             petDao.deletePetById(currentPet.getPetId());
         }
