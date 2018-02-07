@@ -172,13 +172,11 @@ public class PetDaoDBImpl implements PetDao {
     public void deletePetById(int petId) {
 //        jdbcTemplate.update(SQL_DELETE_PET_HAS_USER, petId);
         jdbcTemplate.update(SQL_DELETE_PET_HAS_LOCATION, petId);
-
         jdbcTemplate.update(SQL_DELETE_PET, petId);
-
     }
 
     @Override
-    public Pet getPetByPetId(int petId) {
+    public Pet retrievePetByPetId(int petId) {
         try {
             return jdbcTemplate.queryForObject(SQL_SELECT_PET_BY_ID,
                     new petMapper(), petId);
@@ -188,7 +186,7 @@ public class PetDaoDBImpl implements PetDao {
     }
 
     @Override
-    public List<Pet> getAllpets() {
+    public List<Pet> retrieveAllPets() {
         List<Pet> petList = jdbcTemplate.query(SQL_SELECT_ALL_PETS,
                 new petMapper());
         return petList;
@@ -196,7 +194,7 @@ public class PetDaoDBImpl implements PetDao {
     }
 
     @Override
-    public List<Pet> getPetsByUserId(int userId) {
+    public List<Pet> retrievePetsByUserId(int userId) {
         try {
             return jdbcTemplate.query(SQL_SELECT_PETS_BY_USER_ID,
                     new petMapper(),
@@ -207,7 +205,7 @@ public class PetDaoDBImpl implements PetDao {
     }
 
     @Override
-    public List<Pet> getPetsByLocId(int locId) {
+    public List<Pet> retrievePetsByLocId(int locId) {
         try {
             return jdbcTemplate.query(SQL_SELECT_PETS_BY_LOC_ID,
                     new petMapper(),
@@ -218,14 +216,14 @@ public class PetDaoDBImpl implements PetDao {
     }
 
     @Override
-    public List<Pet> getPetsByTypeId(int typeId) {
+    public List<Pet> retrievePetsByTypeId(int typeId) {
         return jdbcTemplate.query(SQL_SELECT_PETS_BY_TYPE,
                 new petMapper(),
                 typeId);
     }
 
     @Override
-    public List<Pet> getPetByColor(String color) {
+    public List<Pet> retrievePetByColor(String color) {
         try {
             return jdbcTemplate.query(SQL_SELECT_PET_BY_COLOR,
                     new petMapper(),
@@ -236,19 +234,19 @@ public class PetDaoDBImpl implements PetDao {
     }
 
     @Override
-    public List<Pet> getPetBySize(String size) {
+    public List<Pet> retrievePetBySize(String size) {
         return jdbcTemplate.query(SQL_SELECT_PET_BY_SIZE,
                 new petMapper(), size);
     }
 
     @Override
-    public List<Pet> getPetByBreed(String breed) {
+    public List<Pet> retrievePetByBreed(String breed) {
         return jdbcTemplate.query(SQL_SELECT_PET_BY_BREED,
                 new petMapper(), breed);
     }
 
     @Override
-    public List<Pet> getPetByChipTag(String chipTag) {
+    public List<Pet> retrievePetByChipTag(String chipTag) {
         try {
             return jdbcTemplate.query(SQL_SELECT_PET_BY_CHIPTAG,
                     new petMapper(),
@@ -259,7 +257,7 @@ public class PetDaoDBImpl implements PetDao {
     }
 
     @Override
-    public List<Pet> getPetByRabiesTag(String rabiesTag) {
+    public List<Pet> retrievePetByRabiesTag(String rabiesTag) {
         try {
             return jdbcTemplate.query(SQL_SELECT_PET_BY_RABIESTAG,
                     new petMapper(),
@@ -270,7 +268,7 @@ public class PetDaoDBImpl implements PetDao {
     }
 
     @Override
-    public List<Pet> getPetByName(String name) {
+    public List<Pet> retrievePetByName(String name) {
         try {
             return jdbcTemplate.query(SQL_SELECT_PET_BY_PETNAME,
                     new petMapper(),

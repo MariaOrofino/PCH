@@ -57,7 +57,9 @@ public class LocDaoDBImpl implements LocDao {
             + "from location l "
             + "join pet_has_location phl "
             + "on l.locid = phl.location_locid "
-            + "where phl.pet_petid = ? "
+            + "join pet p "
+            + "on p.petid = phl.pet_petid "
+            + "where p.petid = ? "
             + "order by l.locid";
 
     @Override
@@ -123,6 +125,7 @@ public class LocDaoDBImpl implements LocDao {
     public List<Loc> retrieveLocsByPet(int petId) {
         List<Loc> petLocList = jdbcTemplate.query(SQL_RETRIEVE_LOCS_BY_PET,
                 new LocMapper(), petId);
+        
         return petLocList;
     }
 

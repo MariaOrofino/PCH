@@ -62,7 +62,7 @@ public class PetDaoTest {
         userDao = ctx.getBean("userDao", UserDao.class);
         locDao = ctx.getBean("locDao", LocDao.class);
 
-        petList = petDao.getAllpets();
+        petList = petDao.retrieveAllPets();
         userList = userDao.retrieveAllUsers();
         locList = locDao.retrieveAllLocs();
 
@@ -103,7 +103,7 @@ public class PetDaoTest {
         newPet.setPetStatus(null);
         newPet.setLoc(null);
         newPet.setUser(null);
-        Pet fromDao = petDao.getPetByPetId(newPet.getPetId());
+        Pet fromDao = petDao.retrievePetByPetId(newPet.getPetId());
         assertNotNull(fromDao);
         assertEquals(fromDao, newPet);
 
@@ -127,39 +127,39 @@ public class PetDaoTest {
     @Test
     public void testDeletePetById() {
         petDao.deletePetById(newPet.getPetId());
-        assertNull(petDao.getPetByPetId(newPet.getPetId()));
+        assertNull(petDao.retrievePetByPetId(newPet.getPetId()));
     }
 
     /**
-     * Test of getPetByPetId method, of class PetDaoDBImpl.
+     * Test of retrievePetByPetId method, of class PetDaoDBImpl.
      */
     @Test
-    public void testGetPetByPetId() {
+    public void testRetrievePetByPetId() {
         newPet.setPetType(null);
         newPet.setPetStatus(null);
         newPet.setLoc(null);
         newPet.setUser(null);
-        Pet fromDao = petDao.getPetByPetId(newPet.getPetId());
+        Pet fromDao = petDao.retrievePetByPetId(newPet.getPetId());
         assertEquals(fromDao, newPet);
     }
 
     /**
-     * Test of getAllpets method, of class PetDaoDBImpl.
+     * Test of retrieveAllPets method, of class PetDaoDBImpl.
      */
     @Test
-    public void testGetAllpets() {
+    public void testRetrieveAllpets() {
         newPet.setPetType(null);
         newPet.setPetStatus(null);
         newPet.setLoc(null);
         newPet.setUser(null);
-        List<Pet> fromDao = petDao.getAllpets();
-        assertEquals(petList.size(), fromDao.size());
+        List<Pet> fromDao = petDao.retrieveAllPets();
+        assertEquals(1, fromDao.size());
     }
 
     @Test
-    public void getPetsByUserId() {
+    public void TestRetrievePetsByUserId() {
         for (User currentUser : newUserList) {
-            List<Pet> petLists = petDao.getPetsByUserId(currentUser.getUserId());
+            List<Pet> petLists = petDao.retrievePetsByUserId(currentUser.getUserId());
             for (Pet currentPet : petLists) {
                 assertEquals(newPet.getPetId(), currentPet.getPetId());
             }
@@ -167,9 +167,9 @@ public class PetDaoTest {
     }
 
     @Test
-    public void getPetsByLocId() {
+    public void TestRetrievePetsByLocId() {
         for (Loc currentLoc : newLocList) {
-            List<Pet> pets = petDao.getPetsByLocId(currentLoc.getLocId());
+            List<Pet> pets = petDao.retrievePetsByLocId(currentLoc.getLocId());
             for (Pet currentPet : pets) {
                 assertEquals(newPet.getPetId(), currentPet.getPetId());
             }
@@ -177,42 +177,42 @@ public class PetDaoTest {
     }
 
     @Test
-    public void getPetsByTypeId() {
+    public void TestRetrievePetsByTypeId() {
 
         List<Pet> petTypeList = new ArrayList<>();
-        petTypeList = petDao.getPetsByTypeId(newPet.getPetType().getPetTypeId());
+        petTypeList = petDao.retrievePetsByTypeId(newPet.getPetType().getPetTypeId());
         for (Pet currentPet : petTypeList) {
             assertEquals(newPet.getPetId(), currentPet.getPetId());
         }
     }
 
     @Test
-    public void getPetByColor() {
+    public void TestRetrievePetByColor() {
 
     }
 
     @Test
-    public void getPetBySize() {
+    public void TestRetrievePetBySize() {
 
     }
 
     @Test
-    public void getPetByBreed() {
+    public void TestRetrievePetByBreed() {
 
     }
 
     @Test
-    public void getPetByChipTag() {
+    public void TestRetrievePetByChipTag() {
 
     }
 
     @Test
-    public void getPetByRabiesTag() {
+    public void TestRetrievePetByRabiesTag() {
 
     }
 
     @Test
-    public void getPetByName() {
+    public void TestRetrievePetByName() {
 
     }
 
