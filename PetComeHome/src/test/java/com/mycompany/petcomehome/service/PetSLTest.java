@@ -20,7 +20,6 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 import java.util.ArrayList;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
-import static org.junit.Assert.assertNull;
 
 /**
  *
@@ -125,9 +124,9 @@ public class PetSLTest {
      */
     @Test
     public void testDeletePet() {
-        Pet deletedPet = petSL.retrievePetByPetId(newPet.getPetId());
         petSL.deletePet(newPet.getPetId());
-
+        Pet deletedPet = petSL.retrievePetByPetId(newPet.getPetId());
+        assertEquals(null, newPet.getPetId());
     }
 
     /**
