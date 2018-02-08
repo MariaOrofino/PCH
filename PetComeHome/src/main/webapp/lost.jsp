@@ -35,10 +35,11 @@
             </div>
             <ul class="nav navbar-nav">
                 <li class="active"><a href="${pageContext.request.contextPath}/jsp/index.jsp"><span class="glyphicon glyphicon-home"></span></a></li>
-                <li><a href="${pageContext.request.contextPath}/submitForm">Report Lost Pet</a></li>
+                <li><a href="${pageContext.request.contextPath}/jsp/submitForm.jsp">Report Lost Pet</a></li>
                 <li><a href="${pageContext.request.contextPath}/found.jsp">Report Found pet</a></li>
                 <li><a href="${pageContext.request.contextPath}/lost.jsp">Report a Sighting</a></li>
                 <li><a href="${pageContext.request.contextPath}/search.jsp">Search</a></li>
+                <li><a href="${pageContext.request.contextPath}/contactus.jsp">Contact Us</a></li>
             </ul>
         </div>
     </nav>

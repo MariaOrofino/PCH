@@ -37,8 +37,8 @@ public class PetController {
         return "redirect:/";
     }
 
-    @RequestMapping(value = "/submitForm", method = RequestMethod.GET)
-    public String editblog(HttpServletRequest request) {
-        return "submitForm";
-    }
+//    @RequestMapping(value = "/submitForm", method = RequestMethod.GET)
+//    public String editblog(HttpServletRequest request) {
+//        return "submitForm";
+//    }
 }
