@@ -68,7 +68,7 @@ public class PetTypeDBImpl implements PetTypeDao {
     }
 
     @Override
-    public PetType getPetTypeById(int petTypeId) {
+    public PetType retrievePetTypeById(int petTypeId) {
         try {
             return jdbcTemplate.queryForObject(SQL_SELECT_PETTYPE_BY_ID,
                     new petTypeMapper(), petTypeId);
@@ -78,7 +78,7 @@ public class PetTypeDBImpl implements PetTypeDao {
     }
 
     @Override
-    public List<PetType> getAllPetTypes() {
+    public List<PetType> retrieveAllPetTypes() {
         List<PetType> petStatusList = jdbcTemplate.query(SQL_SELECT_ALL_PETTYPEES,
                 new petTypeMapper());
         return petStatusList;

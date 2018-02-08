@@ -69,7 +69,7 @@ public class PetStatusDBImpl implements PetStatusDao {
     }
 
     @Override
-    public PetStatus getPetStatusById(int petStatusId) {
+    public PetStatus retrievePetStatusById(int petStatusId) {
         try {
             return jdbcTemplate.queryForObject(SQL_SELECT_PETSTATUS_BY_ID,
                     new petStatusMapper(), petStatusId);
@@ -79,7 +79,7 @@ public class PetStatusDBImpl implements PetStatusDao {
     }
 
     @Override
-    public List<PetStatus> getAllPetStatus() {
+    public List<PetStatus> retrieveAllPetStatus() {
         List<PetStatus> petStatusList = jdbcTemplate.query(SQL_SELECT_ALL_PETSTATUSES,
                 new petStatusMapper());
         return petStatusList;

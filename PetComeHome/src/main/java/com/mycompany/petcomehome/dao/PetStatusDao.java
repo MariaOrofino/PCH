@@ -20,8 +20,8 @@ public interface PetStatusDao {
 
     public void deletePetStatus(int petStatusId);
 
-    public PetStatus getPetStatusById(int petStatusId);
+    public PetStatus retrievePetStatusById(int petStatusId);
 
-    public List<PetStatus> getAllPetStatus();
+    public List<PetStatus> retrieveAllPetStatus();
 
 }
