@@ -22,6 +22,6 @@ public interface PetStatusDao {
 
     public PetStatus getPetStatusById(int petStatusId);
 
-    public List<PetStatus> getAllPetStatuss();
+    public List<PetStatus> getAllPetStatus();
 
 }

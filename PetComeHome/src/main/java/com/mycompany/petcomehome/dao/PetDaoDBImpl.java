@@ -41,14 +41,12 @@ public class PetDaoDBImpl implements PetDao {
 
 //    private static final String SQL_DELETE_PET_HAS_USER
 //            = "delete from pet_has_user where pet_petId = ?";
-
     private static final String SQL_DELETE_PET_HAS_LOCATION
             = "delete from pet_has_location where pet_petId = ?";
 
 //    private static final String SQL_INSERT_PET_HAS_USER
 //            = "insert into Pet_has_User (Pet_petId, User_userId) "
 //            + "values (?, ?)";
-
     private static final String SQL_INSERT_PET_HAS_LOCATION
             = "insert into pet_has_location (Pet_petId, Location_locId) "
             + "values (?, ?)";
@@ -56,28 +54,32 @@ public class PetDaoDBImpl implements PetDao {
     private static final String SQL_SELECT_PET_BY_ID
             = "select * from  pet "
             + "where petId = ?";
-    
+
     private static final String SQL_SELECT_ALL_PETS
-            = "select * from pet ";
+            = "select p.petId, p.petName, p.petChipTag, p.petRabiesTag, p.petDesc, p.petBreed, p.petSize, "
+            + "p.petColor, p.petImgUrl, p.PetType_petTypeId, p.petCreateDate, p.petModifiedDate, "
+            + "p.petLostDate, p.petFoundDate, p.petSightedDate, p.petStatus_petStatusId "
+            + "from pet p";
 
     private static final String SQL_SELECT_PETS_BY_USER_ID
             = "select p.petId, p.petName, p.petChipTag, p.petRabiesTag, p.petDesc, p.petBreed, p.petSize, "
-            + "p.petColor, p.petImgUrl, p.petCreateDate, p.petModifiedDate, "
-            + "p.petLostDate, p.petFoundDate, p.petSightedDate "
+            + "p.petColor, p.petImgUrl, p.PetType_petTypeId, p.petCreateDate, p.petModifiedDate, "
+            + "p.petLostDate, p.petFoundDate, p.petSightedDate, p.petStatus_petStatusId "
             + "from pet p join pet_has_user pu on p.petId = pu.Pet_petId "
             + "where pu.User_userId = ?";
 
     private static final String SQL_SELECT_PETS_BY_LOC_ID
             = "select p.petId, p.petName, p.petChipTag, p.petRabiesTag, p.petDesc, p.petBreed, p.petSize, p.petColor, p.petImgUrl, "
-            + "p.petCreateDate, p.petModifiedDate, p.petLostDate, p.petFoundDate, p.petSightedDate "
+            + "p.PetType_petTypeId, p.petCreateDate, p.petModifiedDate, p.petLostDate, p.petFoundDate, p.petSightedDate, p.petStatus_petStatusId "
             + "from pet p join pet_has_location pl on p.petId = pl.pet_petId "
-            + "where pl.Location_locId = ?";
+            + "where pl.Location_locId = ? "
+            + "order by pl.location_locid ";
 
     private static final String SQL_SELECT_PETS_BY_TYPE
             = "select p.petId, p.petName, p.petChipTag, p.petRabiesTag, p.petDesc,"
             + " p.petBreed, p.petSize, p.petColor,"
-            + " p.petImgUrl, p.petCreateDate, p.petModifiedDate, p.petLostDate,"
-            + " p.petFoundDate, p.petSightedDate"
+            + " p.petImgUrl, p.PetType_petTypeId, p.petCreateDate, p.petModifiedDate, p.petLostDate,"
+            + " p.petFoundDate, p.petSightedDate, p.petStatus_petStatusId "
             + " from pet p"
             + " join petType pt on pt.petTypeId = p.PetType_petTypeId"
             + " where pt.petTypeId = ?";
@@ -118,14 +120,14 @@ public class PetDaoDBImpl implements PetDao {
                 pet.getPetSize(),
                 pet.getPetColor(),
                 pet.getPetImgURL(),
-                pet.getPetType().getPetTypeId(),
+                pet.getPetTypeId(),
                 pet.getPetCreateDate().toString(),
                 pet.getPetModifiedDate().toString(),
                 pet.getPetLostDate().toString(),
                 pet.getPetFoundDate().toString(),
                 pet.getPetSightedDate().toString(),
-                pet.getPetStatus().getPetStatusId(),
-        		pet.getUser().getUserId());
+                pet.getPetStatusId(),
+                pet.getUser().getUserId());
         int petId = jdbcTemplate.queryForObject("select LAST_INSERT_ID()",
                 Integer.class);
 
@@ -149,13 +151,13 @@ public class PetDaoDBImpl implements PetDao {
                 pet.getPetSize(),
                 pet.getPetColor(),
                 pet.getPetImgURL(),
-                pet.getPetType().getPetTypeId(),
+                pet.getPetTypeId(),
                 pet.getPetCreateDate().toString(),
                 pet.getPetModifiedDate().toString(),
                 pet.getPetLostDate().toString(),
                 pet.getPetFoundDate().toString(),
                 pet.getPetSightedDate().toString(),
-                pet.getPetStatus().getPetStatusId(),
+                pet.getPetStatusId(),
                 pet.getUser().getUserId(),
                 pet.getPetId());
 
@@ -285,7 +287,6 @@ public class PetDaoDBImpl implements PetDao {
 //
 //        }
 //    }
-
     private void insertPetHasLocation(Pet pet) {
         final List<Loc> locList = pet.getLoc();
         for (Loc currentLoc : locList) {
@@ -309,12 +310,13 @@ public class PetDaoDBImpl implements PetDao {
             petMap.setPetSize(rs.getString("petSize"));
             petMap.setPetColor(rs.getString("petColor"));
             petMap.setPetImgURL(rs.getString("petImgUrl"));
-            petMap.setPetRabiesTag(rs.getString("petRabiesTag"));
+            petMap.setPetTypeId(rs.getInt("PetType_petTypeId"));
             petMap.setPetCreateDate(rs.getDate("petCreateDate").toLocalDate());
             petMap.setPetModifiedDate(rs.getDate("petModifiedDate").toLocalDate());
             petMap.setPetLostDate(rs.getDate("petLostDate").toLocalDate());
             petMap.setPetFoundDate(rs.getDate("petFoundDate").toLocalDate());
             petMap.setPetSightedDate(rs.getDate("petSightedDate").toLocalDate());
+            petMap.setPetStatusId(rs.getInt("PetStatus_petStatusId"));
 
             return petMap;
 

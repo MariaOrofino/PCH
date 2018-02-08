@@ -68,7 +68,7 @@ public class UserSLImpl implements UserSL {
      */
     @Override
     public User retrieveUserByPetId(int petId) {
-        return userDao.retrieveUsersByPet(petId);
+        return userDao.retrieveUserByPet(petId);
     }
 
 }

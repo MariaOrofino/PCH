@@ -48,6 +48,9 @@ public class UserDaoDBImpl implements UserDao {
     private static final String SQL_DELETE_USER
             = "delete from user where userId = ?";
 
+    private static final String SQL_RETRIEVE_USER_BY_PET
+            = "select * from user u join pet p on u.userId = p.User_userId "
+            + "where p.petId = ?";
     private static final String SQL_RETRIEVE_USERS_BY_CITYSTATE
             = " select * from user where usercity = ? and userstate = ?";
 
@@ -138,6 +141,14 @@ public class UserDaoDBImpl implements UserDao {
         return userList;
     }
 
+    /* (non-Javadoc)
+	 * @see com.mycompany.petcomehome.dao.UserDao#retrieveUserByPet(int)
+     */
+    @Override
+    public User retrieveUserByPet(int petId) {
+        return jdbcTemplate.queryForObject(SQL_RETRIEVE_USER_BY_PET, new UserDaoDBImpl.UserMapper(), petId);
+    }
+
     private static final class UserMapper implements RowMapper<User> {
 
         @Override
@@ -159,13 +170,4 @@ public class UserDaoDBImpl implements UserDao {
             return user;
         }
     }
-
-	/* (non-Javadoc)
-	 * @see com.mycompany.petcomehome.dao.UserDao#retrieveUsersByPet(int)
-	 */
-	@Override
-	public User retrieveUsersByPet(int petId) {
-		// TODO Auto-generated method stub
-		return null;
-	}
 }

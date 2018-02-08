@@ -99,8 +99,8 @@ public class PetDaoTest {
      */
     @Test
     public void testCreatePet() {
-        newPet.setPetType(null);
-        newPet.setPetStatus(null);
+//        newPet.setPetType(null);
+//        newPet.setPetStatus(null);
         newPet.setLoc(null);
         newPet.setUser(null);
         Pet fromDao = petDao.retrievePetByPetId(newPet.getPetId());
@@ -135,8 +135,8 @@ public class PetDaoTest {
      */
     @Test
     public void testRetrievePetByPetId() {
-        newPet.setPetType(null);
-        newPet.setPetStatus(null);
+//        newPet.setPetType(null);
+//        newPet.setPetStatus(null);
         newPet.setLoc(null);
         newPet.setUser(null);
         Pet fromDao = petDao.retrievePetByPetId(newPet.getPetId());
@@ -148,8 +148,8 @@ public class PetDaoTest {
      */
     @Test
     public void testRetrieveAllpets() {
-        newPet.setPetType(null);
-        newPet.setPetStatus(null);
+//        newPet.setPetType(null);
+//        newPet.setPetStatus(null);
         newPet.setLoc(null);
         newPet.setUser(null);
         List<Pet> fromDao = petDao.retrieveAllPets();
@@ -180,7 +180,7 @@ public class PetDaoTest {
     public void TestRetrievePetsByTypeId() {
 
         List<Pet> petTypeList = new ArrayList<>();
-        petTypeList = petDao.retrievePetsByTypeId(newPet.getPetType().getPetTypeId());
+        petTypeList = petDao.retrievePetsByTypeId(newPet.getPetTypeId());
         for (Pet currentPet : petTypeList) {
             assertEquals(newPet.getPetId(), currentPet.getPetId());
         }

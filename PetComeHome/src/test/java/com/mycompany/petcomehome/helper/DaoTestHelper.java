@@ -44,11 +44,13 @@ public class DaoTestHelper {
         pet.setPetSize("Medium Small");
         pet.setPetColor("Black");
         pet.setPetImgURL("000001.jpg");
+        pet.setPetTypeId(num);
         pet.setPetCreateDate(LocalDate.parse("2018-01-02"));
         pet.setPetModifiedDate(LocalDate.parse("2018-01-08"));
         pet.setPetLostDate(LocalDate.parse("2018-01-01"));
         pet.setPetFoundDate(LocalDate.parse("2018-01-15"));
         pet.setPetSightedDate(LocalDate.parse("2018-01-12"));
+        pet.setPetStatusId(num);
         User newUser = createUser(1);            
 
         List<Loc> locList = new ArrayList<>();
@@ -57,25 +59,25 @@ public class DaoTestHelper {
         }
         pet.setUser(newUser);
         pet.setLoc(locList);
-        pet.setPetStatus(createPetStatus(num));
-        pet.setPetType(createPetType(num));
+//        pet.setPetStatus(createPetStatus(num));
+//        pet.setPetType(createPetType(num));
         return pet;
     }
 
-    public static final PetStatus createPetStatus(int num) {
-        PetStatus petStatus = new PetStatus();
-        petStatus.setPetStatusId(num);
-        petStatus.setPetStatus("LOST");
-        return petStatus;
-    }
-
-    public static final PetType createPetType(int num) {
-        PetType petType = new PetType();
-        petType.setPetTypeId(num);
-        petType.setPetSpec("Dog");
-        petType.setOther("N/A");
-        return petType;
-    }
+//    public static final PetStatus createPetStatus(int num) {
+//        PetStatus petStatus = new PetStatus();
+//        petStatus.setPetStatusId(num);
+//        petStatus.setPetStatus("LOST");
+//        return petStatus;
+//    }
+//
+//    public static final PetType createPetType(int num) {
+//        PetType petType = new PetType();
+//        petType.setPetTypeId(num);
+//        petType.setPetSpec("Dog");
+//        petType.setOther("N/A");
+//        return petType;
+//    }
 
     public static final User createUser(int num) {
         User user = new User();

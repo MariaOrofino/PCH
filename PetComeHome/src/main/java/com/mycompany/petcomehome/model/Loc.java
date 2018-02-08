@@ -97,16 +97,16 @@ public class Loc {
 
     @Override
     public int hashCode() {
-        int hash = 3;
-        hash = 13 * hash + this.locId;
-        hash = 13 * hash + Objects.hashCode(this.locName);
-        hash = 13 * hash + Objects.hashCode(this.locDesc);
-        hash = 13 * hash + Objects.hashCode(this.locCity);
-        hash = 13 * hash + Objects.hashCode(this.locState);
-        hash = 13 * hash + Objects.hashCode(this.locZip);
-        hash = 13 * hash + Objects.hashCode(this.locInd);
-        hash = 13 * hash + Objects.hashCode(this.locLat);
-        hash = 13 * hash + Objects.hashCode(this.locLong);
+        int hash = 5;
+        hash = 17 * hash + this.locId;
+        hash = 17 * hash + Objects.hashCode(this.locName);
+        hash = 17 * hash + Objects.hashCode(this.locDesc);
+        hash = 17 * hash + Objects.hashCode(this.locCity);
+        hash = 17 * hash + Objects.hashCode(this.locState);
+        hash = 17 * hash + Objects.hashCode(this.locZip);
+        hash = 17 * hash + Objects.hashCode(this.locInd);
+        hash = 17 * hash + Objects.hashCode(this.locLat);
+        hash = 17 * hash + Objects.hashCode(this.locLong);
         return hash;
     }
 
@@ -151,5 +151,6 @@ public class Loc {
         }
         return true;
     }
+
 
 }

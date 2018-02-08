@@ -19,7 +19,9 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 import java.util.ArrayList;
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotEquals;
 import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertTrue;
 
 /**
  *
@@ -91,6 +93,10 @@ public class PetSLTest {
         newPet.setUser(addedUser);
 
         petSL.createPet(newPet);
+
+        petList = new ArrayList<>();
+        petList.add(newPet);
+
     }
 
     @After
@@ -101,15 +107,6 @@ public class PetSLTest {
     /**
      * Test of createPet method, of class PetSL.
      */
-
-//    @Test
-//    public void testCreatePet() {
-//        assertNotNull(newLocList);
-//        assertNotNull(newPet.getUser());
-//        Pet petFromDB = petSL.getPetByPetId(newPet.getPetId());
-//        assertEquals(newPet, petFromDB);
-//    }
-
     @Test
     public void testCreatePet() {
         assertNotNull(newLocList);
@@ -133,9 +130,10 @@ public class PetSLTest {
      */
     @Test
     public void testDeletePet() {
-        petSL.deletePet(newPet.getPetId());
         Pet deletedPet = petSL.retrievePetByPetId(newPet.getPetId());
-        assertEquals(null, newPet.getPetId());
+        petSL.deletePet(deletedPet.getPetId());
+        List<Pet> retrievedPets = petSL.retrieveAllPets();
+        assertEquals(0, retrievedPets.size());
     }
 
     /**
@@ -143,6 +141,8 @@ public class PetSLTest {
      */
     @Test
     public void testRetrievePetByPetId() {
+        Pet retrievedPet = petSL.retrievePetByPetId(newPet.getPetId());
+        assertEquals(retrievedPet, newPet);
     }
 
     /**
@@ -150,6 +150,8 @@ public class PetSLTest {
      */
     @Test
     public void testRetrievePetbyuserId() {
+        List<Pet> petList = petSL.retrievePetByUserId(newPet.getPetId());
+        assertEquals(petList.size(), petList.size());
     }
 
     /**
@@ -157,6 +159,15 @@ public class PetSLTest {
      */
     @Test
     public void testRetrievePetByLocId() {
+        for (Loc currentLoc : newPet.getLoc()) {
+            List<Pet> retrievedPets = petSL.retrievePetByLocId(currentLoc.getLocId());
+            for (Pet currentPet : retrievedPets) {
+                assertNotNull(currentPet);
+            }
+            assertTrue(retrievedPets.contains(newPet));
+        }
+        assertEquals(5, locList.size());
+
     }
 
     /**
@@ -164,6 +175,8 @@ public class PetSLTest {
      */
     @Test
     public void testRetrieveAllPets() {
+        List<Pet> retrievedPet = petSL.retrieveAllPets();
+        assertEquals(petList.size(), retrievedPet.size());
     }
 
 }

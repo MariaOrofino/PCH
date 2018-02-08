@@ -28,6 +28,6 @@ public interface UserDao {
 
     public List<User> retrieveUsersByZip(String zip);
     
-    public User retrieveUsersByPet(int petId);
+    public User retrieveUserByPet(int petId);
 
 }
