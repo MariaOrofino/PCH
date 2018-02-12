@@ -8,13 +8,15 @@
         <meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
         <title>Pet Come Home Page</title>
         <!-- Bootstrap core CSS -->
-        <link href="${pageContext.request.contextPath}/css/bootstrap.min.css" rel="stylesheet">        
-        <!--<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/mystyle.css">-->   
+        <link href="${pageContext.request.contextPath}/css/bootstrap.min.css" rel="stylesheet">     
+        <link href="${pageContext.request.contextPath}/css/petComeHome.css" rel="stylesheet">
+<!--<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/mystyle.css">-->   
 
         <!-- Call Bootstrap CSS styles -->
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="bootstrap-3.3.5/bootstrap-3.3.7-dist/bootstrap-3.3.7-dist/css/bootstrap.min.css">
+        <link href="${pageContext.request.contextPath}/css/petComeHome.css" rel="stylesheet">
         <!--       <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">  -->
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
@@ -88,16 +90,16 @@
                         <p>Missing horse has been FOUND!!!</p>
                     </div>
                 </div>
-                    
-                                    <div class="item">
+
+                <div class="item">
                     <img src="${pageContext.request.contextPath}/images/monkey.jpg" alt="Monkey" width="360" height="245">
                     <div class="carousel-caption">
                         <h3>Found Monkey</h3>
                         <p>Monkey found in the woods in Danville, NH has been returned to it's owner!!!</p>
                     </div>
                 </div>
-                    
-                                    <div class="item">
+
+                <div class="item">
                     <img src="${pageContext.request.contextPath}/images/cockatoo.jpg" alt="Cockatoo" width="360" height="245">
                     <div class="carousel-caption">
                         <h3>Cockatoo Missing</h3>
@@ -117,17 +119,17 @@
                 <span class="sr-only">Next</span>
             </a>
         </div>
-    <div class="container">
-        <!-- container for admin function -->
-    </div>
-    <!-- Placed at the end of the document so the pages load faster -->
-    <script src="${pageContext.request.contextPath}/js/jquery-3.1.1.min.js"></script>
-    <script src="${pageContext.request.contextPath}/js/bootstrap.min.js"></script>
+        <div class="container">
+            <!-- container for admin function -->
+        </div>
+        <!-- Placed at the end of the document so the pages load faster -->
+        <script src="${pageContext.request.contextPath}/js/jquery-3.1.1.min.js"></script>
+        <script src="${pageContext.request.contextPath}/js/bootstrap.min.js"></script>
 
 </body>
 <footer style="color:blue;margin-left:30px;">
     <hr>
-     <center>Jan Gentille - Director of Pet Services</center>
+    <center>Jan Gentille - Director of Pet Services</center>
     <center>123 North Main Street, Anywhere, USA</center>
     <center>800-873-5463</center>
     <hr>
