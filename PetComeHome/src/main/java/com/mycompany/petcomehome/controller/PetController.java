@@ -43,7 +43,7 @@ public class PetController {
         return "home";
     }
 
-    @RequestMapping(value = "/home", method = RequestMethod.GET)
+    @RequestMapping(value = "/jsp/home", method = RequestMethod.GET)
     public String redirectHome() {
         return "redirect:/";
     }
