@@ -139,10 +139,10 @@ All form fields other than text area go here
                         <div class="col-md-8">
                             <!-- check against Pet tables -->
                             <select name="status" class="form-control" path="status">
-                            <option text="Choose Pet Status" value="ChoosePetStatus">Choose Pet Status</option>
-                            <c:forEach items="${petStatusList}" var="petStatusList">
-                                <option value="${petStatusList.statusId}">${petStatusList.status}</option>
-                            </c:forEach>
+                                <option text="Choose Pet Status" value="ChoosePetStatus">Choose Pet Status</option>
+                                <c:forEach items="${petStatusList}" var="petStatusList">
+                                    <option value="${petStatusList.statusId}">${petStatusList.status}</option>
+                                </c:forEach>
                             </select>
                         </div>
 
@@ -154,21 +154,22 @@ All form fields other than text area go here
                                 </div>
                             </div>
                         </div>
-                    </div>
-                <!--
-                Buttons here
-                -->
-                <!-- add hidden field to identify what action is being taken (lost,found,sighting) -->
 
-                    <div class="form-group">
+                        <!--
+                        Buttons here
+                        -->
+                        <!-- add hidden field to identify what action is being taken (lost,found,sighting) -->
 
-                        <div class="col-md-offset-4 col-md-4">
-                        <br/>
-                            <a href="${pageContext.request.contextPath}/" class="btn btn-default">Cancel</a>
-                        </div>
-                        <div class="col-md-4">
-                            <br/>
-                            <input type="submit" id="create-button" class="btn btn-default" value="Submit"/>
+                        <div class="form-group">
+
+                            <div class="col-md-offset-4 col-md-4">
+                                <br/>
+                                <a href="${pageContext.request.contextPath}/" class="btn btn-default">Cancel</a>
+                            </div>
+                            <div class="col-md-4">
+                                <br/>
+                                <input type="submit" id="create-button" class="btn btn-default" value="Submit"/>
+                            </div>
                         </div>
                     </div>
                 </sf:form>
@@ -176,11 +177,11 @@ All form fields other than text area go here
         </div>
     </div>
 
-<!-- End row div -->
-<!-- Placed at the end of the document so the pages load faster -->
-<script src="${pageContext.request.contextPath}/js/jquery-3.1.1.min.js"></script>
-<script src="${pageContext.request.contextPath}/js/bootstrap.min.js"></script>
-<script src="${pageContext.request.contextPath}/js/AmazingAutoBlog.js"></script>
+    <!-- End row div -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="${pageContext.request.contextPath}/js/jquery-3.1.1.min.js"></script>
+    <script src="${pageContext.request.contextPath}/js/bootstrap.min.js"></script>
+    <script src="${pageContext.request.contextPath}/js/AmazingAutoBlog.js"></script>
 </body>
 
 <footer style="color:blue;margin-left:30px;">
