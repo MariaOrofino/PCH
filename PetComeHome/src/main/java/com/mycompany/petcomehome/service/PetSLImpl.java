@@ -12,6 +12,8 @@ import com.mycompany.petcomehome.dao.PetTypeDao;
 import com.mycompany.petcomehome.dao.UserDao;
 import com.mycompany.petcomehome.model.Loc;
 import com.mycompany.petcomehome.model.Pet;
+import com.mycompany.petcomehome.model.PetStatus;
+import com.mycompany.petcomehome.model.PetType;
 import com.mycompany.petcomehome.model.User;
 import java.util.List;
 import javax.inject.Inject;
@@ -88,5 +90,57 @@ public class PetSLImpl implements PetSL {
 //            currentPet.setPetType(petTypeDao.getPetTypeById(currentPet.getPetTypeId()));
         }
         return petList;
+    }
+
+    @Override
+    public PetType createPetType(PetType petType) {
+        return petTypeDao.createPettype(petType);
+    }
+
+    @Override
+    public void updatePetType(PetType petType) {
+        petTypeDao.updatePetType(petType);
+    }
+
+    @Override
+    public void deletePetType(int petTypeId) {
+        petTypeDao.deletePetType(petTypeId);
+    }
+
+    @Override
+    public PetType retrievePetTypeByTypeId(int petTypeId) {
+        PetType petType = petTypeDao.retrievePetTypeById(petTypeId);
+        return petType;
+    }
+
+    @Override
+    public List<PetType> retrieveAllPetTypes() {
+        return petTypeDao.retrieveAllPetTypes();
+    }
+
+    @Override
+    public PetStatus createPetStatus(PetStatus petStatus) {
+        return petStatusDao.createPetStatus(petStatus);
+    }
+
+    @Override
+    public void updatePetStatus(PetStatus petStatus) {
+        petStatusDao.updatePetStatus(petStatus);
+    }
+
+    @Override
+    public void deletePetStatus(int petStatusId) {
+        petStatusDao.deletePetStatus(petStatusId);
+    }
+
+    @Override
+    public PetStatus retrievePetStatusByStatusId(int petStatusId) {
+        PetStatus petStatus = petStatusDao.retrievePetStatusById(petStatusId);
+        return petStatus;
+    }
+
+    @Override
+    public List<PetStatus> retrieveAllPetStatuses() {
+        return petStatusDao.retrieveAllPetStatus();
     }
 }

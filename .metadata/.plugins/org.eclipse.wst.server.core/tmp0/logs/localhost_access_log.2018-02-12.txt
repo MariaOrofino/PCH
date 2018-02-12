@@ -1,0 +1,6 @@
+127.0.0.1 - - [12/Feb/2018:09:38:39 -0500] "GET / HTTP/1.1" 404 994
+127.0.0.1 - - [12/Feb/2018:11:48:41 -0500] "GET / HTTP/1.1" 404 994
+127.0.0.1 - - [12/Feb/2018:11:50:12 -0500] "GET / HTTP/1.1" 404 994
+0:0:0:0:0:0:0:1 - - [12/Feb/2018:11:50:23 -0500] "GET /spring-mvc-webapp/ HTTP/1.1" 404 1030
+0:0:0:0:0:0:0:1 - - [12/Feb/2018:11:51:21 -0500] "GET /spring-mvc-webapp/WEB-INF/classes/com/mycompany/petcomehome/controller/PetController.java HTTP/1.1" 404 1172
+0:0:0:0:0:0:0:1 - - [12/Feb/2018:11:52:11 -0500] "GET /spring-mvc-webapp/WEB-INF/classes/com/mycompany/petcomehome/controller/PetController.java HTTP/1.1" 404 1172

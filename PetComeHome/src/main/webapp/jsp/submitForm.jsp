@@ -9,24 +9,25 @@
     <head>
         <title>Pet Come Home</title>
         <!-- Bootstrap core CSS -->
-        <link href="${pageContext.request.contextPath}/css/bootstrap.min.css" rel="stylesheet">
         <link href="${pageContext.request.contextPath}/css/petComeHome.css" rel="stylesheet">
-        <script src="${pageContext.request.contextPath}/js/tinymce/jquery.tinymce.min.js"></script>
-        <script src="${pageContext.request.contextPath}/js/tinymce/tinymce.min.js"></script>
+        <link href="${pageContext.request.contextPath}/css/bootstrap.min.css" rel="stylesheet">
+
+   <!--<script src="${pageContext.request.contextPath}/js/tinymce/jquery.tinymce.min.js"></script>-->
+   <!--<script src="${pageContext.request.contextPath}/js/tinymce/tinymce.min.js"></script>-->
         <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
         <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>  
 
         <script>
-            tinymce.init({
-                selector: '#mytextarea',
-                toolbar: 'undo redo | styleselect | bold italic underline blockquote | alignleft aligncenter alignright alignjustify alignnone | image',
-                plugins: ['advlist autolink link image lists charmap print preview',
-                    'searchreplace visualblocks code fullscreen',
-                    'insertdatetime media table contextmenu paste code help',
-                    'image code'],
-                images_upload_url: '',
-                branding: false
-            });
+//            tinymce.init({
+//                selector: '#mytextarea',
+//                toolbar: 'undo redo | styleselect | bold italic underline blockquote | alignleft aligncenter alignright alignjustify alignnone | image',
+//                plugins: ['advlist autolink link image lists charmap print preview',
+//                    'searchreplace visualblocks code fullscreen',
+//                    'insertdatetime media table contextmenu paste code help',
+//                    'image code'],
+//                images_upload_url: '',
+//                branding: false
+//            });
 
         </script>
 
@@ -40,10 +41,10 @@
     <nav class="navbar navbar-default">
         <div class="container-fluid">
             <div class="navbar-header">
-                <a class="navbar-brand" href="${pageContext.request.contextPath}/jsp/index.jsp">PCH</a>
+                <a class="navbar-brand" href="${pageContext.request.contextPath}/jsp/home.jsp">PCH</a>
             </div>
             <ul class="nav navbar-nav">
-                <li class="active"><a href="${pageContext.request.contextPath}/jsp/index.jsp"><span class="glyphicon glyphicon-home"></span></a></li>
+                <li class="active"><a href="${pageContext.request.contextPath}/jsp/home.jsp"><span class="glyphicon glyphicon-home"></span></a></li>
                 <li><a href="${pageContext.request.contextPath}/jsp/submitForm.jsp">Report Lost Pet</a></li>
                 <li><a href="${pageContext.request.contextPath}/found.jsp">Report Found pet</a></li>
                 <li><a href="${pageContext.request.contextPath}/lost.jsp">Report a Sighting</a></li>
@@ -79,7 +80,7 @@ All form fields other than text area go here
 
                         <label for="name" class="col-md-4 control-label">Pet Name:</label>
                         <div class="col-md-8">
-                            <input type="text" class="form-control" name="name" path="name" placeholder="Name"/>
+                            <input id="petName" type="text" class="form-control" name="name" path="name" placeholder="Name"/>
                         </div>
 
                         <label for="chiptag" class="col-md-4 control-label">Chip Tag:</label>
@@ -94,7 +95,7 @@ All form fields other than text area go here
                         <label for="type" class="col-md-4 control-label">Type:</label>      
                         <div class="col-md-8">
                             <!-- check against Pet tables -->
-                            <select name="type" class="form-control" path="type"/>
+                            <select name="type" id="petType" class="form-control" path="type"/>
                             <option text="Choose the pet type" value="ChoosePetType">Choose Pet Type</option>
                             <c:forEach items="${petTypeList}" var="petTypeList">
                                 <option value="${petTypeList.typeId}">${petTypeList.species}</option>
@@ -138,7 +139,7 @@ All form fields other than text area go here
                         <label for="status" class="col-md-4 control-label">Status:</label>      
                         <div class="col-md-8">
                             <!-- check against Pet tables -->
-                            <select name="status" class="form-control" path="status">
+                            <select id="petStatus" name="status"  class="form-control" path="status">
                                 <option text="Choose Pet Status" value="ChoosePetStatus">Choose Pet Status</option>
                                 <c:forEach items="${petStatusList}" var="petStatusList">
                                     <option value="${petStatusList.statusId}">${petStatusList.status}</option>
@@ -150,26 +151,25 @@ All form fields other than text area go here
                             <div class="form-group" name="descriptionTextArea">
                                 <label for="description" class="col-md-4 control-label">Description:</label><br>
                                 <div class="col-md-8">
-                                    <textarea id="mytextarea" name="mytextarea" rows="7" cols="55"></textarea>
+                                    <textarea id="mytextarea" name="mytextarea" rows="7" cols="45"></textarea>
                                 </div>
                             </div>
                         </div>
+                    </div>
+                    <!--
+                    Buttons here
+                    -->
+                    <!-- add hidden field to identify what action is being taken (lost,found,sighting) -->
 
-                        <!--
-                        Buttons here
-                        -->
-                        <!-- add hidden field to identify what action is being taken (lost,found,sighting) -->
+                    <div class="form-group">
 
-                        <div class="form-group">
-
-                            <div class="col-md-offset-4 col-md-4">
-                                <br/>
-                                <a href="${pageContext.request.contextPath}/" class="btn btn-default">Cancel</a>
-                            </div>
-                            <div class="col-md-4">
-                                <br/>
-                                <input type="submit" id="create-button" class="btn btn-default" value="Submit"/>
-                            </div>
+                        <div class="col-md-offset-4 col-md-4">
+                            <br/>
+                            <a href="${pageContext.request.contextPath}/" class="btn btn-default">Cancel</a>
+                        </div>
+                        <div class="col-md-4">
+                            <br/>
+                            <input type="submit" id="create-button" class="btn btn-default" value="Submit"/>
                         </div>
                     </div>
                 </sf:form>
@@ -181,7 +181,6 @@ All form fields other than text area go here
     <!-- Placed at the end of the document so the pages load faster -->
     <script src="${pageContext.request.contextPath}/js/jquery-3.1.1.min.js"></script>
     <script src="${pageContext.request.contextPath}/js/bootstrap.min.js"></script>
-    <script src="${pageContext.request.contextPath}/js/AmazingAutoBlog.js"></script>
 </body>
 
 <footer style="color:blue;margin-left:30px;">
