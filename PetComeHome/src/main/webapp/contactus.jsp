@@ -11,7 +11,8 @@
         <meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
         <title>Pet Come Home Page</title>
         <!-- Bootstrap core CSS -->
-        <link href="${pageContext.request.contextPath}/css/bootstrap.min.css" rel="stylesheet">        
+        <link href="${pageContext.request.contextPath}/css/bootstrap.min.css" rel="stylesheet"> 
+          <link href="${pageContext.request.contextPath}/css/petComeHome.css" rel="stylesheet">
         <!--<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/mystyle.css">-->   
 
         <!-- Call Bootstrap CSS styles -->
@@ -30,10 +31,10 @@
     <nav class="navbar navbar-default">
         <div class="container-fluid">
             <div class="navbar-header">
-                <a class="navbar-brand" href="${pageContext.request.contextPath}/jsp/index.jsp">PCH</a>
+                <a class="navbar-brand" href="${pageContext.request.contextPath}/jsp/home.jsp">PCH</a>
             </div>
             <ul class="nav navbar-nav">
-                <li class="active"><a href="${pageContext.request.contextPath}/jsp/index.jsp"><span class="glyphicon glyphicon-home"></span></a></li>
+                <li class="active"><a href="${pageContext.request.contextPath}/jsp/home.jsp"><span class="glyphicon glyphicon-home"></span></a></li>
                 <li><a href="${pageContext.request.contextPath}/jsp/submitForm.jsp">Report Lost Pet</a></li>
                 <li><a href="${pageContext.request.contextPath}/found.jsp">Report Found pet</a></li>
                 <li><a href="${pageContext.request.contextPath}/lost.jsp">Report a Sighting</a></li>
@@ -42,16 +43,18 @@
             </ul>
         </div>
     </nav>
+
 <center>
 
     <h2>Contact Us</h2>
     <form action="a" method="post">
-        <div class="warning" style="color:red;font-weight:bold;">
-            The following fields are required:
+        <div class="warning" style="color:blue;font-weight:bold;">
+            Please complete each field below.  All are required:
+            <br> </br>
         </div>
         <div>
-            <p class="warning" style="color:red;font-weight:bold;">Full Name is required.</p>
-            <label id="fullanmelabel" for ="Full Name">Name:</label>
+            <!--<p class="warning" style="color:blue;font-weight:bold;">Full Name is required.</p>-->
+            <label id="fullanmelabel" for ="Full Name">Full Name:</label>
             <input id="fullname" name="FullName" type="text" />
         </div></br>
         <div>
@@ -85,14 +88,14 @@
         <input type="checkbox" name="myChoices" value="Friday"/>F
         <p></p>
         <div>
-            <input type="submit" id="SubmitButton" value="Send Request" />
+            <input type="submit" id="SubmitButton" value="Submit Request" />
         </div>
     </form>
 </center>
 </body>
 <footer style="color:blue;margin-left:30px;">
     <hr>
-     <center>Jan Gentille - Director of Pet Services</center>
+    <center>Jan Gentille - Director of Pet Services</center>
     <center>123 North Main Street, Anywhere, USA</center>
     <center>800-873-5463</center>
     <hr>

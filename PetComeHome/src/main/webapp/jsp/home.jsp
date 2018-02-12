@@ -30,10 +30,10 @@
     <nav class="navbar navbar-default">
         <div class="container-fluid">
             <div class="navbar-header">
-                <a class="navbar-brand" href="${pageContext.request.contextPath}/jsp/index.jsp">PCH</a>
+                <a class="navbar-brand" href="${pageContext.request.contextPath}/jsp/home.jsp">PCH</a>
             </div>
             <ul class="nav navbar-nav">
-                <li class="active"><a href="${pageContext.request.contextPath}/jsp/index.jsp"><span class="glyphicon glyphicon-home"></span></a></li>
+                <li class="active"><a href="${pageContext.request.contextPath}/jsp/home.jsp"><span class="glyphicon glyphicon-home"></span></a></li>
                 <li><a href="${pageContext.request.contextPath}/jsp/submitForm.jsp">Report Lost Pet</a></li>
                 <li><a href="${pageContext.request.contextPath}/found.jsp">Report Found pet</a></li>
                 <li><a href="${pageContext.request.contextPath}/lost.jsp">Report a Sighting</a></li>

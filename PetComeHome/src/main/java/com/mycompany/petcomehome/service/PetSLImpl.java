@@ -93,52 +93,54 @@ public class PetSLImpl implements PetSL {
     }
 
     @Override
-    public PetType createPetType(PetType petTypeId) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public PetType createPetType(PetType petType) {
+        return petTypeDao.createPettype(petType);
     }
 
     @Override
     public void updatePetType(PetType petType) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        petTypeDao.updatePetType(petType);
     }
 
     @Override
-    public void deletePetType(int PetTypeId) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public void deletePetType(int petTypeId) {
+        petTypeDao.deletePetType(petTypeId);
     }
 
     @Override
-    public PetType retrievePetTypeByTypeId(int PetTypeId) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public PetType retrievePetTypeByTypeId(int petTypeId) {
+        PetType petType = petTypeDao.retrievePetTypeById(petTypeId);
+        return petType;
     }
 
     @Override
     public List<PetType> retrieveAllPetTypes() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return petTypeDao.retrieveAllPetTypes();
     }
 
     @Override
-    public PetStatus createPetStatus(PetStatus petStatusId) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public PetStatus createPetStatus(PetStatus petStatus) {
+        return petStatusDao.createPetStatus(petStatus);
     }
 
     @Override
     public void updatePetStatus(PetStatus petStatus) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        petStatusDao.updatePetStatus(petStatus);
     }
 
     @Override
-    public void deletePetStatus(int PetStatusId) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public void deletePetStatus(int petStatusId) {
+        petStatusDao.deletePetStatus(petStatusId);
     }
 
     @Override
-    public PetStatus retrievePetStatusByStatusId(int PetStatusId) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public PetStatus retrievePetStatusByStatusId(int petStatusId) {
+        PetStatus petStatus = petStatusDao.retrievePetStatusById(petStatusId);
+        return petStatus;
     }
 
     @Override
     public List<PetStatus> retrieveAllPetStatuses() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return petStatusDao.retrieveAllPetStatus();
     }
 }
