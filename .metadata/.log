@@ -924,3 +924,1101 @@ org.tigris.subversion.subclipse.core.SVNException: Provided SVN information does
 
 !ENTRY org.eclipse.core.resources 4 274 2018-02-07 12:25:58.800
 !MESSAGE Resource is out of sync with the file system: '/PetComeHome/target/classes/spring-persistence.xml'.
+!SESSION 2018-02-09 14:44:44.661 -----------------------------------------------
+eclipse.buildId=3.7.3.201602250940-RELEASE-e45
+java.version=1.8.0_161
+java.vendor=Oracle Corporation
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=en_US
+Command-line arguments:  -os win32 -ws win32 -arch x86_64 -data C:\Users\n0147313\Desktop\GoForCode_Repo\PCH
+
+!ENTRY org.eclipse.core.net 1 0 2018-02-09 14:44:51.796
+!MESSAGE System property http.proxyHost is not set but should be www-proxy.lmig.com.
+
+!ENTRY org.eclipse.core.net 1 0 2018-02-09 14:44:51.800
+!MESSAGE System property http.proxyPort is not set but should be 80.
+
+!ENTRY org.eclipse.core.net 1 0 2018-02-09 14:44:51.805
+!MESSAGE System property https.proxyHost is not set but should be www-proxy.lmig.com.
+
+!ENTRY org.eclipse.core.net 1 0 2018-02-09 14:44:51.812
+!MESSAGE System property https.proxyPort is not set but should be 80.
+
+!ENTRY org.eclipse.core.net 1 0 2018-02-09 14:44:51.816
+!MESSAGE System property https.proxyHost is not set but should be www-proxy.lmig.com.
+
+!ENTRY org.eclipse.core.net 1 0 2018-02-09 14:44:51.820
+!MESSAGE System property https.proxyPort is not set but should be 80.
+
+!ENTRY org.eclipse.egit.ui 2 0 2018-02-09 14:45:07.287
+!MESSAGE Warning: The environment variable HOME is not set. The following directory will be used to store the Git
+user global configuration and to define the default location to store repositories: 'C:\Users\n0147313'. If this is
+not correct please set the HOME environment variable and restart Eclipse. Otherwise Git for Windows and
+EGit might behave differently since they see different configuration options.
+This warning can be switched off on the Team > Git > Confirmations and Warnings preference page.
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2018-02-09 14:45:28.901
+!MESSAGE File encoding has not been set, using platform encoding Cp1252, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2018-02-09 14:45:28.911
+!MESSAGE Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2018-02-09 14:45:28.940
+!MESSAGE Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2018-02-09 14:46:47.807
+!MESSAGE File encoding has not been set, using platform encoding Cp1252, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2018-02-09 14:46:47.813
+!MESSAGE Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2018-02-09 14:46:47.826
+!MESSAGE Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.equinox.event 4 0 2018-02-09 14:49:45.868
+!MESSAGE Exception while dispatching event org.osgi.service.event.Event [topic=org/eclipse/e4/ui/model/ui/ElementContainer/children/ADD] {ChangedElement=org.eclipse.e4.ui.model.application.ui.menu.impl.MenuImpl@40478af8 (elementId: null, tags: [Opaque], contributorURI: null) (widget: null, renderer: null, toBeRendered: true, onTop: false, visible: true, containerData: null, accessibilityPhrase: null) (label: Sho&w In	Alt+Shift+W, iconURI: null, tooltip: null, mnemonics: null) (enabled: true), Widget=null, AttName=children, NewValue=org.eclipse.e4.ui.model.application.ui.menu.impl.DirectMenuItemImpl@2c1ce593 (elementId: viewsShowIn, tags: [Opaque], contributorURI: null) (widget: null, renderer: null, toBeRendered: true, onTop: false, visible: true, containerData: null, accessibilityPhrase: null) (label: null, iconURI: null, tooltip: null, enabled: true, selected: false, type: Push) (mnemonics: null) (contributionURI: null, object: null), EventType=ADD, Position=0} to handler org.eclipse.e4.ui.internal.di.UIEventObjectSupplier$UIEventHandler@43133d7a
+!STACK 0
+org.eclipse.e4.core.di.InjectionException: java.lang.NullPointerException
+	at org.eclipse.e4.core.internal.di.MethodRequestor.execute(MethodRequestor.java:68)
+	at org.eclipse.e4.ui.internal.di.UIEventObjectSupplier$UIEventHandler$1.run(UIEventObjectSupplier.java:56)
+	at org.eclipse.swt.widgets.Synchronizer.syncExec(Synchronizer.java:186)
+	at org.eclipse.ui.internal.UISynchronizer.syncExec(UISynchronizer.java:145)
+	at org.eclipse.swt.widgets.Display.syncExec(Display.java:4761)
+	at org.eclipse.e4.ui.internal.workbench.swt.E4Application$1.syncExec(E4Application.java:211)
+	at org.eclipse.e4.ui.internal.di.UIEventObjectSupplier$UIEventHandler.handleEvent(UIEventObjectSupplier.java:53)
+	at org.eclipse.equinox.internal.event.EventHandlerWrapper.handleEvent(EventHandlerWrapper.java:197)
+	at org.eclipse.equinox.internal.event.EventHandlerTracker.dispatchEvent(EventHandlerTracker.java:197)
+	at org.eclipse.equinox.internal.event.EventHandlerTracker.dispatchEvent(EventHandlerTracker.java:1)
+	at org.eclipse.osgi.framework.eventmgr.EventManager.dispatchEvent(EventManager.java:230)
+	at org.eclipse.osgi.framework.eventmgr.ListenerQueue.dispatchEventSynchronous(ListenerQueue.java:148)
+	at org.eclipse.equinox.internal.event.EventAdminImpl.dispatchEvent(EventAdminImpl.java:135)
+	at org.eclipse.equinox.internal.event.EventAdminImpl.sendEvent(EventAdminImpl.java:78)
+	at org.eclipse.equinox.internal.event.EventComponent.sendEvent(EventComponent.java:39)
+	at org.eclipse.e4.ui.services.internal.events.EventBroker.send(EventBroker.java:85)
+	at org.eclipse.e4.ui.internal.workbench.UIEventPublisher.notifyChanged(UIEventPublisher.java:59)
+	at org.eclipse.emf.common.notify.impl.BasicNotifierImpl.eNotify(BasicNotifierImpl.java:374)
+	at org.eclipse.emf.ecore.util.EcoreEList.dispatchNotification(EcoreEList.java:249)
+	at org.eclipse.emf.common.notify.impl.NotifyingListImpl.addUnique(NotifyingListImpl.java:294)
+	at org.eclipse.emf.common.util.AbstractEList.add(AbstractEList.java:303)
+	at org.eclipse.e4.ui.workbench.renderers.swt.MenuManagerRenderer.reconcileManagerToModel(MenuManagerRenderer.java:1049)
+	at org.eclipse.e4.ui.workbench.renderers.swt.MenuManagerRenderer.reconcileManagerToModel(MenuManagerRenderer.java:982)
+	at org.eclipse.ui.internal.PopupMenuExtender.addMenuContributions(PopupMenuExtender.java:408)
+	at org.eclipse.ui.internal.PopupMenuExtender.menuAboutToShow(PopupMenuExtender.java:381)
+	at org.eclipse.jface.action.MenuManager.fireAboutToShow(MenuManager.java:333)
+	at org.eclipse.jface.action.MenuManager.handleAboutToShow(MenuManager.java:466)
+	at org.eclipse.jface.action.MenuManager.access$1(MenuManager.java:461)
+	at org.eclipse.jface.action.MenuManager$2.menuShown(MenuManager.java:493)
+	at org.eclipse.swt.widgets.TypedListener.handleEvent(TypedListener.java:255)
+	at org.eclipse.swt.widgets.EventTable.sendEvent(EventTable.java:84)
+	at org.eclipse.swt.widgets.Display.sendEvent(Display.java:4362)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1113)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1137)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1118)
+	at org.eclipse.swt.widgets.Control.WM_INITMENUPOPUP(Control.java:5037)
+	at org.eclipse.swt.widgets.Control.windowProc(Control.java:4705)
+	at org.eclipse.swt.widgets.Canvas.windowProc(Canvas.java:339)
+	at org.eclipse.swt.widgets.Decorations.windowProc(Decorations.java:1633)
+	at org.eclipse.swt.widgets.Shell.windowProc(Shell.java:2117)
+	at org.eclipse.swt.widgets.Display.windowProc(Display.java:5050)
+	at org.eclipse.swt.internal.win32.OS.TrackPopupMenu(Native Method)
+	at org.eclipse.swt.widgets.Menu._setVisible(Menu.java:262)
+	at org.eclipse.swt.widgets.Display.runPopups(Display.java:4221)
+	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:3763)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine$4.run(PartRenderingEngine.java:1127)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:337)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.run(PartRenderingEngine.java:1018)
+	at org.eclipse.e4.ui.internal.workbench.E4Workbench.createAndRunUI(E4Workbench.java:156)
+	at org.eclipse.ui.internal.Workbench$5.run(Workbench.java:694)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:337)
+	at org.eclipse.ui.internal.Workbench.createAndRunWorkbench(Workbench.java:606)
+	at org.eclipse.ui.PlatformUI.createAndRunWorkbench(PlatformUI.java:150)
+	at org.eclipse.ui.internal.ide.application.IDEApplication.start(IDEApplication.java:139)
+	at org.eclipse.equinox.internal.app.EclipseAppHandle.run(EclipseAppHandle.java:196)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:134)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:104)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:380)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:235)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:669)
+	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:608)
+	at org.eclipse.equinox.launcher.Main.run(Main.java:1515)
+Caused by: java.lang.NullPointerException
+	at org.eclipse.egit.core.internal.util.ResourceUtil.isSharedWithGit(ResourceUtil.java:157)
+	at org.eclipse.egit.core.internal.util.ResourceUtil.isValid(ResourceUtil.java:147)
+	at org.eclipse.egit.core.internal.util.ResourceUtil.getContainerForLocation(ResourceUtil.java:393)
+	at org.eclipse.egit.core.internal.util.ResourceUtil.getResourceForLocation(ResourceUtil.java:101)
+	at org.eclipse.egit.ui.internal.repository.RepositoriesView.getShowInElements(RepositoriesView.java:807)
+	at org.eclipse.egit.ui.internal.repository.RepositoriesView.getShowInContext(RepositoriesView.java:778)
+	at org.eclipse.ui.internal.WorkbenchPage.getContext(WorkbenchPage.java:426)
+	at org.eclipse.ui.internal.WorkbenchPage.updateShowInSources(WorkbenchPage.java:412)
+	at org.eclipse.ui.internal.ShowInMenu.fillMenu(ShowInMenu.java:174)
+	at org.eclipse.ui.internal.ShowInMenu.fill(ShowInMenu.java:139)
+	at org.eclipse.jface.action.MenuManager.doItemFill(MenuManager.java:724)
+	at org.eclipse.jface.action.MenuManager.update(MenuManager.java:806)
+	at org.eclipse.jface.action.MenuManager.update(MenuManager.java:665)
+	at org.eclipse.e4.ui.workbench.renderers.swt.MenuManagerRenderer.scheduleManagerUpdate(MenuManagerRenderer.java:1164)
+	at org.eclipse.e4.ui.workbench.renderers.swt.MenuManagerRenderer.processContents(MenuManagerRenderer.java:636)
+	at org.eclipse.e4.ui.workbench.renderers.swt.MenuManagerRenderer.subscribeTopicChildAdded(MenuManagerRenderer.java:313)
+	at sun.reflect.GeneratedMethodAccessor22.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.eclipse.e4.core.internal.di.MethodRequestor.execute(MethodRequestor.java:56)
+	... 65 more
+
+!ENTRY org.eclipse.ui.workbench 4 2 2018-02-09 14:49:51.230
+!MESSAGE Problems occurred when invoking code from plug-in: "org.eclipse.ui.workbench".
+!STACK 0
+java.lang.NullPointerException
+	at org.eclipse.egit.core.internal.util.ResourceUtil.isSharedWithGit(ResourceUtil.java:157)
+	at org.eclipse.egit.core.internal.util.ResourceUtil.isValid(ResourceUtil.java:147)
+	at org.eclipse.egit.core.internal.util.ResourceUtil.getContainerForLocation(ResourceUtil.java:393)
+	at org.eclipse.egit.core.internal.util.ResourceUtil.getResourceForLocation(ResourceUtil.java:101)
+	at org.eclipse.egit.ui.internal.repository.RepositoriesView.getShowInElements(RepositoriesView.java:807)
+	at org.eclipse.egit.ui.internal.repository.RepositoriesView.getShowInContext(RepositoriesView.java:778)
+	at org.eclipse.ui.internal.services.WorkbenchSourceProvider.getContext(WorkbenchSourceProvider.java:433)
+	at org.eclipse.ui.internal.services.WorkbenchSourceProvider.updateActivePart(WorkbenchSourceProvider.java:499)
+	at org.eclipse.ui.internal.services.WorkbenchSourceProvider.checkActivePart(WorkbenchSourceProvider.java:317)
+	at org.eclipse.ui.internal.services.WorkbenchSourceProvider.checkActivePart(WorkbenchSourceProvider.java:312)
+	at org.eclipse.ui.internal.services.WorkbenchSourceProvider$2.windowDeactivated(WorkbenchSourceProvider.java:284)
+	at org.eclipse.ui.internal.Workbench$12.run(Workbench.java:1099)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.ui.internal.Workbench.fireWindowDeactivated(Workbench.java:1096)
+	at org.eclipse.ui.internal.WorkbenchWindow$15.shellDeactivated(WorkbenchWindow.java:2320)
+	at org.eclipse.swt.widgets.TypedListener.handleEvent(TypedListener.java:111)
+	at org.eclipse.swt.widgets.EventTable.sendEvent(EventTable.java:84)
+	at org.eclipse.swt.widgets.Display.sendEvent(Display.java:4362)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1113)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1137)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1118)
+	at org.eclipse.swt.widgets.Decorations.WM_ACTIVATE(Decorations.java:1685)
+	at org.eclipse.swt.widgets.Shell.WM_ACTIVATE(Shell.java:2193)
+	at org.eclipse.swt.widgets.Control.windowProc(Control.java:4673)
+	at org.eclipse.swt.widgets.Canvas.windowProc(Canvas.java:339)
+	at org.eclipse.swt.widgets.Decorations.windowProc(Decorations.java:1633)
+	at org.eclipse.swt.widgets.Shell.windowProc(Shell.java:2117)
+	at org.eclipse.swt.widgets.Display.windowProc(Display.java:5050)
+	at org.eclipse.swt.internal.win32.OS.BringWindowToTop(Native Method)
+	at org.eclipse.swt.widgets.Decorations.bringToTop(Decorations.java:230)
+	at org.eclipse.swt.widgets.Shell.open(Shell.java:1244)
+	at org.eclipse.jface.window.Window.open(Window.java:799)
+	at org.sonatype.m2e.egit.internal.ImportMavenProjects.run(ImportMavenProjects.java:58)
+	at org.eclipse.ui.internal.PluginAction.runWithEvent(PluginAction.java:247)
+	at org.eclipse.jface.action.ActionContributionItem.handleWidgetSelection(ActionContributionItem.java:595)
+	at org.eclipse.jface.action.ActionContributionItem.access$2(ActionContributionItem.java:511)
+	at org.eclipse.jface.action.ActionContributionItem$5.handleEvent(ActionContributionItem.java:420)
+	at org.eclipse.swt.widgets.EventTable.sendEvent(EventTable.java:84)
+	at org.eclipse.swt.widgets.Display.sendEvent(Display.java:4362)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1113)
+	at org.eclipse.swt.widgets.Display.runDeferredEvents(Display.java:4180)
+	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:3769)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine$4.run(PartRenderingEngine.java:1127)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:337)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.run(PartRenderingEngine.java:1018)
+	at org.eclipse.e4.ui.internal.workbench.E4Workbench.createAndRunUI(E4Workbench.java:156)
+	at org.eclipse.ui.internal.Workbench$5.run(Workbench.java:694)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:337)
+	at org.eclipse.ui.internal.Workbench.createAndRunWorkbench(Workbench.java:606)
+	at org.eclipse.ui.PlatformUI.createAndRunWorkbench(PlatformUI.java:150)
+	at org.eclipse.ui.internal.ide.application.IDEApplication.start(IDEApplication.java:139)
+	at org.eclipse.equinox.internal.app.EclipseAppHandle.run(EclipseAppHandle.java:196)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:134)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:104)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:380)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:235)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:669)
+	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:608)
+	at org.eclipse.equinox.launcher.Main.run(Main.java:1515)
+
+!ENTRY org.eclipse.ui.workbench 4 2 2018-02-09 14:49:51.308
+!MESSAGE Problems occurred when invoking code from plug-in: "org.eclipse.ui.workbench".
+!STACK 0
+java.lang.NullPointerException
+	at org.eclipse.egit.core.internal.util.ResourceUtil.isSharedWithGit(ResourceUtil.java:157)
+	at org.eclipse.egit.core.internal.util.ResourceUtil.isValid(ResourceUtil.java:147)
+	at org.eclipse.egit.core.internal.util.ResourceUtil.getContainerForLocation(ResourceUtil.java:393)
+	at org.eclipse.egit.core.internal.util.ResourceUtil.getResourceForLocation(ResourceUtil.java:101)
+	at org.eclipse.egit.ui.internal.repository.RepositoriesView.getShowInElements(RepositoriesView.java:807)
+	at org.eclipse.egit.ui.internal.repository.RepositoriesView.getShowInContext(RepositoriesView.java:778)
+	at org.eclipse.ui.internal.services.WorkbenchSourceProvider.getContext(WorkbenchSourceProvider.java:433)
+	at org.eclipse.ui.internal.services.WorkbenchSourceProvider.updateActivePart(WorkbenchSourceProvider.java:499)
+	at org.eclipse.ui.internal.services.WorkbenchSourceProvider.checkActivePart(WorkbenchSourceProvider.java:317)
+	at org.eclipse.ui.internal.services.WorkbenchSourceProvider.checkActivePart(WorkbenchSourceProvider.java:312)
+	at org.eclipse.ui.internal.services.WorkbenchSourceProvider$2.windowDeactivated(WorkbenchSourceProvider.java:284)
+	at org.eclipse.ui.internal.Workbench$12.run(Workbench.java:1099)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.ui.internal.Workbench.fireWindowDeactivated(Workbench.java:1096)
+	at org.eclipse.ui.internal.WorkbenchWindow$15.shellDeactivated(WorkbenchWindow.java:2320)
+	at org.eclipse.swt.widgets.TypedListener.handleEvent(TypedListener.java:111)
+	at org.eclipse.swt.widgets.EventTable.sendEvent(EventTable.java:84)
+	at org.eclipse.swt.widgets.Display.sendEvent(Display.java:4362)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1113)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1137)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1118)
+	at org.eclipse.swt.widgets.Decorations.WM_ACTIVATE(Decorations.java:1685)
+	at org.eclipse.swt.widgets.Shell.WM_ACTIVATE(Shell.java:2193)
+	at org.eclipse.swt.widgets.Control.windowProc(Control.java:4673)
+	at org.eclipse.swt.widgets.Canvas.windowProc(Canvas.java:339)
+	at org.eclipse.swt.widgets.Decorations.windowProc(Decorations.java:1633)
+	at org.eclipse.swt.widgets.Shell.windowProc(Shell.java:2117)
+	at org.eclipse.swt.widgets.Display.windowProc(Display.java:5050)
+	at org.eclipse.swt.internal.win32.OS.BringWindowToTop(Native Method)
+	at org.eclipse.swt.widgets.Decorations.bringToTop(Decorations.java:230)
+	at org.eclipse.swt.widgets.Shell.open(Shell.java:1244)
+	at org.eclipse.jface.window.Window.open(Window.java:799)
+	at org.eclipse.ui.internal.statushandlers.InternalDialog.open(InternalDialog.java:334)
+	at org.eclipse.ui.internal.statushandlers.WorkbenchStatusDialogManagerImpl.doAddStatusAdapter(WorkbenchStatusDialogManagerImpl.java:272)
+	at org.eclipse.ui.internal.statushandlers.WorkbenchStatusDialogManagerImpl.addStatusAdapter(WorkbenchStatusDialogManagerImpl.java:198)
+	at org.eclipse.ui.statushandlers.WorkbenchStatusDialogManager.addStatusAdapter(WorkbenchStatusDialogManager.java:158)
+	at org.eclipse.ui.statushandlers.WorkbenchErrorHandler.showStatusAdapter(WorkbenchErrorHandler.java:96)
+	at org.eclipse.ui.statushandlers.WorkbenchErrorHandler.handle(WorkbenchErrorHandler.java:50)
+	at org.eclipse.ui.internal.ide.IDEWorkbenchErrorHandler.handle(IDEWorkbenchErrorHandler.java:103)
+	at org.eclipse.ui.internal.WorkbenchErrorHandlerProxy.handle(WorkbenchErrorHandlerProxy.java:31)
+	at org.eclipse.ui.statushandlers.StatusManager.handle(StatusManager.java:189)
+	at org.eclipse.ui.internal.JFaceUtil$3.show(JFaceUtil.java:73)
+	at org.eclipse.jface.util.SafeRunnable.handleException(SafeRunnable.java:63)
+	at org.eclipse.core.runtime.SafeRunner.handleException(SafeRunner.java:75)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:44)
+	at org.eclipse.ui.internal.Workbench.fireWindowDeactivated(Workbench.java:1096)
+	at org.eclipse.ui.internal.WorkbenchWindow$15.shellDeactivated(WorkbenchWindow.java:2320)
+	at org.eclipse.swt.widgets.TypedListener.handleEvent(TypedListener.java:111)
+	at org.eclipse.swt.widgets.EventTable.sendEvent(EventTable.java:84)
+	at org.eclipse.swt.widgets.Display.sendEvent(Display.java:4362)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1113)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1137)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1118)
+	at org.eclipse.swt.widgets.Decorations.WM_ACTIVATE(Decorations.java:1685)
+	at org.eclipse.swt.widgets.Shell.WM_ACTIVATE(Shell.java:2193)
+	at org.eclipse.swt.widgets.Control.windowProc(Control.java:4673)
+	at org.eclipse.swt.widgets.Canvas.windowProc(Canvas.java:339)
+	at org.eclipse.swt.widgets.Decorations.windowProc(Decorations.java:1633)
+	at org.eclipse.swt.widgets.Shell.windowProc(Shell.java:2117)
+	at org.eclipse.swt.widgets.Display.windowProc(Display.java:5050)
+	at org.eclipse.swt.internal.win32.OS.BringWindowToTop(Native Method)
+	at org.eclipse.swt.widgets.Decorations.bringToTop(Decorations.java:230)
+	at org.eclipse.swt.widgets.Shell.open(Shell.java:1244)
+	at org.eclipse.jface.window.Window.open(Window.java:799)
+	at org.sonatype.m2e.egit.internal.ImportMavenProjects.run(ImportMavenProjects.java:58)
+	at org.eclipse.ui.internal.PluginAction.runWithEvent(PluginAction.java:247)
+	at org.eclipse.jface.action.ActionContributionItem.handleWidgetSelection(ActionContributionItem.java:595)
+	at org.eclipse.jface.action.ActionContributionItem.access$2(ActionContributionItem.java:511)
+	at org.eclipse.jface.action.ActionContributionItem$5.handleEvent(ActionContributionItem.java:420)
+	at org.eclipse.swt.widgets.EventTable.sendEvent(EventTable.java:84)
+	at org.eclipse.swt.widgets.Display.sendEvent(Display.java:4362)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1113)
+	at org.eclipse.swt.widgets.Display.runDeferredEvents(Display.java:4180)
+	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:3769)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine$4.run(PartRenderingEngine.java:1127)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:337)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.run(PartRenderingEngine.java:1018)
+	at org.eclipse.e4.ui.internal.workbench.E4Workbench.createAndRunUI(E4Workbench.java:156)
+	at org.eclipse.ui.internal.Workbench$5.run(Workbench.java:694)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:337)
+	at org.eclipse.ui.internal.Workbench.createAndRunWorkbench(Workbench.java:606)
+	at org.eclipse.ui.PlatformUI.createAndRunWorkbench(PlatformUI.java:150)
+	at org.eclipse.ui.internal.ide.application.IDEApplication.start(IDEApplication.java:139)
+	at org.eclipse.equinox.internal.app.EclipseAppHandle.run(EclipseAppHandle.java:196)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:134)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:104)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:380)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:235)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:669)
+	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:608)
+	at org.eclipse.equinox.launcher.Main.run(Main.java:1515)
+
+!ENTRY org.eclipse.ui 4 0 2018-02-09 14:50:09.389
+!MESSAGE Unhandled event loop exception
+!STACK 0
+java.lang.NullPointerException
+	at org.eclipse.egit.core.internal.util.ResourceUtil.isSharedWithGit(ResourceUtil.java:157)
+	at org.eclipse.egit.core.internal.util.ResourceUtil.isValid(ResourceUtil.java:147)
+	at org.eclipse.egit.core.internal.util.ResourceUtil.getContainerForLocation(ResourceUtil.java:393)
+	at org.eclipse.egit.core.internal.util.ResourceUtil.getResourceForLocation(ResourceUtil.java:101)
+	at org.eclipse.egit.ui.internal.repository.RepositoriesView.getShowInElements(RepositoriesView.java:807)
+	at org.eclipse.egit.ui.internal.repository.RepositoriesView.getShowInContext(RepositoriesView.java:778)
+	at org.eclipse.ui.internal.services.WorkbenchSourceProvider.getContext(WorkbenchSourceProvider.java:433)
+	at org.eclipse.ui.internal.services.WorkbenchSourceProvider.updateActivePart(WorkbenchSourceProvider.java:499)
+	at org.eclipse.ui.internal.services.WorkbenchSourceProvider.updateActivePart(WorkbenchSourceProvider.java:460)
+	at org.eclipse.ui.internal.services.WorkbenchSourceProvider.getCurrentState(WorkbenchSourceProvider.java:139)
+	at org.eclipse.ui.internal.services.WorkbenchSourceProvider$6.handleEvent(WorkbenchSourceProvider.java:704)
+	at org.eclipse.swt.widgets.EventTable.sendEvent(EventTable.java:84)
+	at org.eclipse.swt.widgets.Display.filterEvent(Display.java:1266)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1112)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1137)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1122)
+	at org.eclipse.swt.widgets.Decorations.WM_ACTIVATE(Decorations.java:1673)
+	at org.eclipse.swt.widgets.Shell.WM_ACTIVATE(Shell.java:2193)
+	at org.eclipse.swt.widgets.Control.windowProc(Control.java:4673)
+	at org.eclipse.swt.widgets.Canvas.windowProc(Canvas.java:339)
+	at org.eclipse.swt.widgets.Decorations.windowProc(Decorations.java:1633)
+	at org.eclipse.swt.widgets.Shell.windowProc(Shell.java:2117)
+	at org.eclipse.swt.widgets.Display.windowProc(Display.java:5050)
+	at org.eclipse.swt.internal.win32.OS.DestroyWindow(Native Method)
+	at org.eclipse.swt.widgets.Control.destroyWidget(Control.java:780)
+	at org.eclipse.swt.widgets.Shell.destroyWidget(Shell.java:708)
+	at org.eclipse.swt.widgets.Widget.release(Widget.java:832)
+	at org.eclipse.swt.widgets.Widget.dispose(Widget.java:460)
+	at org.eclipse.swt.widgets.Decorations.dispose(Decorations.java:447)
+	at org.eclipse.swt.widgets.Shell.dispose(Shell.java:725)
+	at org.eclipse.jface.window.Window.close(Window.java:334)
+	at org.eclipse.jface.dialogs.Dialog.close(Dialog.java:990)
+	at org.eclipse.jface.wizard.WizardDialog.hardClose(WizardDialog.java:862)
+	at org.eclipse.jface.wizard.WizardDialog.close(WizardDialog.java:477)
+	at org.eclipse.jface.window.Window.handleShellCloseEvent(Window.java:743)
+	at org.eclipse.jface.dialogs.TrayDialog.handleShellCloseEvent(TrayDialog.java:221)
+	at org.eclipse.jface.window.Window$3.shellClosed(Window.java:689)
+	at org.eclipse.swt.widgets.TypedListener.handleEvent(TypedListener.java:98)
+	at org.eclipse.swt.widgets.EventTable.sendEvent(EventTable.java:84)
+	at org.eclipse.swt.widgets.Display.sendEvent(Display.java:4362)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1113)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1137)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1122)
+	at org.eclipse.swt.widgets.Decorations.closeWidget(Decorations.java:308)
+	at org.eclipse.swt.widgets.Decorations.WM_CLOSE(Decorations.java:1703)
+	at org.eclipse.swt.widgets.Control.windowProc(Control.java:4678)
+	at org.eclipse.swt.widgets.Canvas.windowProc(Canvas.java:339)
+	at org.eclipse.swt.widgets.Decorations.windowProc(Decorations.java:1633)
+	at org.eclipse.swt.widgets.Shell.windowProc(Shell.java:2117)
+	at org.eclipse.swt.widgets.Display.windowProc(Display.java:5050)
+	at org.eclipse.swt.internal.win32.OS.CallWindowProcW(Native Method)
+	at org.eclipse.swt.internal.win32.OS.CallWindowProc(OS.java:2443)
+	at org.eclipse.swt.widgets.Shell.callWindowProc(Shell.java:496)
+	at org.eclipse.swt.widgets.Control.windowProc(Control.java:4774)
+	at org.eclipse.swt.widgets.Canvas.windowProc(Canvas.java:339)
+	at org.eclipse.swt.widgets.Decorations.windowProc(Decorations.java:1633)
+	at org.eclipse.swt.widgets.Shell.windowProc(Shell.java:2117)
+	at org.eclipse.swt.widgets.Display.windowProc(Display.java:5050)
+	at org.eclipse.swt.internal.win32.OS.CallWindowProcW(Native Method)
+	at org.eclipse.swt.internal.win32.OS.CallWindowProc(OS.java:2443)
+	at org.eclipse.swt.widgets.Shell.callWindowProc(Shell.java:496)
+	at org.eclipse.swt.widgets.Control.windowProc(Control.java:4774)
+	at org.eclipse.swt.widgets.Canvas.windowProc(Canvas.java:339)
+	at org.eclipse.swt.widgets.Decorations.windowProc(Decorations.java:1633)
+	at org.eclipse.swt.widgets.Shell.windowProc(Shell.java:2117)
+	at org.eclipse.swt.widgets.Display.windowProc(Display.java:5050)
+	at org.eclipse.swt.internal.win32.OS.DispatchMessageW(Native Method)
+	at org.eclipse.swt.internal.win32.OS.DispatchMessage(OS.java:2549)
+	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:3767)
+	at org.eclipse.jface.window.Window.runEventLoop(Window.java:827)
+	at org.eclipse.jface.window.Window.open(Window.java:803)
+	at org.sonatype.m2e.egit.internal.ImportMavenProjects.run(ImportMavenProjects.java:58)
+	at org.eclipse.ui.internal.PluginAction.runWithEvent(PluginAction.java:247)
+	at org.eclipse.jface.action.ActionContributionItem.handleWidgetSelection(ActionContributionItem.java:595)
+	at org.eclipse.jface.action.ActionContributionItem.access$2(ActionContributionItem.java:511)
+	at org.eclipse.jface.action.ActionContributionItem$5.handleEvent(ActionContributionItem.java:420)
+	at org.eclipse.swt.widgets.EventTable.sendEvent(EventTable.java:84)
+	at org.eclipse.swt.widgets.Display.sendEvent(Display.java:4362)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1113)
+	at org.eclipse.swt.widgets.Display.runDeferredEvents(Display.java:4180)
+	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:3769)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine$4.run(PartRenderingEngine.java:1127)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:337)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.run(PartRenderingEngine.java:1018)
+	at org.eclipse.e4.ui.internal.workbench.E4Workbench.createAndRunUI(E4Workbench.java:156)
+	at org.eclipse.ui.internal.Workbench$5.run(Workbench.java:694)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:337)
+	at org.eclipse.ui.internal.Workbench.createAndRunWorkbench(Workbench.java:606)
+	at org.eclipse.ui.PlatformUI.createAndRunWorkbench(PlatformUI.java:150)
+	at org.eclipse.ui.internal.ide.application.IDEApplication.start(IDEApplication.java:139)
+	at org.eclipse.equinox.internal.app.EclipseAppHandle.run(EclipseAppHandle.java:196)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:134)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:104)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:380)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:235)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:669)
+	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:608)
+	at org.eclipse.equinox.launcher.Main.run(Main.java:1515)
+
+!ENTRY org.eclipse.ui.workbench 4 2 2018-02-09 14:50:12.265
+!MESSAGE Problems occurred when invoking code from plug-in: "org.eclipse.ui.workbench".
+!STACK 0
+java.lang.NullPointerException
+	at org.eclipse.egit.core.internal.util.ResourceUtil.isSharedWithGit(ResourceUtil.java:157)
+	at org.eclipse.egit.core.internal.util.ResourceUtil.isValid(ResourceUtil.java:147)
+	at org.eclipse.egit.core.internal.util.ResourceUtil.getContainerForLocation(ResourceUtil.java:393)
+	at org.eclipse.egit.core.internal.util.ResourceUtil.getResourceForLocation(ResourceUtil.java:101)
+	at org.eclipse.egit.ui.internal.repository.RepositoriesView.getShowInElements(RepositoriesView.java:807)
+	at org.eclipse.egit.ui.internal.repository.RepositoriesView.getShowInContext(RepositoriesView.java:778)
+	at org.eclipse.ui.internal.services.WorkbenchSourceProvider.getContext(WorkbenchSourceProvider.java:433)
+	at org.eclipse.ui.internal.services.WorkbenchSourceProvider.updateActivePart(WorkbenchSourceProvider.java:499)
+	at org.eclipse.ui.internal.services.WorkbenchSourceProvider.checkActivePart(WorkbenchSourceProvider.java:317)
+	at org.eclipse.ui.internal.services.WorkbenchSourceProvider.checkActivePart(WorkbenchSourceProvider.java:312)
+	at org.eclipse.ui.internal.services.WorkbenchSourceProvider$2.windowDeactivated(WorkbenchSourceProvider.java:284)
+	at org.eclipse.ui.internal.Workbench$12.run(Workbench.java:1099)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.ui.internal.Workbench.fireWindowDeactivated(Workbench.java:1096)
+	at org.eclipse.ui.internal.WorkbenchWindow$15.shellDeactivated(WorkbenchWindow.java:2320)
+	at org.eclipse.swt.widgets.TypedListener.handleEvent(TypedListener.java:111)
+	at org.eclipse.swt.widgets.EventTable.sendEvent(EventTable.java:84)
+	at org.eclipse.swt.widgets.Display.sendEvent(Display.java:4362)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1113)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1137)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1118)
+	at org.eclipse.swt.widgets.Decorations.WM_ACTIVATE(Decorations.java:1685)
+	at org.eclipse.swt.widgets.Shell.WM_ACTIVATE(Shell.java:2193)
+	at org.eclipse.swt.widgets.Control.windowProc(Control.java:4673)
+	at org.eclipse.swt.widgets.Canvas.windowProc(Canvas.java:339)
+	at org.eclipse.swt.widgets.Decorations.windowProc(Decorations.java:1633)
+	at org.eclipse.swt.widgets.Shell.windowProc(Shell.java:2117)
+	at org.eclipse.swt.widgets.Display.windowProc(Display.java:5050)
+	at org.eclipse.swt.internal.win32.OS.PeekMessageW(Native Method)
+	at org.eclipse.swt.internal.win32.OS.PeekMessage(OS.java:3141)
+	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:3764)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine$4.run(PartRenderingEngine.java:1127)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:337)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.run(PartRenderingEngine.java:1018)
+	at org.eclipse.e4.ui.internal.workbench.E4Workbench.createAndRunUI(E4Workbench.java:156)
+	at org.eclipse.ui.internal.Workbench$5.run(Workbench.java:694)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:337)
+	at org.eclipse.ui.internal.Workbench.createAndRunWorkbench(Workbench.java:606)
+	at org.eclipse.ui.PlatformUI.createAndRunWorkbench(PlatformUI.java:150)
+	at org.eclipse.ui.internal.ide.application.IDEApplication.start(IDEApplication.java:139)
+	at org.eclipse.equinox.internal.app.EclipseAppHandle.run(EclipseAppHandle.java:196)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:134)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:104)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:380)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:235)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:669)
+	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:608)
+	at org.eclipse.equinox.launcher.Main.run(Main.java:1515)
+
+!ENTRY org.eclipse.ui 4 0 2018-02-09 14:50:28.340
+!MESSAGE Unhandled event loop exception
+!STACK 0
+java.lang.NullPointerException
+	at org.eclipse.egit.core.internal.util.ResourceUtil.isSharedWithGit(ResourceUtil.java:157)
+	at org.eclipse.egit.core.internal.util.ResourceUtil.isValid(ResourceUtil.java:147)
+	at org.eclipse.egit.core.internal.util.ResourceUtil.getContainerForLocation(ResourceUtil.java:393)
+	at org.eclipse.egit.core.internal.util.ResourceUtil.getResourceForLocation(ResourceUtil.java:101)
+	at org.eclipse.egit.ui.internal.repository.RepositoriesView.getShowInElements(RepositoriesView.java:807)
+	at org.eclipse.egit.ui.internal.repository.RepositoriesView.getShowInContext(RepositoriesView.java:778)
+	at org.eclipse.ui.internal.services.WorkbenchSourceProvider.getContext(WorkbenchSourceProvider.java:433)
+	at org.eclipse.ui.internal.services.WorkbenchSourceProvider.updateActivePart(WorkbenchSourceProvider.java:499)
+	at org.eclipse.ui.internal.services.WorkbenchSourceProvider.updateActivePart(WorkbenchSourceProvider.java:460)
+	at org.eclipse.ui.internal.services.WorkbenchSourceProvider.getCurrentState(WorkbenchSourceProvider.java:139)
+	at org.eclipse.ui.internal.services.WorkbenchSourceProvider$6.handleEvent(WorkbenchSourceProvider.java:704)
+	at org.eclipse.swt.widgets.EventTable.sendEvent(EventTable.java:84)
+	at org.eclipse.swt.widgets.Display.filterEvent(Display.java:1266)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1112)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1137)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1122)
+	at org.eclipse.swt.widgets.Decorations.WM_ACTIVATE(Decorations.java:1673)
+	at org.eclipse.swt.widgets.Shell.WM_ACTIVATE(Shell.java:2193)
+	at org.eclipse.swt.widgets.Control.windowProc(Control.java:4673)
+	at org.eclipse.swt.widgets.Canvas.windowProc(Canvas.java:339)
+	at org.eclipse.swt.widgets.Decorations.windowProc(Decorations.java:1633)
+	at org.eclipse.swt.widgets.Shell.windowProc(Shell.java:2117)
+	at org.eclipse.swt.widgets.Display.windowProc(Display.java:5050)
+	at org.eclipse.swt.internal.win32.OS.DestroyWindow(Native Method)
+	at org.eclipse.swt.widgets.Control.destroyWidget(Control.java:780)
+	at org.eclipse.swt.widgets.Shell.destroyWidget(Shell.java:708)
+	at org.eclipse.swt.widgets.Widget.release(Widget.java:832)
+	at org.eclipse.swt.widgets.Widget.dispose(Widget.java:460)
+	at org.eclipse.swt.widgets.Decorations.dispose(Decorations.java:447)
+	at org.eclipse.swt.widgets.Shell.dispose(Shell.java:725)
+	at org.eclipse.jface.window.Window.close(Window.java:334)
+	at org.eclipse.jface.dialogs.Dialog.close(Dialog.java:990)
+	at org.eclipse.ui.internal.statushandlers.InternalDialog.close(InternalDialog.java:727)
+	at org.eclipse.jface.dialogs.Dialog.okPressed(Dialog.java:950)
+	at org.eclipse.jface.dialogs.Dialog.buttonPressed(Dialog.java:466)
+	at org.eclipse.ui.internal.statushandlers.InternalDialog.buttonPressed(InternalDialog.java:192)
+	at org.eclipse.jface.dialogs.Dialog$2.widgetSelected(Dialog.java:619)
+	at org.eclipse.swt.widgets.TypedListener.handleEvent(TypedListener.java:248)
+	at org.eclipse.swt.widgets.EventTable.sendEvent(EventTable.java:84)
+	at org.eclipse.swt.widgets.Display.sendEvent(Display.java:4362)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1113)
+	at org.eclipse.swt.widgets.Display.runDeferredEvents(Display.java:4180)
+	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:3769)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine$4.run(PartRenderingEngine.java:1127)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:337)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.run(PartRenderingEngine.java:1018)
+	at org.eclipse.e4.ui.internal.workbench.E4Workbench.createAndRunUI(E4Workbench.java:156)
+	at org.eclipse.ui.internal.Workbench$5.run(Workbench.java:694)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:337)
+	at org.eclipse.ui.internal.Workbench.createAndRunWorkbench(Workbench.java:606)
+	at org.eclipse.ui.PlatformUI.createAndRunWorkbench(PlatformUI.java:150)
+	at org.eclipse.ui.internal.ide.application.IDEApplication.start(IDEApplication.java:139)
+	at org.eclipse.equinox.internal.app.EclipseAppHandle.run(EclipseAppHandle.java:196)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:134)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:104)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:380)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:235)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:669)
+	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:608)
+	at org.eclipse.equinox.launcher.Main.run(Main.java:1515)
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2018-02-09 14:53:30.255
+!MESSAGE File encoding has not been set, using platform encoding Cp1252, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2018-02-09 14:53:30.312
+!MESSAGE Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2018-02-09 14:53:30.365
+!MESSAGE Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2018-02-09 14:53:30.396
+!MESSAGE Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2018-02-09 14:56:13.604
+!MESSAGE File encoding has not been set, using platform encoding Cp1252, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2018-02-09 14:56:13.683
+!MESSAGE Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2018-02-09 14:56:13.711
+!MESSAGE Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2018-02-09 14:56:13.737
+!MESSAGE Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+!SESSION 2018-02-09 15:08:37.683 -----------------------------------------------
+eclipse.buildId=3.7.3.201602250940-RELEASE-e45
+java.version=1.8.0_161
+java.vendor=Oracle Corporation
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=en_US
+Command-line arguments:  -os win32 -ws win32 -arch x86_64
+
+!ENTRY org.eclipse.core.net 1 0 2018-02-09 15:08:42.661
+!MESSAGE System property http.proxyHost is not set but should be www-proxy.lmig.com.
+
+!ENTRY org.eclipse.core.net 1 0 2018-02-09 15:08:42.669
+!MESSAGE System property http.proxyPort is not set but should be 80.
+
+!ENTRY org.eclipse.core.net 1 0 2018-02-09 15:08:42.674
+!MESSAGE System property https.proxyHost is not set but should be www-proxy.lmig.com.
+
+!ENTRY org.eclipse.core.net 1 0 2018-02-09 15:08:42.679
+!MESSAGE System property https.proxyPort is not set but should be 80.
+
+!ENTRY org.eclipse.core.net 1 0 2018-02-09 15:08:42.685
+!MESSAGE System property https.proxyHost is not set but should be www-proxy.lmig.com.
+
+!ENTRY org.eclipse.core.net 1 0 2018-02-09 15:08:42.690
+!MESSAGE System property https.proxyPort is not set but should be 80.
+
+!ENTRY org.eclipse.egit.ui 2 0 2018-02-09 15:08:51.013
+!MESSAGE Warning: The environment variable HOME is not set. The following directory will be used to store the Git
+user global configuration and to define the default location to store repositories: 'C:\Users\n0147313'. If this is
+not correct please set the HOME environment variable and restart Eclipse. Otherwise Git for Windows and
+EGit might behave differently since they see different configuration options.
+This warning can be switched off on the Team > Git > Confirmations and Warnings preference page.
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2018-02-09 15:08:57.420
+!MESSAGE File encoding has not been set, using platform encoding Cp1252, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2018-02-09 15:08:57.437
+!MESSAGE Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2018-02-09 15:08:57.487
+!MESSAGE Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+!SESSION 2018-02-09 15:11:27.851 -----------------------------------------------
+eclipse.buildId=3.7.3.201602250940-RELEASE-e45
+java.version=1.8.0_161
+java.vendor=Oracle Corporation
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=en_US
+Command-line arguments:  -os win32 -ws win32 -arch x86_64
+
+!ENTRY org.eclipse.core.net 1 0 2018-02-09 15:11:32.911
+!MESSAGE System property http.proxyHost is not set but should be www-proxy.lmig.com.
+
+!ENTRY org.eclipse.core.net 1 0 2018-02-09 15:11:32.917
+!MESSAGE System property http.proxyPort is not set but should be 80.
+
+!ENTRY org.eclipse.core.net 1 0 2018-02-09 15:11:32.922
+!MESSAGE System property https.proxyHost is not set but should be www-proxy.lmig.com.
+
+!ENTRY org.eclipse.core.net 1 0 2018-02-09 15:11:32.927
+!MESSAGE System property https.proxyPort is not set but should be 80.
+
+!ENTRY org.eclipse.core.net 1 0 2018-02-09 15:11:32.933
+!MESSAGE System property https.proxyHost is not set but should be www-proxy.lmig.com.
+
+!ENTRY org.eclipse.core.net 1 0 2018-02-09 15:11:32.939
+!MESSAGE System property https.proxyPort is not set but should be 80.
+
+!ENTRY org.eclipse.egit.ui 2 0 2018-02-09 15:11:41.399
+!MESSAGE Warning: The environment variable HOME is not set. The following directory will be used to store the Git
+user global configuration and to define the default location to store repositories: 'C:\Users\n0147313'. If this is
+not correct please set the HOME environment variable and restart Eclipse. Otherwise Git for Windows and
+EGit might behave differently since they see different configuration options.
+This warning can be switched off on the Team > Git > Confirmations and Warnings preference page.
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2018-02-09 15:11:47.267
+!MESSAGE File encoding has not been set, using platform encoding Cp1252, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2018-02-09 15:11:47.288
+!MESSAGE Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2018-02-09 15:11:47.332
+!MESSAGE Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2018-02-09 15:43:37.228
+!MESSAGE File encoding has not been set, using platform encoding Cp1252, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2018-02-09 15:43:37.245
+!MESSAGE Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2018-02-09 15:43:37.266
+!MESSAGE Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2018-02-09 15:43:37.320
+!MESSAGE Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.wst.common.project.facet.core 4 0 2018-02-09 15:44:04.799
+!MESSAGE Project facet grails.app has not been defined. It is used in plugin com.vmware.vfabric.ide.eclipse.tcserver.core.
+
+!ENTRY org.eclipse.wst.common.project.facet.core 4 0 2018-02-09 15:44:04.799
+!MESSAGE Project facet grails.app has not been defined. It is used in plugin org.eclipse.cft.server.branding.core.
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2018-02-09 15:47:32.247
+!MESSAGE File encoding has not been set, using platform encoding Cp1252, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2018-02-09 15:47:32.270
+!MESSAGE Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2018-02-09 15:47:32.286
+!MESSAGE Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+!SESSION 2018-02-12 09:37:16.987 -----------------------------------------------
+eclipse.buildId=3.7.3.201602250940-RELEASE-e45
+java.version=1.8.0_161
+java.vendor=Oracle Corporation
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=en_US
+Command-line arguments:  -os win32 -ws win32 -arch x86_64
+
+!ENTRY org.eclipse.core.net 1 0 2018-02-12 09:37:37.626
+!MESSAGE System property http.proxyHost is not set but should be www-proxy.lmig.com.
+
+!ENTRY org.eclipse.core.net 1 0 2018-02-12 09:37:37.641
+!MESSAGE System property http.proxyPort is not set but should be 80.
+
+!ENTRY org.eclipse.core.net 1 0 2018-02-12 09:37:37.641
+!MESSAGE System property https.proxyHost is not set but should be www-proxy.lmig.com.
+
+!ENTRY org.eclipse.core.net 1 0 2018-02-12 09:37:37.641
+!MESSAGE System property https.proxyPort is not set but should be 80.
+
+!ENTRY org.eclipse.core.net 1 0 2018-02-12 09:37:37.641
+!MESSAGE System property https.proxyHost is not set but should be www-proxy.lmig.com.
+
+!ENTRY org.eclipse.core.net 1 0 2018-02-12 09:37:37.657
+!MESSAGE System property https.proxyPort is not set but should be 80.
+
+!ENTRY org.eclipse.egit.ui 2 0 2018-02-12 09:37:54.625
+!MESSAGE Warning: The environment variable HOME is not set. The following directory will be used to store the Git
+user global configuration and to define the default location to store repositories: 'C:\Users\n0147313'. If this is
+not correct please set the HOME environment variable and restart Eclipse. Otherwise Git for Windows and
+EGit might behave differently since they see different configuration options.
+This warning can be switched off on the Team > Git > Confirmations and Warnings preference page.
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2018-02-12 09:38:07.575
+!MESSAGE File encoding has not been set, using platform encoding Cp1252, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2018-02-12 09:38:07.575
+!MESSAGE Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2018-02-12 09:38:07.606
+!MESSAGE Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+!SESSION 2018-02-12 10:55:25.312 -----------------------------------------------
+eclipse.buildId=3.7.3.201602250940-RELEASE-e45
+java.version=1.8.0_161
+java.vendor=Oracle Corporation
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=en_US
+Command-line arguments:  -os win32 -ws win32 -arch x86_64
+
+!ENTRY org.eclipse.core.resources 2 10035 2018-02-12 10:55:29.015
+!MESSAGE The workspace exited with unsaved changes in the previous session; refreshing workspace to recover changes.
+
+!ENTRY org.eclipse.core.net 1 0 2018-02-12 10:55:30.921
+!MESSAGE System property http.proxyHost is not set but should be www-proxy.lmig.com.
+
+!ENTRY org.eclipse.core.net 1 0 2018-02-12 10:55:30.921
+!MESSAGE System property http.proxyPort is not set but should be 80.
+
+!ENTRY org.eclipse.core.net 1 0 2018-02-12 10:55:30.937
+!MESSAGE System property https.proxyHost is not set but should be www-proxy.lmig.com.
+
+!ENTRY org.eclipse.core.net 1 0 2018-02-12 10:55:30.937
+!MESSAGE System property https.proxyPort is not set but should be 80.
+
+!ENTRY org.eclipse.core.net 1 0 2018-02-12 10:55:30.953
+!MESSAGE System property https.proxyHost is not set but should be www-proxy.lmig.com.
+
+!ENTRY org.eclipse.core.net 1 0 2018-02-12 10:55:30.968
+!MESSAGE System property https.proxyPort is not set but should be 80.
+
+!ENTRY org.eclipse.egit.ui 2 0 2018-02-12 10:55:41.139
+!MESSAGE Warning: The environment variable HOME is not set. The following directory will be used to store the Git
+user global configuration and to define the default location to store repositories: 'C:\Users\n0147313'. If this is
+not correct please set the HOME environment variable and restart Eclipse. Otherwise Git for Windows and
+EGit might behave differently since they see different configuration options.
+This warning can be switched off on the Team > Git > Confirmations and Warnings preference page.
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2018-02-12 10:55:49.960
+!MESSAGE File encoding has not been set, using platform encoding Cp1252, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2018-02-12 10:55:49.976
+!MESSAGE Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2018-02-12 10:55:50.007
+!MESSAGE Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+!SESSION 2018-02-12 11:41:41.858 -----------------------------------------------
+eclipse.buildId=3.7.3.201602250940-RELEASE-e45
+java.version=1.8.0_161
+java.vendor=Oracle Corporation
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=en_US
+Command-line arguments:  -os win32 -ws win32 -arch x86_64
+
+!ENTRY org.eclipse.core.net 1 0 2018-02-12 11:41:47.046
+!MESSAGE System property http.proxyHost is not set but should be www-proxy.lmig.com.
+
+!ENTRY org.eclipse.core.net 1 0 2018-02-12 11:41:47.061
+!MESSAGE System property http.proxyPort is not set but should be 80.
+
+!ENTRY org.eclipse.core.net 1 0 2018-02-12 11:41:47.061
+!MESSAGE System property https.proxyHost is not set but should be www-proxy.lmig.com.
+
+!ENTRY org.eclipse.core.net 1 0 2018-02-12 11:41:47.061
+!MESSAGE System property https.proxyPort is not set but should be 80.
+
+!ENTRY org.eclipse.core.net 1 0 2018-02-12 11:41:47.077
+!MESSAGE System property https.proxyHost is not set but should be www-proxy.lmig.com.
+
+!ENTRY org.eclipse.core.net 1 0 2018-02-12 11:41:47.077
+!MESSAGE System property https.proxyPort is not set but should be 80.
+
+!ENTRY org.eclipse.egit.ui 2 0 2018-02-12 11:41:56.783
+!MESSAGE Warning: The environment variable HOME is not set. The following directory will be used to store the Git
+user global configuration and to define the default location to store repositories: 'C:\Users\n0147313'. If this is
+not correct please set the HOME environment variable and restart Eclipse. Otherwise Git for Windows and
+EGit might behave differently since they see different configuration options.
+This warning can be switched off on the Team > Git > Confirmations and Warnings preference page.
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2018-02-12 11:42:04.523
+!MESSAGE File encoding has not been set, using platform encoding Cp1252, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2018-02-12 11:42:04.538
+!MESSAGE Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2018-02-12 11:42:04.570
+!MESSAGE Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.jst.server.tomcat.core 4 0 2018-02-12 11:42:09.563
+!MESSAGE Publishing failed with multiple errors
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2018-02-12 11:42:09.563
+!MESSAGE Resource is out of sync with the file system: '/PetComeHome/target/classes/com/mycompany/petcomehome/controller/PetController.class'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2018-02-12 11:42:09.563
+!MESSAGE Resource is out of sync with the file system: '/PetComeHome/target/classes/com/mycompany/petcomehome/dao/LocDao.class'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2018-02-12 11:42:09.563
+!MESSAGE Resource is out of sync with the file system: '/PetComeHome/target/classes/com/mycompany/petcomehome/dao/LocDaoDBImpl$LocMapper.class'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2018-02-12 11:42:09.563
+!MESSAGE Resource is out of sync with the file system: '/PetComeHome/target/classes/com/mycompany/petcomehome/dao/LocDaoDBImpl.class'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2018-02-12 11:42:09.563
+!MESSAGE Resource is out of sync with the file system: '/PetComeHome/target/classes/com/mycompany/petcomehome/dao/PetDao.class'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2018-02-12 11:42:09.563
+!MESSAGE Resource is out of sync with the file system: '/PetComeHome/target/classes/com/mycompany/petcomehome/dao/PetDaoDBImpl$petMapper.class'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2018-02-12 11:42:09.563
+!MESSAGE Resource is out of sync with the file system: '/PetComeHome/target/classes/com/mycompany/petcomehome/dao/PetDaoDBImpl.class'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2018-02-12 11:42:09.563
+!MESSAGE Resource is out of sync with the file system: '/PetComeHome/target/classes/com/mycompany/petcomehome/dao/PetStatusDBImpl$petStatusMapper.class'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2018-02-12 11:42:09.563
+!MESSAGE Resource is out of sync with the file system: '/PetComeHome/target/classes/com/mycompany/petcomehome/dao/PetStatusDBImpl.class'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2018-02-12 11:42:09.563
+!MESSAGE Resource is out of sync with the file system: '/PetComeHome/target/classes/com/mycompany/petcomehome/dao/PetStatusDao.class'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2018-02-12 11:42:09.563
+!MESSAGE Resource is out of sync with the file system: '/PetComeHome/target/classes/com/mycompany/petcomehome/dao/PetTypeDBImpl$petTypeMapper.class'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2018-02-12 11:42:09.563
+!MESSAGE Resource is out of sync with the file system: '/PetComeHome/target/classes/com/mycompany/petcomehome/dao/PetTypeDBImpl.class'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2018-02-12 11:42:09.563
+!MESSAGE Resource is out of sync with the file system: '/PetComeHome/target/classes/com/mycompany/petcomehome/dao/PetTypeDao.class'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2018-02-12 11:42:09.563
+!MESSAGE Resource is out of sync with the file system: '/PetComeHome/target/classes/com/mycompany/petcomehome/dao/UserDao.class'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2018-02-12 11:42:09.563
+!MESSAGE Resource is out of sync with the file system: '/PetComeHome/target/classes/com/mycompany/petcomehome/dao/UserDaoDBImpl$UserMapper.class'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2018-02-12 11:42:09.563
+!MESSAGE Resource is out of sync with the file system: '/PetComeHome/target/classes/com/mycompany/petcomehome/dao/UserDaoDBImpl.class'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2018-02-12 11:42:09.563
+!MESSAGE Resource is out of sync with the file system: '/PetComeHome/target/classes/com/mycompany/petcomehome/model/Loc.class'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2018-02-12 11:42:09.563
+!MESSAGE Resource is out of sync with the file system: '/PetComeHome/target/classes/com/mycompany/petcomehome/model/Pet.class'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2018-02-12 11:42:09.563
+!MESSAGE Resource is out of sync with the file system: '/PetComeHome/target/classes/com/mycompany/petcomehome/model/PetStatus.class'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2018-02-12 11:42:09.563
+!MESSAGE Resource is out of sync with the file system: '/PetComeHome/target/classes/com/mycompany/petcomehome/model/PetType.class'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2018-02-12 11:42:09.563
+!MESSAGE Resource is out of sync with the file system: '/PetComeHome/target/classes/com/mycompany/petcomehome/model/User.class'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2018-02-12 11:42:09.563
+!MESSAGE Resource is out of sync with the file system: '/PetComeHome/target/classes/com/mycompany/petcomehome/service/LocSL.class'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2018-02-12 11:42:09.563
+!MESSAGE Resource is out of sync with the file system: '/PetComeHome/target/classes/com/mycompany/petcomehome/service/LocServiceImpl.class'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2018-02-12 11:42:09.563
+!MESSAGE Resource is out of sync with the file system: '/PetComeHome/target/classes/com/mycompany/petcomehome/service/PetSL.class'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2018-02-12 11:42:09.563
+!MESSAGE Resource is out of sync with the file system: '/PetComeHome/target/classes/com/mycompany/petcomehome/service/PetSLImpl.class'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2018-02-12 11:42:09.563
+!MESSAGE Resource is out of sync with the file system: '/PetComeHome/target/classes/com/mycompany/petcomehome/service/UserSL.class'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2018-02-12 11:42:09.563
+!MESSAGE Resource is out of sync with the file system: '/PetComeHome/target/classes/com/mycompany/petcomehome/service/UserSLImpl.class'.
+
+!ENTRY org.eclipse.jst.server.tomcat.core 4 0 2018-02-12 11:42:19.923
+!MESSAGE Publishing failed with multiple errors
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2018-02-12 11:42:19.923
+!MESSAGE Resource is out of sync with the file system: '/PetComeHome/target/classes/com/mycompany/petcomehome/controller/PetController.class'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2018-02-12 11:42:19.923
+!MESSAGE Resource is out of sync with the file system: '/PetComeHome/target/classes/com/mycompany/petcomehome/dao/LocDao.class'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2018-02-12 11:42:19.923
+!MESSAGE Resource is out of sync with the file system: '/PetComeHome/target/classes/com/mycompany/petcomehome/dao/LocDaoDBImpl$LocMapper.class'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2018-02-12 11:42:19.923
+!MESSAGE Resource is out of sync with the file system: '/PetComeHome/target/classes/com/mycompany/petcomehome/dao/LocDaoDBImpl.class'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2018-02-12 11:42:19.923
+!MESSAGE Resource is out of sync with the file system: '/PetComeHome/target/classes/com/mycompany/petcomehome/dao/PetDao.class'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2018-02-12 11:42:19.923
+!MESSAGE Resource is out of sync with the file system: '/PetComeHome/target/classes/com/mycompany/petcomehome/dao/PetDaoDBImpl$petMapper.class'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2018-02-12 11:42:19.923
+!MESSAGE Resource is out of sync with the file system: '/PetComeHome/target/classes/com/mycompany/petcomehome/dao/PetDaoDBImpl.class'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2018-02-12 11:42:19.923
+!MESSAGE Resource is out of sync with the file system: '/PetComeHome/target/classes/com/mycompany/petcomehome/dao/PetStatusDBImpl$petStatusMapper.class'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2018-02-12 11:42:19.923
+!MESSAGE Resource is out of sync with the file system: '/PetComeHome/target/classes/com/mycompany/petcomehome/dao/PetStatusDBImpl.class'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2018-02-12 11:42:19.923
+!MESSAGE Resource is out of sync with the file system: '/PetComeHome/target/classes/com/mycompany/petcomehome/dao/PetStatusDao.class'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2018-02-12 11:42:19.923
+!MESSAGE Resource is out of sync with the file system: '/PetComeHome/target/classes/com/mycompany/petcomehome/dao/PetTypeDBImpl$petTypeMapper.class'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2018-02-12 11:42:19.923
+!MESSAGE Resource is out of sync with the file system: '/PetComeHome/target/classes/com/mycompany/petcomehome/dao/PetTypeDBImpl.class'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2018-02-12 11:42:19.923
+!MESSAGE Resource is out of sync with the file system: '/PetComeHome/target/classes/com/mycompany/petcomehome/dao/PetTypeDao.class'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2018-02-12 11:42:19.923
+!MESSAGE Resource is out of sync with the file system: '/PetComeHome/target/classes/com/mycompany/petcomehome/dao/UserDao.class'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2018-02-12 11:42:19.923
+!MESSAGE Resource is out of sync with the file system: '/PetComeHome/target/classes/com/mycompany/petcomehome/dao/UserDaoDBImpl$UserMapper.class'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2018-02-12 11:42:19.923
+!MESSAGE Resource is out of sync with the file system: '/PetComeHome/target/classes/com/mycompany/petcomehome/dao/UserDaoDBImpl.class'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2018-02-12 11:42:19.923
+!MESSAGE Resource is out of sync with the file system: '/PetComeHome/target/classes/com/mycompany/petcomehome/model/Loc.class'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2018-02-12 11:42:19.923
+!MESSAGE Resource is out of sync with the file system: '/PetComeHome/target/classes/com/mycompany/petcomehome/model/Pet.class'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2018-02-12 11:42:19.923
+!MESSAGE Resource is out of sync with the file system: '/PetComeHome/target/classes/com/mycompany/petcomehome/model/PetStatus.class'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2018-02-12 11:42:19.923
+!MESSAGE Resource is out of sync with the file system: '/PetComeHome/target/classes/com/mycompany/petcomehome/model/PetType.class'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2018-02-12 11:42:19.923
+!MESSAGE Resource is out of sync with the file system: '/PetComeHome/target/classes/com/mycompany/petcomehome/model/User.class'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2018-02-12 11:42:19.923
+!MESSAGE Resource is out of sync with the file system: '/PetComeHome/target/classes/com/mycompany/petcomehome/service/LocSL.class'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2018-02-12 11:42:19.923
+!MESSAGE Resource is out of sync with the file system: '/PetComeHome/target/classes/com/mycompany/petcomehome/service/LocServiceImpl.class'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2018-02-12 11:42:19.923
+!MESSAGE Resource is out of sync with the file system: '/PetComeHome/target/classes/com/mycompany/petcomehome/service/PetSL.class'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2018-02-12 11:42:19.923
+!MESSAGE Resource is out of sync with the file system: '/PetComeHome/target/classes/com/mycompany/petcomehome/service/PetSLImpl.class'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2018-02-12 11:42:19.923
+!MESSAGE Resource is out of sync with the file system: '/PetComeHome/target/classes/com/mycompany/petcomehome/service/UserSL.class'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2018-02-12 11:42:19.923
+!MESSAGE Resource is out of sync with the file system: '/PetComeHome/target/classes/com/mycompany/petcomehome/service/UserSLImpl.class'.
+
+!ENTRY org.eclipse.jst.server.tomcat.core 4 0 2018-02-12 11:42:27.376
+!MESSAGE Publishing failed with multiple errors
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2018-02-12 11:42:27.376
+!MESSAGE Resource is out of sync with the file system: '/PetComeHome/target/classes/com/mycompany/petcomehome/controller/PetController.class'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2018-02-12 11:42:27.376
+!MESSAGE Resource is out of sync with the file system: '/PetComeHome/target/classes/com/mycompany/petcomehome/dao/LocDao.class'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2018-02-12 11:42:27.376
+!MESSAGE Resource is out of sync with the file system: '/PetComeHome/target/classes/com/mycompany/petcomehome/dao/LocDaoDBImpl$LocMapper.class'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2018-02-12 11:42:27.376
+!MESSAGE Resource is out of sync with the file system: '/PetComeHome/target/classes/com/mycompany/petcomehome/dao/LocDaoDBImpl.class'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2018-02-12 11:42:27.376
+!MESSAGE Resource is out of sync with the file system: '/PetComeHome/target/classes/com/mycompany/petcomehome/dao/PetDao.class'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2018-02-12 11:42:27.376
+!MESSAGE Resource is out of sync with the file system: '/PetComeHome/target/classes/com/mycompany/petcomehome/dao/PetDaoDBImpl$petMapper.class'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2018-02-12 11:42:27.376
+!MESSAGE Resource is out of sync with the file system: '/PetComeHome/target/classes/com/mycompany/petcomehome/dao/PetDaoDBImpl.class'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2018-02-12 11:42:27.376
+!MESSAGE Resource is out of sync with the file system: '/PetComeHome/target/classes/com/mycompany/petcomehome/dao/PetStatusDBImpl$petStatusMapper.class'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2018-02-12 11:42:27.376
+!MESSAGE Resource is out of sync with the file system: '/PetComeHome/target/classes/com/mycompany/petcomehome/dao/PetStatusDBImpl.class'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2018-02-12 11:42:27.376
+!MESSAGE Resource is out of sync with the file system: '/PetComeHome/target/classes/com/mycompany/petcomehome/dao/PetStatusDao.class'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2018-02-12 11:42:27.376
+!MESSAGE Resource is out of sync with the file system: '/PetComeHome/target/classes/com/mycompany/petcomehome/dao/PetTypeDBImpl$petTypeMapper.class'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2018-02-12 11:42:27.376
+!MESSAGE Resource is out of sync with the file system: '/PetComeHome/target/classes/com/mycompany/petcomehome/dao/PetTypeDBImpl.class'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2018-02-12 11:42:27.376
+!MESSAGE Resource is out of sync with the file system: '/PetComeHome/target/classes/com/mycompany/petcomehome/dao/PetTypeDao.class'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2018-02-12 11:42:27.376
+!MESSAGE Resource is out of sync with the file system: '/PetComeHome/target/classes/com/mycompany/petcomehome/dao/UserDao.class'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2018-02-12 11:42:27.376
+!MESSAGE Resource is out of sync with the file system: '/PetComeHome/target/classes/com/mycompany/petcomehome/dao/UserDaoDBImpl$UserMapper.class'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2018-02-12 11:42:27.376
+!MESSAGE Resource is out of sync with the file system: '/PetComeHome/target/classes/com/mycompany/petcomehome/dao/UserDaoDBImpl.class'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2018-02-12 11:42:27.376
+!MESSAGE Resource is out of sync with the file system: '/PetComeHome/target/classes/com/mycompany/petcomehome/model/Loc.class'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2018-02-12 11:42:27.376
+!MESSAGE Resource is out of sync with the file system: '/PetComeHome/target/classes/com/mycompany/petcomehome/model/Pet.class'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2018-02-12 11:42:27.376
+!MESSAGE Resource is out of sync with the file system: '/PetComeHome/target/classes/com/mycompany/petcomehome/model/PetStatus.class'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2018-02-12 11:42:27.376
+!MESSAGE Resource is out of sync with the file system: '/PetComeHome/target/classes/com/mycompany/petcomehome/model/PetType.class'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2018-02-12 11:42:27.376
+!MESSAGE Resource is out of sync with the file system: '/PetComeHome/target/classes/com/mycompany/petcomehome/model/User.class'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2018-02-12 11:42:27.376
+!MESSAGE Resource is out of sync with the file system: '/PetComeHome/target/classes/com/mycompany/petcomehome/service/LocSL.class'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2018-02-12 11:42:27.376
+!MESSAGE Resource is out of sync with the file system: '/PetComeHome/target/classes/com/mycompany/petcomehome/service/LocServiceImpl.class'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2018-02-12 11:42:27.376
+!MESSAGE Resource is out of sync with the file system: '/PetComeHome/target/classes/com/mycompany/petcomehome/service/PetSL.class'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2018-02-12 11:42:27.376
+!MESSAGE Resource is out of sync with the file system: '/PetComeHome/target/classes/com/mycompany/petcomehome/service/PetSLImpl.class'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2018-02-12 11:42:27.376
+!MESSAGE Resource is out of sync with the file system: '/PetComeHome/target/classes/com/mycompany/petcomehome/service/UserSL.class'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2018-02-12 11:42:27.376
+!MESSAGE Resource is out of sync with the file system: '/PetComeHome/target/classes/com/mycompany/petcomehome/service/UserSLImpl.class'.
+
+!ENTRY org.eclipse.wst.common.project.facet.core 4 0 2018-02-12 11:44:29.007
+!MESSAGE Project facet grails.app has not been defined. It is used in plugin com.vmware.vfabric.ide.eclipse.tcserver.core.
+
+!ENTRY org.eclipse.wst.common.project.facet.core 4 0 2018-02-12 11:44:29.007
+!MESSAGE Project facet grails.app has not been defined. It is used in plugin org.eclipse.cft.server.branding.core.
+
+!ENTRY org.eclipse.jst.server.tomcat.core 4 0 2018-02-12 11:44:29.304
+!MESSAGE Publishing failed with multiple errors
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2018-02-12 11:44:29.304
+!MESSAGE Resource is out of sync with the file system: '/PetComeHome/target/classes/com/mycompany/petcomehome/controller/PetController.class'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2018-02-12 11:44:29.304
+!MESSAGE Resource is out of sync with the file system: '/PetComeHome/target/classes/com/mycompany/petcomehome/dao/LocDao.class'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2018-02-12 11:44:29.304
+!MESSAGE Resource is out of sync with the file system: '/PetComeHome/target/classes/com/mycompany/petcomehome/dao/LocDaoDBImpl$LocMapper.class'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2018-02-12 11:44:29.304
+!MESSAGE Resource is out of sync with the file system: '/PetComeHome/target/classes/com/mycompany/petcomehome/dao/LocDaoDBImpl.class'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2018-02-12 11:44:29.304
+!MESSAGE Resource is out of sync with the file system: '/PetComeHome/target/classes/com/mycompany/petcomehome/dao/PetDao.class'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2018-02-12 11:44:29.304
+!MESSAGE Resource is out of sync with the file system: '/PetComeHome/target/classes/com/mycompany/petcomehome/dao/PetDaoDBImpl$petMapper.class'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2018-02-12 11:44:29.304
+!MESSAGE Resource is out of sync with the file system: '/PetComeHome/target/classes/com/mycompany/petcomehome/dao/PetDaoDBImpl.class'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2018-02-12 11:44:29.304
+!MESSAGE Resource is out of sync with the file system: '/PetComeHome/target/classes/com/mycompany/petcomehome/dao/PetStatusDBImpl$petStatusMapper.class'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2018-02-12 11:44:29.304
+!MESSAGE Resource is out of sync with the file system: '/PetComeHome/target/classes/com/mycompany/petcomehome/dao/PetStatusDBImpl.class'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2018-02-12 11:44:29.304
+!MESSAGE Resource is out of sync with the file system: '/PetComeHome/target/classes/com/mycompany/petcomehome/dao/PetStatusDao.class'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2018-02-12 11:44:29.304
+!MESSAGE Resource is out of sync with the file system: '/PetComeHome/target/classes/com/mycompany/petcomehome/dao/PetTypeDBImpl$petTypeMapper.class'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2018-02-12 11:44:29.304
+!MESSAGE Resource is out of sync with the file system: '/PetComeHome/target/classes/com/mycompany/petcomehome/dao/PetTypeDBImpl.class'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2018-02-12 11:44:29.304
+!MESSAGE Resource is out of sync with the file system: '/PetComeHome/target/classes/com/mycompany/petcomehome/dao/PetTypeDao.class'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2018-02-12 11:44:29.304
+!MESSAGE Resource is out of sync with the file system: '/PetComeHome/target/classes/com/mycompany/petcomehome/dao/UserDao.class'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2018-02-12 11:44:29.304
+!MESSAGE Resource is out of sync with the file system: '/PetComeHome/target/classes/com/mycompany/petcomehome/dao/UserDaoDBImpl$UserMapper.class'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2018-02-12 11:44:29.304
+!MESSAGE Resource is out of sync with the file system: '/PetComeHome/target/classes/com/mycompany/petcomehome/dao/UserDaoDBImpl.class'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2018-02-12 11:44:29.304
+!MESSAGE Resource is out of sync with the file system: '/PetComeHome/target/classes/com/mycompany/petcomehome/model/Loc.class'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2018-02-12 11:44:29.304
+!MESSAGE Resource is out of sync with the file system: '/PetComeHome/target/classes/com/mycompany/petcomehome/model/Pet.class'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2018-02-12 11:44:29.304
+!MESSAGE Resource is out of sync with the file system: '/PetComeHome/target/classes/com/mycompany/petcomehome/model/PetStatus.class'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2018-02-12 11:44:29.304
+!MESSAGE Resource is out of sync with the file system: '/PetComeHome/target/classes/com/mycompany/petcomehome/model/PetType.class'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2018-02-12 11:44:29.304
+!MESSAGE Resource is out of sync with the file system: '/PetComeHome/target/classes/com/mycompany/petcomehome/model/User.class'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2018-02-12 11:44:29.304
+!MESSAGE Resource is out of sync with the file system: '/PetComeHome/target/classes/com/mycompany/petcomehome/service/LocSL.class'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2018-02-12 11:44:29.304
+!MESSAGE Resource is out of sync with the file system: '/PetComeHome/target/classes/com/mycompany/petcomehome/service/LocServiceImpl.class'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2018-02-12 11:44:29.304
+!MESSAGE Resource is out of sync with the file system: '/PetComeHome/target/classes/com/mycompany/petcomehome/service/PetSL.class'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2018-02-12 11:44:29.304
+!MESSAGE Resource is out of sync with the file system: '/PetComeHome/target/classes/com/mycompany/petcomehome/service/PetSLImpl.class'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2018-02-12 11:44:29.304
+!MESSAGE Resource is out of sync with the file system: '/PetComeHome/target/classes/com/mycompany/petcomehome/service/UserSL.class'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2018-02-12 11:44:29.304
+!MESSAGE Resource is out of sync with the file system: '/PetComeHome/target/classes/com/mycompany/petcomehome/service/UserSLImpl.class'.
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2018-02-12 11:47:34.586
+!MESSAGE File encoding has not been set, using platform encoding Cp1252, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2018-02-12 11:47:34.586
+!MESSAGE Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2018-02-12 11:47:34.602
+!MESSAGE Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2018-02-12 11:47:34.649
+!MESSAGE Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.jst.server.tomcat.core 4 0 2018-02-12 11:48:13.206
+!MESSAGE Port 8009 required by Tomcat v8.0 Server at localhost is already in use. The server may already be running in another process, or a system process may be using the port. To start this server you will need to stop the other process or change the port number(s).
+
+!ENTRY org.eclipse.jst.server.tomcat.core 4 0 2018-02-12 11:48:55.372
+!MESSAGE Several ports (8005, 8080, 8009) required by Tomcat v8.0 Server at localhost are already in use. The server may already be running in another process, or a system process may be using the port. To start this server you will need to stop the other process or change the port number(s).
+
+!ENTRY org.eclipse.jst.server.tomcat.core 4 0 2018-02-12 11:48:59.688
+!MESSAGE Several ports (8005, 8080, 8009) required by Tomcat v8.0 Server at localhost are already in use. The server may already be running in another process, or a system process may be using the port. To start this server you will need to stop the other process or change the port number(s).
+!SESSION 2018-02-12 11:49:26.277 -----------------------------------------------
+eclipse.buildId=3.7.3.201602250940-RELEASE-e45
+java.version=1.8.0_161
+java.vendor=Oracle Corporation
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=en_US
+Command-line arguments:  -os win32 -ws win32 -arch x86_64
+
+!ENTRY org.eclipse.core.net 1 0 2018-02-12 11:49:30.262
+!MESSAGE System property http.proxyHost is not set but should be www-proxy.lmig.com.
+
+!ENTRY org.eclipse.core.net 1 0 2018-02-12 11:49:30.278
+!MESSAGE System property http.proxyPort is not set but should be 80.
+
+!ENTRY org.eclipse.core.net 1 0 2018-02-12 11:49:30.278
+!MESSAGE System property https.proxyHost is not set but should be www-proxy.lmig.com.
+
+!ENTRY org.eclipse.core.net 1 0 2018-02-12 11:49:30.278
+!MESSAGE System property https.proxyPort is not set but should be 80.
+
+!ENTRY org.eclipse.core.net 1 0 2018-02-12 11:49:30.293
+!MESSAGE System property https.proxyHost is not set but should be www-proxy.lmig.com.
+
+!ENTRY org.eclipse.core.net 1 0 2018-02-12 11:49:30.293
+!MESSAGE System property https.proxyPort is not set but should be 80.
+
+!ENTRY org.eclipse.egit.ui 2 0 2018-02-12 11:49:38.881
+!MESSAGE Warning: The environment variable HOME is not set. The following directory will be used to store the Git
+user global configuration and to define the default location to store repositories: 'C:\Users\n0147313'. If this is
+not correct please set the HOME environment variable and restart Eclipse. Otherwise Git for Windows and
+EGit might behave differently since they see different configuration options.
+This warning can be switched off on the Team > Git > Confirmations and Warnings preference page.
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2018-02-12 11:49:44.977
+!MESSAGE File encoding has not been set, using platform encoding Cp1252, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2018-02-12 11:49:44.992
+!MESSAGE Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2018-02-12 11:49:45.008
+!MESSAGE Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.wst.common.project.facet.core 4 0 2018-02-12 11:50:22.422
+!MESSAGE Project facet grails.app has not been defined. It is used in plugin com.vmware.vfabric.ide.eclipse.tcserver.core.
+
+!ENTRY org.eclipse.wst.common.project.facet.core 4 0 2018-02-12 11:50:22.437
+!MESSAGE Project facet grails.app has not been defined. It is used in plugin org.eclipse.cft.server.branding.core.

@@ -44,40 +44,21 @@
             </div>
             <ul class="nav navbar-nav">
                 <li class="active"><a href="${pageContext.request.contextPath}/jsp/index.jsp"><span class="glyphicon glyphicon-home"></span></a></li>
-                <li><a href="${pageContext.request.contextPath}/submitForm">Report Lost Pet</a></li>
+                <li><a href="${pageContext.request.contextPath}/jsp/submitForm.jsp">Report Lost Pet</a></li>
                 <li><a href="${pageContext.request.contextPath}/found.jsp">Report Found pet</a></li>
                 <li><a href="${pageContext.request.contextPath}/lost.jsp">Report a Sighting</a></li>
                 <li><a href="${pageContext.request.contextPath}/search.jsp">Search</a></li>
+                <li><a href="${pageContext.request.contextPath}/contactus.jsp">Contact Us</a></li>
             </ul>
         </div>
     </nav>
 </head>
 <body>
     <div class="container">
-        <h1>Report a (status) pet</h1>
+        <!--Change this to dynamically change Lost to whatever link the user selects-->
+        <h1>Report a Lost pet</h1>
         <hr/>
-        <div class="navbar" class="col-md-3">
-            <ul class="nav nav-pills nav-stacked">
-                <li role="presentation"><a href="${pageContext.request.contextPath}/">Home</a></li>
-                <!-- Navigation bar content will go here
-                
-                <sec:authorize access="hasRole('ROLE_ADMIN')">
-                <li role="presentation"><a href="${pageContext.request.contextPath}/manageBlog">Manage Blog</a></li>
-                </sec:authorize>
-                <sec:authorize access="hasAnyRole('ROLE_ADMIN','ROLE_AUTHOR')">
-                <li role="presentation"><a href="${pageContext.request.contextPath}/createBlog">Create Blog</a></li>
-                </sec:authorize>
-                <sec:authorize access="hasRole('ROLE_ADMIN')">
-                <li role="presentation"><a href="${pageContext.request.contextPath}/displayCreateStaticPage">Create Static Page</a></li>
-                </sec:authorize>
-                <sec:authorize access="hasRole('ROLE_AUTHOR')">
-                <li role="presentation"><a href="${pageContext.request.contextPath}/displayEditPersonalContent">Edit Personal Content</a></li>
-                </sec:authorize> 
-                <c:forEach var="currentStaticPage" items="${staticPageList}">
-                <li role="presentation"><a href="displayStaticPage?staticId=${currentStaticPage.staticId}"><c:out value="${currentStaticPage.staticTitle}"/></a></li>
-                </c:forEach> -->
-            </ul>
-        </div>
+        
         <div id="errorMessage" class="alert alert-danger fade in col-md-offset-2 col-md-8" hidden="false">
             <c:out value="${errorMessage}"/>
         </div>
@@ -93,25 +74,26 @@ All form fields other than text area go here
                             <input type="text" value="${pageContext.request.userPrincipal.name}" class="form-control" name="user" path="user" readonly="true"/>
                         </div>
                     </div>
-                    <div class="form-group">
-                        <label for="title" class="col-md-4 control-label">Title:</label>
-                        <div class="col-md-8">
-                            <input type="text" class="form-control" name="title" path="title" placeholder="Please enter a title like 'Please help me find Sparky!'"/>
-                        </div>
-                    </div>
+                 
                     <div class="form-group" name="petDescriptors">
                         <!-- Type -->
-                        <label for="type" class="col-md-4 control-label">Type:</label>
+
+                        <label for="name" class="col-md-4 control-label">Name:</label>
                         <div class="col-md-8">
-                            <!-- check against Pet tables -->
-                            <select name="type" class="form-control" path="type"/>
-                            <option text="Choose the pet type" value="ChoosePetType">Choose Pet Type</option>
-                            <c:forEach items="${petTypeList}" var="petTypeList">
-                                <option value="${petTypeList.typeId}">${petTypeList.category}</option>
-                            </c:forEach>
-                            </select>
+                            <input type="text" class="form-control" name="name" path="name" placeholder="Name"/>
                         </div>
-                        <!-- breed -->
+
+                        <label for="chiptag" class="col-md-4 control-label">Chip Tag:</label>
+                        <div class="col-md-8">
+                            <input type="text" class="form-control" name="chiptag" path="chiptag" placeholder="Chip Tag"/>
+                        </div>
+
+                        <!-- rabiestag -->
+                        <label for="rabiestag" class="col-md-4 control-label">Rabies Tag:</label>
+                        <div class="col-md-8">
+                            <input type="text" class="form-control" name="rabiestag" path="rabiestag" placeholder="Rabies Tag:"/>
+                        </div>
+
                         <label for="breed" class="col-md-4 control-label">Choose Pet Breed</label>
                         <div class="col-md-8">
                             <select id="search-breed" name="breed" class="form-control" path="breed">
@@ -121,66 +103,84 @@ All form fields other than text area go here
                                 </c:forEach>
                             </select>
                         </div>
+
+                        <label for="size" class="col-md-4 control-label">Size:</label>
+                        <div class="col-md-8">
+                            <input type="text" class="form-control" name="size" path="size" placeholder="Size"/>
+                        </div>
                         <!-- color -->
                         <label for="color" class="col-md-4 control-label">Color:</label>
                         <div class="col-md-8">
                             <input type="text" class="form-control" name="color" path="color" placeholder="Color"/>
                         </div>
-                        <!-- size -->
-                        <label for="size" class="col-md-4 control-label">Size:</label>
+
+                        <label for="color" class="col-md-4 control-label">Pet Image:</label>
                         <div class="col-md-8">
-                            <input type="text" class="form-control" name="size" path="size" placeholder="Size"/>
+                            <input type="text" class="form-control" name="imageurl" path="imageurl" placeholder="ImageURL"/>
                         </div>
-                        <!-- chiptag -->
-                        <label for="chiptag" class="col-md-4 control-label">Chip Tag:</label>
+                        <label for="type" class="col-md-4 control-label">Type:</label>      
                         <div class="col-md-8">
-                            <input type="text" class="form-control" name="chiptag" path="chiptag" placeholder="Chip Tag"/>
+                            <!-- check against Pet tables -->
+                            <select name="type" class="form-control" path="type"/>
+                            <option text="Choose the pet type" value="ChoosePetType">Choose Pet Type</option>
+                            <c:forEach items="${petTypeList}" var="petTypeList">
+                                <option value="${petTypeList.typeId}">${petTypeList.species}</option>
+                            </c:forEach>
+                            </select>
                         </div>
-                        <!-- rabiestag -->
-                        <label for="rabiestag" class="col-md-4 control-label">Rabies Tag:</label>
+                        <label for="color" class="col-md-4 control-label">Lost Date:</label>
                         <div class="col-md-8">
-                            <input type="text" class="form-control" name="rabiestag" path="rabiestag" placeholder="Rabies Tag:"/>
+                            <input type="text" class="form-control" name="lostdate" path="lostdate" placeholder="LostDate"/>
                         </div>
-                        <!-- name -->
-                        <label for="name" class="col-md-4 control-label">Name:</label>
+
+                        <label for="status" class="col-md-4 control-label">Status:</label>      
                         <div class="col-md-8">
-                            <input type="text" class="form-control" name="name" path="name" placeholder="Name"/>
+                            <!-- check against Pet tables -->
+                            <select name="status" class="form-control" path="status"/>
+                            <option text="Choose Pet Status" value="ChoosePetStatus">Choose Pet Status</option>
+                            <c:forEach items="${petStatusList}" var="petStatusList">
+                                <option value="${petStatusList.statusId}">${petStatusList.status}</option>
+                            </c:forEach>
+                            </select>
                         </div>
-                        <!-- phone number -->
-                        <!-- email -->
-                        <!-- alternate phone number -->
-                        <!-- alternate email -->
+
+                    </div>
+                    <!-- name -->
+                    <!-- phone number -->
+                    <!-- email -->
+                    <!-- alternate phone number -->
+                    <!-- alternate email -->
+                </div>
+            </div>
+            <div id="lostPetDescAndButtons" class="col-md-6 row-md-8" align="right">
+                <!-- 
+                Textarea goes here 
+                -->
+
+                <div class="form-group" name="descriptionTextArea">
+                    <label for="description" class="col-md-4 control-label">Description:</label><br>
+                    <div class="col-md-8">
+                        <textarea id="mytextarea" name="mytextarea" rows="7" cols="50"></textarea>
                     </div>
                 </div>
-                <div id="lostPetDescAndButtons" class="col-md-6 row-md-8" align="right">
-                    <!-- 
-                    Textarea goes here 
-                    -->
 
-                    <div class="form-group" name="descriptionTextArea">
-                        <label for="description" class="col-md-4 control-label">Pet Description</label><br>
-                        <div class="col-md-8">
-                            <textarea id="mytextarea" name="mytextarea"></textarea>
-                        </div>
+                <!--
+                Buttons here
+                -->
+                <!-- add hidden field to identify what action is being taken (lost,found,sighting) -->
+
+                <div class="form-group">
+                    <div class="col-md-offset-4 col-md-4">
+                        <a href="${pageContext.request.contextPath}/" class="btn btn-default">Cancel</a>
                     </div>
-
-                    <!--
-                    Buttons here
-                    -->
-                    <!-- add hidden field to identify what action is being taken (lost,found,sighting) -->
-
-                    <div class="form-group">
-                        <div class="col-md-offset-4 col-md-4">
-                            <a href="${pageContext.request.contextPath}/" class="btn btn-default">Cancel</a>
-                        </div>
-                        <div class="col-md-4">
-                            <input type="submit" class="btn btn-default" value="Submit"/>
-                        </div>
+                    <div class="col-md-4">
+                        <input type="submit" class="btn btn-default" value="Submit"/>
                     </div>
                 </div>
-            </sf:form>
-        </div>
+            </div>
+        </sf:form>
     </div>
+</div>
 </div>
 
 <!-- End row div -->
@@ -189,4 +189,12 @@ All form fields other than text area go here
 <script src="${pageContext.request.contextPath}/js/bootstrap.min.js"></script>
 <script src="${pageContext.request.contextPath}/js/AmazingAutoBlog.js"></script>
 </body>
+
+<footer style="color:blue;margin-left:30px;">
+    <hr>
+    <center>Jan Gentille - Director of Pet Services</center>
+    <center>123 North Main Street, Anywhere, USA</center>
+    <center>800-873-5463</center>
+    <hr>
+</footer>
 </html>

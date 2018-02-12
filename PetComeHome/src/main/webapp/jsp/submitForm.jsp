@@ -10,11 +10,11 @@
         <title>Pet Come Home</title>
         <!-- Bootstrap core CSS -->
         <link href="${pageContext.request.contextPath}/css/bootstrap.min.css" rel="stylesheet">
-        <link href="${pageContext.request.contextPath}/css/blog.css" rel="stylesheet">
+        <link href="${pageContext.request.contextPath}/css/petComeHome.css" rel="stylesheet">
         <script src="${pageContext.request.contextPath}/js/tinymce/jquery.tinymce.min.js"></script>
         <script src="${pageContext.request.contextPath}/js/tinymce/tinymce.min.js"></script>
         <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
-        <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+        <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>  
 
         <script>
             tinymce.init({
@@ -31,7 +31,7 @@
         </script>
 
 
-    <div class="jumbotron text-center">
+    <div class="jumbotron text-center" style="color:blue">
         <h1>Pet Come Home</h1>
     </div>
 </head>
@@ -58,13 +58,13 @@
         <!--Change this to dynamically change Lost to whatever link the user selects-->
         <h1>Report a Lost pet</h1>
         <hr/>
-        
+
         <div id="errorMessage" class="alert alert-danger fade in col-md-offset-2 col-md-8" hidden="false">
             <c:out value="${errorMessage}"/>
         </div>
         <div class="container row-md-12">
             <div  id="lostPetFormFields" class="col-md-6" align="left">
-                <sf:form class="form-horizontal" role="form" modelAttribute="posting" action="createlostPetPost" method="POST">
+                <sf:form class="form-horizontal" role="form" modelAttribute="Pet" action="createPet" method="POST">
                     <div class="form-group">
                         <!-- 
 All form fields other than text area go here 
@@ -74,11 +74,10 @@ All form fields other than text area go here
                             <input type="text" value="${pageContext.request.userPrincipal.name}" class="form-control" name="user" path="user" readonly="true"/>
                         </div>
                     </div>
-                 
                     <div class="form-group" name="petDescriptors">
                         <!-- Type -->
 
-                        <label for="name" class="col-md-4 control-label">Name:</label>
+                        <label for="name" class="col-md-4 control-label">Pet Name:</label>
                         <div class="col-md-8">
                             <input type="text" class="form-control" name="name" path="name" placeholder="Name"/>
                         </div>
@@ -88,35 +87,9 @@ All form fields other than text area go here
                             <input type="text" class="form-control" name="chiptag" path="chiptag" placeholder="Chip Tag"/>
                         </div>
 
-                        <!-- rabiestag -->
                         <label for="rabiestag" class="col-md-4 control-label">Rabies Tag:</label>
                         <div class="col-md-8">
-                            <input type="text" class="form-control" name="rabiestag" path="rabiestag" placeholder="Rabies Tag:"/>
-                        </div>
-
-                        <label for="breed" class="col-md-4 control-label">Choose Pet Breed</label>
-                        <div class="col-md-8">
-                            <select id="search-breed" name="breed" class="form-control" path="breed">
-                                <option text="Choose the pet breed" value="">Choose Breed</option>
-                                <c:forEach items="${breedList}" var="breedList">
-                                    <option value="${breedList.breedId}">${breedList.breedName}</option>
-                                </c:forEach>
-                            </select>
-                        </div>
-
-                        <label for="size" class="col-md-4 control-label">Size:</label>
-                        <div class="col-md-8">
-                            <input type="text" class="form-control" name="size" path="size" placeholder="Size"/>
-                        </div>
-                        <!-- color -->
-                        <label for="color" class="col-md-4 control-label">Color:</label>
-                        <div class="col-md-8">
-                            <input type="text" class="form-control" name="color" path="color" placeholder="Color"/>
-                        </div>
-
-                        <label for="color" class="col-md-4 control-label">Pet Image:</label>
-                        <div class="col-md-8">
-                            <input type="text" class="form-control" name="imageurl" path="imageurl" placeholder="ImageURL"/>
+                            <input type="text" class="form-control" name="rabiestag" path="rabiestag" placeholder="Rabies Tag"/>
                         </div>
                         <label for="type" class="col-md-4 control-label">Type:</label>      
                         <div class="col-md-8">
@@ -128,15 +101,44 @@ All form fields other than text area go here
                             </c:forEach>
                             </select>
                         </div>
+                        <label for="breed" class="col-md-4 control-label">Breed:</label>
+                        <div class="col-md-8">
+                            <select id="search-breed" name="breed" class="form-control" path="breed">
+                                <option text="Choose pet breed" value="">Choose Pet Breed</option>
+                                <c:forEach items="${breedList}" var="breedList">
+                                    <option value="${breedList.breedId}">${breedList.breedName}</option>
+                                </c:forEach>
+                            </select>
+                        </div>
+
+                        <label for="size" class="col-md-4 control-label">Size:</label>
+                        <div class="col-md-8">
+                            <select id="select-size" name="size" class="form-control" path="size">
+                                <option text="Choose pet size" value="">Choose Pet Size</option>
+                                <c:forEach items="${petSizeList}" var="petSizeList">
+                                    <option value="${petSizeList.sizeId}">${petSizeList.size}</option>
+                                </c:forEach>
+                            </select>
+                        </div>
+                        <!-- color -->
+                        <label for="color" class="col-md-4 control-label">Color:</label>
+                        <div class="col-md-8">
+                            <input type="text" class="form-control" name="color" path="color" placeholder="Color"/>
+                        </div>
+
+                        <label for="image" class="col-md-4 control-label">Picture:</label>
+                        <div class="col-md-8">
+                            <input type="text" class="form-control" name="imageurl" path="imageurl" placeholder="Upload Picture"/>
+                        </div>
                         <label for="color" class="col-md-4 control-label">Lost Date:</label>
                         <div class="col-md-8">
-                            <input type="text" class="form-control" name="lostdate" path="lostdate" placeholder="LostDate"/>
+                            <input type="text" class="form-control" name="lostdate" path="lostdate" placeholder="Lost Date"/>
                         </div>
 
                         <label for="status" class="col-md-4 control-label">Status:</label>      
                         <div class="col-md-8">
                             <!-- check against Pet tables -->
-                            <select name="status" class="form-control" path="status"/>
+                            <select name="status" class="form-control" path="status">
                             <option text="Choose Pet Status" value="ChoosePetStatus">Choose Pet Status</option>
                             <c:forEach items="${petStatusList}" var="petStatusList">
                                 <option value="${petStatusList.statusId}">${petStatusList.status}</option>
@@ -144,44 +146,35 @@ All form fields other than text area go here
                             </select>
                         </div>
 
+                        <div id="lostPetDescAndButtons" class="col-md-6 row-md-8" align="right">
+                            <div class="form-group" name="descriptionTextArea">
+                                <label for="description" class="col-md-4 control-label">Description:</label><br>
+                                <div class="col-md-8">
+                                    <textarea id="mytextarea" name="mytextarea" rows="7" cols="55"></textarea>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    <!-- name -->
-                    <!-- phone number -->
-                    <!-- email -->
-                    <!-- alternate phone number -->
-                    <!-- alternate email -->
-                </div>
-            </div>
-            <div id="lostPetDescAndButtons" class="col-md-6 row-md-8" align="right">
-                <!-- 
-                Textarea goes here 
-                -->
-
-                <div class="form-group" name="descriptionTextArea">
-                    <label for="description" class="col-md-4 control-label">Description:</label><br>
-                    <div class="col-md-8">
-                        <textarea id="mytextarea" name="mytextarea" rows="7" cols="50"></textarea>
-                    </div>
-                </div>
-
                 <!--
                 Buttons here
                 -->
                 <!-- add hidden field to identify what action is being taken (lost,found,sighting) -->
 
-                <div class="form-group">
-                    <div class="col-md-offset-4 col-md-4">
-                        <a href="${pageContext.request.contextPath}/" class="btn btn-default">Cancel</a>
+                    <div class="form-group">
+
+                        <div class="col-md-offset-4 col-md-4">
+                        <br/>
+                            <a href="${pageContext.request.contextPath}/" class="btn btn-default">Cancel</a>
+                        </div>
+                        <div class="col-md-4">
+                            <br/>
+                            <input type="submit" id="create-button" class="btn btn-default" value="Submit"/>
+                        </div>
                     </div>
-                    <div class="col-md-4">
-                        <input type="submit" class="btn btn-default" value="Submit"/>
-                    </div>
-                </div>
+                </sf:form>
             </div>
-        </sf:form>
+        </div>
     </div>
-</div>
-</div>
 
 <!-- End row div -->
 <!-- Placed at the end of the document so the pages load faster -->

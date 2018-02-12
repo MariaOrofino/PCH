@@ -32,10 +32,11 @@
             </div>
             <ul class="nav navbar-nav">
                 <li class="active"><a href="${pageContext.request.contextPath}/jsp/index.jsp"><span class="glyphicon glyphicon-home"></span></a></li>
-                <li><a href="${pageContext.request.contextPath}/submitForm">Report Lost Pet</a></li>
+                <li><a href="${pageContext.request.contextPath}/jsp/submitForm.jsp">Report Lost Pet</a></li>
                 <li><a href="${pageContext.request.contextPath}/found.jsp">Report Found pet</a></li>
                 <li><a href="${pageContext.request.contextPath}/lost.jsp">Report a Sighting</a></li>
                 <li><a href="${pageContext.request.contextPath}/search.jsp">Search</a></li>
+                <li><a href="${pageContext.request.contextPath}/contactus.jsp">Contact Us</a></li>
             </ul>
         </div>
     </nav>
@@ -124,4 +125,11 @@
     <script src="${pageContext.request.contextPath}/js/bootstrap.min.js"></script>
 
 </body>
+<footer style="color:blue;margin-left:30px;">
+    <hr>
+     <center>Jan Gentille - Director of Pet Services</center>
+    <center>123 North Main Street, Anywhere, USA</center>
+    <center>800-873-5463</center>
+    <hr>
+</footer>
 </html>

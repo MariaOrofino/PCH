@@ -168,9 +168,9 @@
 	</list>
 	<section name="CleanDialogSettings">
 		<item value="909" key="DIALOG_WIDTH"/>
-		<item value="true" key="TOGGLE_SELECTED"/>
+		<item value="false" key="TOGGLE_SELECTED"/>
 		<item value="515" key="DIALOG_HEIGHT"/>
-		<item value="5146" key="DIALOG_X_ORIGIN"/>
-		<item value="527" key="DIALOG_Y_ORIGIN"/>
+		<item value="2840" key="DIALOG_X_ORIGIN"/>
+		<item value="476" key="DIALOG_Y_ORIGIN"/>
 	</section>
 </section>
