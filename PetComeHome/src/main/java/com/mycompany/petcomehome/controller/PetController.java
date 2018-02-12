@@ -6,6 +6,7 @@ import com.mycompany.petcomehome.service.LocSL;
 import com.mycompany.petcomehome.service.PetSL;
 import com.mycompany.petcomehome.service.UserSL;
 import java.util.List;
+import javax.servlet.http.HttpServletRequest;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -15,10 +16,12 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 public class PetController {
 
-    public static final String pictureFolder = "images/";
+    public static final String pictureFolder = "C:\\My Data\\images/";
+    public static final String pictureName = "http://localhost:8080/static/";   
     LocSL locSL;
     PetSL petSL;
     UserSL userSL;
+    
 
 //    @Inject
     public PetController(LocSL locSL, PetSL petSL, UserSL userSL) {
@@ -30,7 +33,7 @@ public class PetController {
 //    public PetController() {
 //        
 //    }
-
+    
     @RequestMapping(value = "/", method = RequestMethod.GET)
     public String displayHomePage(Model model) {
 
