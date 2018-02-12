@@ -6,6 +6,9 @@
 package com.mycompany.petcomehome.service;
 
 import com.mycompany.petcomehome.model.Pet;
+import com.mycompany.petcomehome.model.PetType;
+import com.mycompany.petcomehome.model.PetStatus;
+
 import java.util.List;
 
 /**
@@ -27,5 +30,25 @@ public interface PetSL {
     public List<Pet> retrievePetByLocId(int locId);
 
     public List<Pet> retrieveAllPets();
+
+    public PetType createPetType(PetType petTypeId);
+
+    public void updatePetType(PetType petType);
+
+    public void deletePetType(int PetTypeId);
+
+    public PetType retrievePetTypeByTypeId(int PetTypeId);
+
+    public List<PetType> retrieveAllPetTypes();
+
+    public PetStatus createPetStatus(PetStatus petStatusId);
+
+    public void updatePetStatus(PetStatus petStatus);
+
+    public void deletePetStatus(int PetStatusId);
+
+    public PetStatus retrievePetStatusByStatusId(int PetStatusId);
+
+    public List<PetStatus> retrieveAllPetStatuses();
 
 }

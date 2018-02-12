@@ -1,9 +1,11 @@
 package com.mycompany.petcomehome.controller;
 
+import com.mycompany.petcomehome.model.PetStatus;
+import com.mycompany.petcomehome.model.PetType;
 import com.mycompany.petcomehome.service.LocSL;
 import com.mycompany.petcomehome.service.PetSL;
 import com.mycompany.petcomehome.service.UserSL;
-import javax.servlet.http.HttpServletRequest;
+import java.util.List;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -41,4 +43,13 @@ public class PetController {
 //    public String editblog(HttpServletRequest request) {
 //        return "submitForm";
 //    }
+    private List<PetType> listTypes() {
+        List<PetType> typeList = petSL.retrieveAllPetTypes();
+        return typeList;
+    }
+
+    private List<PetStatus> listStatus() {
+        List<PetStatus> statusList = petSL.retrieveAllPetStatuses();
+        return statusList;
+    }
 }
