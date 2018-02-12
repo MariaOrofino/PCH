@@ -17,7 +17,7 @@ import java.util.List;
  */
 public interface PetSL {
 
-    public Pet createPet(Pet petId);
+    public Pet createPet(Pet pet);
 
     public void updatePet(Pet pet);
 
@@ -31,7 +31,7 @@ public interface PetSL {
 
     public List<Pet> retrieveAllPets();
 
-    public PetType createPetType(PetType petTypeId);
+    public PetType createPetType(PetType petType);
 
     public void updatePetType(PetType petType);
 
@@ -41,7 +41,7 @@ public interface PetSL {
 
     public List<PetType> retrieveAllPetTypes();
 
-    public PetStatus createPetStatus(PetStatus petStatusId);
+    public PetStatus createPetStatus(PetStatus petStatus);
 
     public void updatePetStatus(PetStatus petStatus);
 
