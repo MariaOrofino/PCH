@@ -16,14 +16,16 @@ import org.springframework.web.bind.annotation.RequestMethod;
 @Controller
 public class PetController {
 
-    public static final String pictureFolder = "C:\\My Data\\images/";
 
-    public static final String pictureName = "http://localhost:8080/static/";   
-    
+    public static final String PICTUREFOLDER = "C:\\My Data\\images/";
+
+    public static final String PICTURENAME = "http://localhost:8080/static/";
+
     LocSL locSL;
     PetSL petSL;
     UserSL userSL;
-    
+
+
 //    @Inject
     public PetController(LocSL locSL, PetSL petSL, UserSL userSL) {
         this.locSL = locSL;
@@ -31,10 +33,12 @@ public class PetController {
         this.userSL = userSL;
     }
 
-    public PetController() {
-        
-    }
-    
+//
+//    public PetController() {
+//        
+//    }
+
+
     @RequestMapping(value = "/", method = RequestMethod.GET)
     public String displayHomePage(Model model) {
 
