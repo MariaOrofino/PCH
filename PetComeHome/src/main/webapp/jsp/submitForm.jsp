@@ -9,12 +9,19 @@
     <head>
         <title>Pet Come Home</title>
         <!-- Bootstrap core CSS -->
+<<<<<<< HEAD
         
         <link href="${pageContext.request.contextPath}/css/bootstrap.min.css" rel="stylesheet">
         <link href="${pageContext.request.contextPath}/css/petComeHome.css" rel="stylesheet">
 
    <!--<script src="${pageContext.request.contextPath}/js/tinymce/jquery.tinymce.min.js"></script>-->
    <!--<script src="${pageContext.request.contextPath}/js/tinymce/tinymce.min.js"></script>-->
+=======
+        <link href="${pageContext.request.contextPath}/css/bootstrap.min.css" rel="stylesheet">
+        <link href="${pageContext.request.contextPath}/css/petComeHome.css" rel="stylesheet">
+    <!--<script src="${pageContext.request.contextPath}/js/tinymce/jquery.tinymce.min.js"></script>-->
+    <!--<script src="${pageContext.request.contextPath}/js/tinymce/tinymce.min.js"></script>-->
+>>>>>>> 65f67a2034b471e6319598c54903dd4b31ca9466
         <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
         <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>  
 
@@ -128,10 +135,10 @@ All form fields other than text area go here
                             <input type="text" class="form-control" name="color" path="color" placeholder="Color"/>
                         </div>
 
-                        <label for="image" class="col-md-4 control-label">Picture:</label>
+                        <!--                        <label for="image" class="col-md-4 control-label">Picture:</label>
                         <div class="col-md-8">
                             <input type="text" class="form-control" name="imageurl" path="imageurl" placeholder="Upload Picture"/>
-                        </div>
+                        </div>-->
                         <label for="color" class="col-md-4 control-label">Lost Date:</label>
                         <div class="col-md-8">
                             <input type="text" class="form-control" name="lostdate" path="lostdate" placeholder="Lost Date"/>
@@ -140,7 +147,6 @@ All form fields other than text area go here
                         <label for="status" class="col-md-4 control-label">Status:</label>      
                         <div class="col-md-8">
                             <!-- check against Pet tables -->
-
                             <select id="petStatus" name="status"  class="form-control" path="status">
                                 <option text="Choose Pet Status" value="ChoosePetStatus">Choose Pet Status</option>
                                 <c:forEach items="${petStatusList}" var="petStatusList">
@@ -163,6 +169,20 @@ All form fields other than text area go here
                     -->
                     <!-- add hidden field to identify what action is being taken (lost,found,sighting) -->
 
+                    <form role="form" method="POST" action="addPicture" enctype="multipart/form-data">
+                        <div class="form-group">
+                            <label for="displayTitle">Display Title:</label>
+                            <input type="text" id="displayTitle" name="displayTitle"/>
+                        </div>
+                        <div class="form-group">
+                            <label for="picture">Upload File:</label> 
+                            <input type="file" id="picture" name="picture"/>
+                        </div>
+                        <input type="submit" value="Upload Picture"/>
+                    </form>
+
+
+
                     <div class="form-group">
 
                         <div class="col-md-offset-4 col-md-4">
@@ -177,13 +197,18 @@ All form fields other than text area go here
                 </sf:form>
             </div>
         </div>
+        <c:forEach var="currentPicture" items="${pictureList}">
+            <hr>
+            ${currentPicture.title}<br>
+            <img src="${pageContext.request.contextPath}/${currentPicture.filename}"
+                 class="img-thumbnail" alt="${currentPicture.title}" width="300" height="300"><br> 
+        </c:forEach>
     </div>
 
     <!-- End row div -->
     <!-- Placed at the end of the document so the pages load faster -->
     <script src="${pageContext.request.contextPath}/js/jquery-3.1.1.min.js"></script>
     <script src="${pageContext.request.contextPath}/js/bootstrap.min.js"></script>
-
 </body>
 
 <footer style="color:blue;margin-left:30px;">
