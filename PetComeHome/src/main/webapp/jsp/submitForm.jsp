@@ -9,9 +9,9 @@
     <head>
         <title>Pet Come Home</title>
         <!-- Bootstrap core CSS -->
-        <link href="${pageContext.request.contextPath}/css/petComeHome.css" rel="stylesheet">
-        <link href="${pageContext.request.contextPath}/css/bootstrap.min.css" rel="stylesheet">
 
+        <link href="${pageContext.request.contextPath}/css/bootstrap.min.css" rel="stylesheet">
+        <link href="${pageContext.request.contextPath}/css/petComeHome.css" rel="stylesheet">
    <!--<script src="${pageContext.request.contextPath}/js/tinymce/jquery.tinymce.min.js"></script>-->
    <!--<script src="${pageContext.request.contextPath}/js/tinymce/tinymce.min.js"></script>-->
         <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
