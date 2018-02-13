@@ -15,8 +15,8 @@
         <title>Pet Come Home Page</title>
         <!-- Bootstrap core CSS -->
         <link href="${pageContext.request.contextPath}/css/bootstrap.min.css" rel="stylesheet">        
-          <link href="${pageContext.request.contextPath}/css/petComeHome.css" rel="stylesheet">
-        <!--<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/mystyle.css">-->   
+        <link href="${pageContext.request.contextPath}/css/petComeHome.css" rel="stylesheet">
+      <!--<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/mystyle.css">-->   
 
         <!-- Call Bootstrap CSS styles -->
         <meta charset="utf-8">
@@ -24,6 +24,8 @@
         <link rel="stylesheet" href="bootstrap-3.3.5/bootstrap-3.3.7-dist/bootstrap-3.3.7-dist/css/bootstrap.min.css">
         <!--       <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">  -->
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <!--<script src="http://whatcat.ap.mextractr.net/api_query"></script>-->
+
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
         <title>Pet Come Home</title>
     <div class="jumbotron text-center">
@@ -48,7 +50,7 @@
 </body>
 <footer style="color:blue;margin-left:30px;">
     <hr>
-     <center>Jan Gentille - Director of Pet Services</center>
+    <center>Jan Gentille - Director of Pet Services</center>
     <center>123 North Main Street, Anywhere, USA</center>
     <center>800-873-5463</center>
     <hr>

@@ -98,15 +98,15 @@ All form fields other than text area go here
                             <!-- check against Pet tables -->
                             <select name="type" id="petType" class="form-control" path="type"/>
                             <option text="Choose the pet type" value="ChoosePetType">Choose Pet Type</option>
-                            <c:forEach items="${petTypeList}" var="petTypeList">
-                                <option value="${petTypeList.typeId}">${petTypeList.species}</option>
+                            <c:forEach items="${typeList}" var="petTypeList">
+                                <option value="${petTypeList.petTypeId}">${petTypeList.petSpec}</option>
                             </c:forEach>
                             </select>
                         </div>
                         <label for="breed" class="col-md-4 control-label">Breed:</label>
                         <div class="col-md-8">
                             <select id="search-breed" name="breed" class="form-control" path="breed">
-                                <option text="Choose pet breed" value="">Choose Pet Breed</option>
+                                <option  text="Choose pet breed" value="">Choose Pet Breed</option>
                                 <c:forEach items="${breedList}" var="breedList">
                                     <option value="${breedList.breedId}">${breedList.breedName}</option>
                                 </c:forEach>
@@ -117,9 +117,11 @@ All form fields other than text area go here
                         <div class="col-md-8">
                             <select id="select-size" name="size" class="form-control" path="size">
                                 <option text="Choose pet size" value="">Choose Pet Size</option>
-                                <c:forEach items="${petSizeList}" var="petSizeList">
-                                    <option value="${petSizeList.sizeId}">${petSizeList.size}</option>
-                                </c:forEach>
+                                <option value="XSMALL">XSMALL</option>
+                                <option value="SMALL">SMALL</option>
+                                <option value="MEDIUM">MEDIUM</option>
+                                <option value="LARGE">LARGE</option>
+                                <option value="XLARGE">XLARGE</option>
                             </select>
                         </div>
                         <!-- color -->
@@ -142,8 +144,8 @@ All form fields other than text area go here
                             <!-- check against Pet tables -->
                             <select id="petStatus" name="status"  class="form-control" path="status">
                                 <option text="Choose Pet Status" value="ChoosePetStatus">Choose Pet Status</option>
-                                <c:forEach items="${petStatusList}" var="petStatusList">
-                                    <option value="${petStatusList.statusId}">${petStatusList.status}</option>
+                                <c:forEach items="${statusList}" var="petStatusList">
+                                    <option value="${petStatusList.petStatusId}">${petStatusList.petStatus}</option>
                                 </c:forEach>
                             </select>
                         </div>
@@ -162,19 +164,6 @@ All form fields other than text area go here
                     -->
                     <!-- add hidden field to identify what action is being taken (lost,found,sighting) -->
 
-                    <form role="form" method="POST" action="addPicture" enctype="multipart/form-data">
-                        <div class="form-group">
-                            <label for="displayTitle">Display Title:</label>
-                            <input type="text" id="displayTitle" name="displayTitle"/>
-                        </div>
-                        <div class="form-group">
-                            <label for="picture">Upload File:</label> 
-                            <input type="file" id="picture" name="picture"/>
-                        </div>
-                        <input type="submit" value="Upload Picture"/>
-                    </form>
-
-
 
                     <div class="form-group">
 
@@ -188,6 +177,17 @@ All form fields other than text area go here
                         </div>
                     </div>
                 </sf:form>
+                <form role="form" method="POST" action="AlbumController/addPicture" enctype="multipart/form-data">
+                    <div class="form-group">
+                        <label for="displayTitle">Display Title:</label>
+                        <input type="text" id="displayTitle" name="displayTitle"/>
+                    </div>
+                    <div class="form-group">
+                        <label for="picture">Upload File:</label> 
+                        <input type="file" id="picture" name="picture"/>
+                    </div>
+                    <input type="submit" value="Upload Picture"/>
+                </form>
             </div>
         </div>
         <c:forEach var="currentPicture" items="${pictureList}">

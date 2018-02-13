@@ -6,6 +6,9 @@ select#petType,#search-breed,#select-size,#petStatus{
      background-color: lemonchiffon;
 }
 
+textarea {
+    background-color: lemonchiffon;
+}
 body {
     background-color:  lightblue;
 }
@@ -25,4 +28,3 @@ h1 {
 nav {
     background-color: lightsteelblue;
 }
-
