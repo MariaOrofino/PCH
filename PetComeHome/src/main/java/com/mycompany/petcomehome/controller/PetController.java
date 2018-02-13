@@ -12,30 +12,28 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-@Controller
 
+@Controller
 public class PetController {
 
     public static final String pictureFolder = "C:\\My Data\\images/";
-//<<<<<<< HEAD
-//=======
-//    public static final String pictureName = "http://localhost:8080/static/";   
-//>>>>>>> 65f67a2034b471e6319598c54903dd4b31ca9466
+
+    public static final String pictureName = "http://localhost:8080/static/";   
+    
     LocSL locSL;
     PetSL petSL;
     UserSL userSL;
     
-
 //    @Inject
     public PetController(LocSL locSL, PetSL petSL, UserSL userSL) {
         this.locSL = locSL;
         this.petSL = petSL;
         this.userSL = userSL;
     }
-//
-//    public PetController() {
-//        
-//    }
+
+    public PetController() {
+        
+    }
     
     @RequestMapping(value = "/", method = RequestMethod.GET)
     public String displayHomePage(Model model) {
@@ -54,10 +52,11 @@ public class PetController {
         return "redirect:/";
     }
 
-//    @RequestMapping(value = "/submitForm", method = RequestMethod.GET)
-//    public String editblog(HttpServletRequest request) {
-//        return "submitForm";
-//    }
+    @RequestMapping(value = "/submitForm", method = RequestMethod.GET)
+    public String editblog(HttpServletRequest request) {
+        return "submitForm";
+    }
+    
     private List<PetType> listTypes() {
         List<PetType> typeList = petSL.retrieveAllPetTypes();
         return typeList;
