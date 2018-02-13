@@ -9,8 +9,9 @@
     <head>
         <title>Pet Come Home</title>
         <!-- Bootstrap core CSS -->
-        <link href="${pageContext.request.contextPath}/css/petComeHome.css" rel="stylesheet">
+        
         <link href="${pageContext.request.contextPath}/css/bootstrap.min.css" rel="stylesheet">
+        <link href="${pageContext.request.contextPath}/css/petComeHome.css" rel="stylesheet">
 
    <!--<script src="${pageContext.request.contextPath}/js/tinymce/jquery.tinymce.min.js"></script>-->
    <!--<script src="${pageContext.request.contextPath}/js/tinymce/tinymce.min.js"></script>-->
@@ -53,8 +54,8 @@
             </ul>
         </div>
     </nav>
-</head>
-<body>
+
+
     <div class="container">
         <!--Change this to dynamically change Lost to whatever link the user selects-->
         <h1>Report a Lost pet</h1>

@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 public class PetController {
 
-    public static final String pictureFolder = "images/";
+    public static final String pictureFolder = "C:\\My Data\\images/";
     LocSL locSL;
     PetSL petSL;
     UserSL userSL;
